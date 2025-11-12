@@ -11,7 +11,7 @@ void	clapTrapLookUp( ClapTrap& test) {
 
 // void	ScavTrapLookUp( ScavTrap& test) {
 // 	test.attack("test Slav");
-// 	// test.guardGate();
+// 	test.guardGate();
 // }
 
 int main(void)
@@ -129,14 +129,25 @@ int main(void)
 
 	std::cout << "DiamondTrap test////////////////////////////\n\n\n";
 	DiamondTrap	dia("Diamondito");
+	dia.attack("no one");
+	dia.takeDamage(20);
+	dia.beRepaired(10);
+	dia.whoAmI();
+	dia.highFivesGuys();
+	dia.guardGate();
 	DiamondTrap	dia2;
-	// dia.attack("the enemy");
-	// dia.whoAmI();
 	dia2.attack("no one");
 	dia2.takeDamage(20);
 	dia2.beRepaired(10);
 	dia2.whoAmI();
 	dia2.highFivesGuys();
 	dia2.guardGate();
+	DiamondTrap	dia3(dia);
+	dia3.attack("no one");
+	dia3.takeDamage(20);
+	dia3.beRepaired(10);
+	dia3.whoAmI();
+	dia3.highFivesGuys();
+	dia3.guardGate();
 	return(0);
 }

@@ -4,11 +4,9 @@
 #include "FragTrap.hpp"
 
 //flagtrap default constructor
-FragTrap::FragTrap() : ClapTrap() {
-	hitPoints = 100;
-	energyPoints = 100;
-	attackDamage = 30;
-	name = "Default FlagTrap";
+FragTrap::FragTrap() : ClapTrap(){
+	this->hitPoints = 100;
+	this->attackDamage = 30;
 	std::cout << "FlagTrap default constructor called\n";
 }
 

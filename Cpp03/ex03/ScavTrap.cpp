@@ -8,10 +8,7 @@
 //atributo de la clase base tienen que estar en protected no e private por el hecho de 
 //que en las clases que lo heredan tiene valores diferentes
 ScavTrap::ScavTrap() : ClapTrap() {
-	hitPoints = 100;
-	energyPoints = 50;
-	attackDamage = 20;
-	name = "Default SlavTrap";
+	this->energyPoints = 50;
 	std::cout << "ScavTrap default constructor called\n";
 }
 
