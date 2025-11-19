@@ -2,13 +2,19 @@
 #include <string>
 #include <iostream>
 
-//The has the same memory location as the variable that theyp pointed
+//The  references has the same memory location as the variable that theyp pointed
 //the pointers has his own memory location, and they held the memory location of the
+/*
+	NOTES;
+	1.- The references allways refer the same variable, you only can change the
+	value of the variable. If you inicialize the reference without givin a value
+	the compiler complains
+*/
 int main(void)
 {
 	std::string		str;
 	std::string*	ptrStr;
-	std::string&	refStr = str;
+	std::string&	refStr = str;//1
 
 	ptrStr = &str;
 	//Memory adress of string variable

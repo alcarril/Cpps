@@ -7,6 +7,8 @@
 #include <fstream>
 #include <iostream>
 
+//The methons of this class open and close files in different modes
+//they are static methods, so you don't need to create an object of the class to use them
 class File
 {
 	public:

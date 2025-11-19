@@ -1,38 +1,32 @@
-
-
 #include "Harl.hpp"
 
 Harl::Harl() {}
 
-void Harl::debug (void)
-{
+void Harl::debug (void) const{
 	std::cout << DEBUG_MSG << std::endl;
 }
 
-void Harl::info (void)
-{
+void Harl::info (void) const{
 	std::cout << INFO_MSG << std::endl;
 }
 
-void Harl::warning (void)
-{
+void Harl::warning (void) const{
 	std::cout << WARNING << std::endl;
 }
 
-void Harl::error (void) 
-{
+void Harl::error (void) const{
 	std::cout << ERROR << std::endl;
 }
 
-//los array de punteros a funciones mienbro se tiene que declarar especificando que es 
-//a funciones mienro de la clase
-//Se declarla memeria y que esta con una direccion de memeria basura por defecto
-//despues se asigna cada puntero de la funcion a la direccion de memoria del metodo de la clase
-//para acceder a los valores tiens que especificar con la clausula this->*funcPtr en C por ejemplo
-//se podria hacer sin poner el asterisco o ponendolo
-void Harl::complain(std::string level)
-{
-	void (Harl::*funcPtr[4])(void);
+// Arrays of pointers to member functions must be declared specifying that they are
+// member functions of the class.
+// Memory is declared and initialized with garbage memory addresses by default.
+// Then, each function pointer is assigned to the memory address of the class method.
+// To access the values, you must specify with the clause this->*funcPtr in C, for example.
+// It could be done without the asterisk or with it.
+void Harl::complain(std::string level) {
+	void (Harl::*funcPtr[4])(void) const;
+
 	funcPtr[0] = &Harl::debug;
 	funcPtr[1] = &Harl::info;
 	funcPtr[2] = &Harl::warning;

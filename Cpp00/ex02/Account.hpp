@@ -23,15 +23,18 @@ public:
 
 	typedef Account		t;
 
+	//getters for static member variables
 	static int	getNbAccounts( void );
 	static int	getTotalAmount( void );
 	static int	getNbDeposits( void );
 	static int	getNbWithdrawals( void );
 	static void	displayAccountsInfos( void );
 
+	//cionstructors and destructor
 	Account( int initial_deposit );
 	~Account( void );
 
+	//Functions that manage the aggregators of each account
 	void	makeDeposit( int deposit );
 	bool	makeWithdrawal( int withdrawal );
 	int		checkAmount( void ) const;
@@ -39,14 +42,16 @@ public:
 
 
 private:
-
+	//static member variables, controls total values of banck
 	static int	_nbAccounts;
 	static int	_totalAmount;
 	static int	_totalNbDeposits;
 	static int	_totalNbWithdrawals;
 
+
 	static void	_displayTimestamp( void );
 
+	//instance member variables, controls individual account values
 	int				_accountIndex;
 	int				_amount;
 	int				_nbDeposits;

@@ -1,4 +1,3 @@
-
 #ifndef HUMANB_H
 #define HUMANB_H
 
@@ -6,18 +5,17 @@
 #include <iostream>
 #include "Weapon.hpp"
 
-//Nombre de humano protegido con const (tiene sentido porque solo
-//se le da el nombre en el constrcutor de la clase)
-//Puntero a wepon portegido con const para no poder altenara el valor
-//de la direccion donde apunte
-//usamos puntero en vez de una referencai porque el humano b tiene la opcion
-//de cambiar de arma, apuntar a otra direccion de memoria. Esto no depende unicamente
-//de que el arma o espacio de memeria apuntado cambie
+//Human name protected with const (makes sense because it is only
+//assigned in the class constructor)
+//Pointer to weapon protected with const to prevent altering the value
+//of the Weapon object it points to
+//We use a pointer instead of a reference because HumanB has the option
+//to change weapons, pointing to another memory address.
 class HumanB
 {
 	private:
-		const std::string name;
-		const Weapon*	weapon;
+		const std::string name; // 1
+		const Weapon*	weapon; // 2
 	public:
 		HumanB(const std::string& name);
 		void setWeapon(const Weapon& weap);

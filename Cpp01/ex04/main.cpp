@@ -12,8 +12,7 @@ int main(int argc, char **argv)
 {
 	std::fstream	*filePtr;
 	FileManager		Manager;
-	if (argc != 4)
-	{
+	if (argc != 4) {
 		std::cerr << "Error arguments\n";
 		return (1);
 	}
@@ -21,13 +20,7 @@ int main(int argc, char **argv)
 	if (filePtr == NULL)
 		return (1);
 	Manager.selectInFile(*filePtr);
-	if (!Manager.createOutFile("/tmp/hola"))
-	{
-		File::closeFile(filePtr);
-		return (1);
-	}
-	if (!Manager.createOutFile("/tmp/hola"))
-	{
+	if (!Manager.createOutFile("/tmp/hola")) {
 		File::closeFile(filePtr);
 		return (1);
 	}

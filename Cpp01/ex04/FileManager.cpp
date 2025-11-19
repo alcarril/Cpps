@@ -6,10 +6,9 @@ FileManager::FileManager() : inFile(NULL) {}
 FileManager::FileManager(std::fstream& imputFile) 
 	: inFile(&imputFile){}
 
-//seleccion el infile, la clase no lo posee solo lo utiliza pero
-//necesita cerrarlo y liberar memoria
-void FileManager::selectInFile(std::fstream& inputFile)
-{
+//selects the infile, the class does not own it, it only uses it but
+//needs to close it and free memory
+void FileManager::selectInFile(std::fstream& inputFile) {
 	if (inFile != NULL)
 	{
 		if (inFile->is_open())
@@ -20,10 +19,9 @@ void FileManager::selectInFile(std::fstream& inputFile)
 	inFile = &inputFile;
 }
 
-//crea el outfile si ya habia un file abierto como el objeto no se destruye entre llamada
-//y llamada la metodo lo cierra para no dejar fds abiertos
-bool FileManager::createOutFile(const std::string &name)
-{
+//creates the outfile, if a file was already open, since the object is not destroyed
+//between method calls, it closes it to avoid leaving open file descriptors
+bool FileManager::createOutFile(const std::string &name) {
 	if (outFile.is_open())
 		outFile.close();
 	outFile.open(name.c_str(), std::ios::out | std::ios::in | std::ios::trunc);
@@ -36,25 +34,23 @@ bool FileManager::createOutFile(const std::string &name)
 	return (true);
 }
 
-//lee el archivo linea a linea despues resetea las flags de eof y pone el offset del fd
-//en la posidion inicual libreria  iostream para manejar fds
-void FileManager::showFile(std::fstream& file)
-{
+//reads the file line by line, then resets the eof flags and sets the file descriptor offset
+//to the initial position. Uses the iostream library to handle file descriptors
+void FileManager::showFile(std::fstream& file) {
 	std::string line;
+
 	while (std::getline(file, line))
-	{
 		std::cout << line << std::endl;
-	}
 	file.clear();
 	file.seekg(0, std::ios::beg);
 }
 
-//esta funciones aocm ola interpolacion de variables de entorno pero no tienes que manejar 
-//la memeoria explicitamente como en C
-void FileManager::filterFile(const std::string& s1, const std::string& s2)
-{
+//this function acts like variable interpolation in environment variables but you don't have to
+//explicitly manage memory like in C
+void FileManager::filterFile(const std::string& s1, const std::string& s2) {
 	std::string line;
 	std::string filterLine;
+
 	while (std::getline(*inFile, line))
 	{
 		filterLine.clear();
@@ -64,9 +60,7 @@ void FileManager::filterFile(const std::string& s1, const std::string& s2)
 			{
 				size_t j = 0;
 				while (j < s1.size() && i + j < line.size() && line[i + j] == s1[j])
-				{
 					j++;
-				}
 				if (j == s1.size())
 				{
 					filterLine += s2;

@@ -8,14 +8,12 @@ int main(int argc, char **argv)
 	std::string name;
 	int numZombies;
 
-	if (argc != 3)
-	{
+	if (argc != 3) {
 		std::cerr << "Arguments error\n";
 		return (1);
 	}
 	numZombies = std::atoi(argv[1]);
-	if (numZombies == 0)
-	{
+	if (numZombies == 0) {
 		std::cerr << "Horde need more Zombies...\n";
 		return (1);
 	}

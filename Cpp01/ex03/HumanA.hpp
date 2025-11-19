@@ -1,6 +1,3 @@
-
-
-
 #ifndef HUMANA_H
 #define HUMANA_H
 
@@ -8,15 +5,21 @@
 #include <iostream>
 #include "Weapon.hpp"
 
-//usamos la referencia a weapon porque se inicliaza en el constructor
-//y despues no tiene que realocar, por eso es mas comoda  una referencia. Ademas
-//cuando con el metodo de weapon cambiamos el tipo automaticamente la referencia
-//hace que el humano tenga otra arma
+//We use a reference to weapon because it is initialized in the constructor
+//and then it doesn't need to be reallocated, which makes a reference more convenient.
+//The HumanA (object) always has a weapon (object) assigned upon creation.
+//Additionally, when the weapon type is changed using its method, 
+//the reference automatically ensures that the human has the updated weapon.
+/*
+	NOTES:
+	1.- The Weapon reference is const because HumanA can take a Weapon but 
+		cannot change in his methods.
+*/
 class HumanA
 {
 	private:
 		const std::string name;
-		const Weapon&	weapon;
+		const Weapon&	weapon; // 1
 	public:
 		HumanA(const std::string& name, const Weapon& Wea);
 		void attack() const;

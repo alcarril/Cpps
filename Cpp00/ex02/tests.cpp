@@ -19,10 +19,15 @@ int		main( void ) {
 	typedef std::vector<int>								  ints_t;
 	typedef std::pair<accounts_t::iterator, ints_t::iterator> acc_int_t;
 
+	//int array to initialize accounts
 	int	const				amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 };
+	//int array size
 	size_t const			amounts_size( sizeof(amounts) / sizeof(int) );
+	//vector of accounts created with initial deposits taken from amounts array ->constructors called
 	accounts_t				accounts( amounts, amounts + amounts_size );
+	//iterators to the begin and end of accounts vector
 	accounts_t::iterator	acc_begin	= accounts.begin();
+	//iterators to the end of accounts vector
 	accounts_t::iterator	acc_end		= accounts.end();
 
 	int	const			d[]			= { 5, 765, 564, 2, 87, 23, 9, 20 };
@@ -38,12 +43,13 @@ int		main( void ) {
 	ints_t::iterator	wit_end		= withdrawals.end();
 
 	Account::displayAccountsInfos();
+	//	Display status of each account using mem_fun_ref to adapt the member function to for_each
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
 
 	for ( acc_int_t it( acc_begin, dep_begin );
 		  it.first != acc_end && it.second != dep_end;
 		  ++(it.first), ++(it.second) ) {
-
+			// it.first->makeDeposit(*it.second); ->tambien valido
 		(*(it.first)).makeDeposit( *(it.second) );
 	}
 

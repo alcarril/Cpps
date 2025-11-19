@@ -1,34 +1,33 @@
 
 #include "Zombie.hpp"
 
-//class zombie must have a Default constrcutor without parameters
-//so the creation of a dinamic array of Zombies object can be created
-//without problems
-
-
-//usando el operator new que reserva memeria en modo raw, esta es la solucion mas eficiente
-Zombie* zombieHorde(int N, std::string name)
-{
-	if (N <= 0)
-		return NULL;
-
+//Using placement new to construct each Zombie in the allocated memory
+//using operator new to allocate raw memory for N Zombies, because if we use new Zombie[N]
+//it will call the default constructor for each Zombie.
+Zombie* zombieHorde(int N, std::string name) {
+	if (N <= 0) {
+		std::cerr << "Horde need more Zombies...\n";
+		return (NULL);
+	}
 	void* rawMemory = operator new[](N * sizeof(Zombie));
 	Zombie* zombieHorde = static_cast<Zombie*>(rawMemory);
-	for (int i = 0; i < N; i++)
-	{
-		new (&zombieHorde[i]) Zombie(name + static_cast<char>(i + 1));
+	for (int i = 0; i < N; i++) {
+		std::stringstream ss;
+		ss << name << (i + 1); // Concatenar el nombre base con el índice
+		new (&zombieHorde[i]) Zombie(ss.str());
 	}
 	return (zombieHorde);
 }
 
-//creo qu esto va a mostrar el mensaje dos veces y puede que de mmery leak
-void killHorde(int N, Zombie* horde)
-{
-	(void)N;
+//the killHorde function calls the destructor for each Zombie
+//and then deallocates the memory using operator delete[]
+//to match the operator new[] used in zombieHorde.
+//it dont calls destrcutor twice because we are manually calling the destructor
+//for each Zombie before deallocating the memory.
+void killHorde(int N, Zombie* horde) {
 	if (!horde)
 		return;
-	for (int i = 0; i < N; i++)
-	{
+	for (int i = 0; i < N; i++) {
 		horde[i].~Zombie();
 	}
 	operator delete[](horde);

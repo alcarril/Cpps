@@ -13,13 +13,14 @@
 
 #define ERROR "This is unacceptable! I want to speak to the manager now."
 
+// Harl Class declares private methosd for better encanpsulation and beacause they are only used inside the class
 class Harl
 {
 	private:
-		void debug (void);
-		void info (void);
-		void warning (void);
-		void error (void);
+		void debug (void) const;
+		void info (void) const;
+		void warning (void) const;
+		void error (void) const;
 	public:
 		Harl();
 		void complain(std::string level);
