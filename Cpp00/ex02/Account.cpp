@@ -46,7 +46,7 @@ Account::~Account()
 // Displays information about all accounts, including total accounts, total amount, deposits, and withdrawals.
 void	Account::displayAccountsInfos() 
 {
-	Account::_displayTimestamp();
+	Account::_displayTimestamp();//using account class scope is redundant but explicit
 	std::cout << "accounts:" << Account::_nbAccounts;
 	std::cout << ";total:" << Account::_totalAmount;
 	std::cout << ";deposits:" << Account::_totalNbDeposits;

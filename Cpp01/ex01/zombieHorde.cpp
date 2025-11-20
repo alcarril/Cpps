@@ -13,7 +13,7 @@ Zombie* zombieHorde(int N, std::string name) {
 	Zombie* zombieHorde = static_cast<Zombie*>(rawMemory);
 	for (int i = 0; i < N; i++) {
 		std::stringstream ss;
-		ss << name << (i + 1); // Concatenar el nombre base con el índice
+		ss << name << (i + 1); // strjoing number to name
 		new (&zombieHorde[i]) Zombie(ss.str());
 	}
 	return (zombieHorde);
