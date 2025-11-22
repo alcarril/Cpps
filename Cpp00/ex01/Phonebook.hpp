@@ -17,7 +17,8 @@ class PhoneBook
 	public:
 		PhoneBook();
 		void	add_contact(const std::string& first_name, const std::string& last_name, 
-						 const std::string& nick_name, const std::string& darkest_secret);
+						const std::string& nick_name, const std::string& phone_number,
+						const std::string& darkest_secret);
 		void	display_header(void) const;
 		bool	display_contact() const;
 };

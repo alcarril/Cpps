@@ -89,9 +89,27 @@ std::string	get_index(void)
 	return (index);
 }
 
+std::string	get_phonenumber(void)
+{
+	std::string first_name;
+	int control = 0;
+
+	while (first_name.empty())
+	{
+		if (control > 0 )
+			std::cout << "Phone_number cannot be empty. Please enter again." << std::endl;
+		std::cout << "Phone_number: ";
+		if (!std::getline(std::cin, first_name))
+			return ("");
+		first_name = filter_ascii(first_name);
+		control++;
+	}
+	return (first_name);
+}
+
 bool	get_newcontac(PhoneBook& Phone)
 {
-	std::string	firstname, lastname, nickname, secret;
+	std::string	firstname, lastname, nickname, secret, phone_number;
 
 	firstname = get_firstname();
 	if (firstname.empty())
@@ -102,10 +120,13 @@ bool	get_newcontac(PhoneBook& Phone)
 	nickname = get_nickname();
 	if (nickname.empty())	
 		return (false);
+	phone_number = get_phonenumber();
+	if (phone_number.empty())
+		return (false);
 	secret = get_secret();
 	if (secret.empty())
 		return (false);
-	Phone.add_contact(firstname, lastname, nickname, secret);
+	Phone.add_contact(firstname, lastname, nickname, phone_number, secret);
 	return (true);
 }
 

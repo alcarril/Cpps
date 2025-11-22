@@ -34,29 +34,29 @@ PhoneBook::PhoneBook() : max_contacts(MAX_CONTACTS)
 	num_contacts = 0;
 }
 
-void PhoneBook::display_header(void) const
+void	PhoneBook::display_header(void) const
 {
 	std::cout << std::setw(10) << "Index" << " | ";
 	std::cout << std::setw(10) << "First Name" << " | ";
 	std::cout << std::setw(10) << "Last Name" << " | ";
-	std::cout << std::setw(10) << "Nick Name" << " | ";
-	std::cout << std::setw(10) << "DarkSecret" << std::endl;
+	std::cout << std::setw(10) << "Nick Name" << std::endl;
 	std::cout << std::string(65, '-') << std::endl;
 }
 
-void PhoneBook::add_contact(const std::string& first_name, const std::string& last_name, 
-			 const std::string& nick_name, const std::string& darkest_secret)
+void	PhoneBook::add_contact(const std::string& first_name, const std::string& last_name, 
+			const std::string& nick_name, const std::string& phone_number, 
+			const std::string& darkest_secret)
 {
 	if (num_contacts < max_contacts)
 	{
-		Contacts[num_contacts] = Contact(first_name, last_name, nick_name, darkest_secret);
+		Contacts[num_contacts] = Contact(first_name, last_name, nick_name, phone_number, darkest_secret);
 		num_contacts++;
 	}
 	else
 	{
 		for (int i = 0; i < num_contacts - 1; i++)
 			Contacts[i] = Contacts[i+1];
-		Contacts[num_contacts - 1] = Contact(first_name, last_name, nick_name, darkest_secret);
+		Contacts[num_contacts - 1] = Contact(first_name, last_name, nick_name, phone_number, darkest_secret);
 	}
 }
 

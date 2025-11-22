@@ -74,6 +74,7 @@ void	Account::makeDeposit(int deposit)
 	std::cout << ";deposit:" << deposit;
 	std::cout << ";amount:" << this->_amount;
 	std::cout <<  ";nb_deposits:" << this->_nbDeposits << std::endl;
+	_totalNbDeposits++;
 }
 
 // Attempts to withdraw an amount from the account. If the withdrawal amount exceeds the current balance, the withdrawal is refused.
@@ -92,6 +93,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 	std::cout << ";withdrawal:" << withdrawal;
 	std::cout << ";amount:" << this->_amount;
 	std::cout <<  ";nb_withdrawal:" << this->_nbWithdrawals << std::endl;
+	_totalNbWithdrawals++;
 	return (1);
 }
 

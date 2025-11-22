@@ -15,6 +15,7 @@ std::string	get_lastname(void);
 std::string	get_nickname(void);
 std::string	get_secret(void);
 std::string	get_index(void);
+std::string	get_phonenumber(void);
 bool		get_newcontac(PhoneBook& Phone);
 std::string filter_ascii(const std::string& input);
 
