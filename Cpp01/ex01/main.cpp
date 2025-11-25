@@ -23,6 +23,6 @@ int main(int argc, char **argv)
 		return (1);
 	for(int i = 0; i < numZombies; i++)
 		horde[i].announce();
-	killHorde(numZombies, horde);
+	killHorde(horde);
 	return (0);
 }

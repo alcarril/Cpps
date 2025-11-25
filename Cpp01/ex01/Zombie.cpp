@@ -13,6 +13,10 @@ void Zombie::announce (void) const {
 	std::cout << name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
+void Zombie::set_name (std::string &name) {
+	this->name = name;
+}
+
 //default destrcutor
 Zombie::~Zombie() {
 	std::cout << name << " is destroyed." << std::endl;

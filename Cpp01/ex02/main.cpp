@@ -10,6 +10,7 @@
 	value of the variable. If you inicialize the reference without givin a value
 	the compiler complains
 */
+
 int main(void)
 {
 	std::string		str;

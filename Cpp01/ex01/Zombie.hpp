@@ -12,16 +12,18 @@
 class Zombie
 {
 	private:
-		const std::string name;
+		std::string name;
+
 
 	public:
 		Zombie();
 		Zombie(const std::string& name);
 		void announce (void) const ;
+		void set_name (std::string &) ;
 		~Zombie();
 };
 Zombie* zombieHorde( int N, std::string name );
-void killHorde(int N, Zombie* horde);
+void killHorde(Zombie* horde);
 
 //optio 2 with setter
 // class Zombie

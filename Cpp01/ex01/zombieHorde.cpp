@@ -4,33 +4,43 @@
 //Using placement new to construct each Zombie in the allocated memory
 //using operator new to allocate raw memory for N Zombies, because if we use new Zombie[N]
 //it will call the default constructor for each Zombie.
+// Zombie* zombieHorde(int N, std::string name) {
+// 	if (N <= 0) {
+// 		std::cerr << "Horde need more Zombies...\n";
+// 		return (NULL);
+// 	}
+// 	void* rawMemory = operator new[](N * sizeof(Zombie));
+// 	Zombie* zombieHorde = static_cast<Zombie*>(rawMemory);
+// 	for (int i = 0; i < N; i++) {
+// 		std::stringstream ss;
+// 		ss << name << (i + 1); // strjoing number to name
+// 		new (&zombieHorde[i]) Zombie(ss.str());
+// 	}
+// 	return (zombieHorde);
+// }
+
 Zombie* zombieHorde(int N, std::string name) {
 	if (N <= 0) {
 		std::cerr << "Horde need more Zombies...\n";
 		return (NULL);
 	}
-	void* rawMemory = operator new[](N * sizeof(Zombie));
-	Zombie* zombieHorde = static_cast<Zombie*>(rawMemory);
-	for (int i = 0; i < N; i++) {
-		std::stringstream ss;
-		ss << name << (i + 1); // strjoing number to name
-		new (&zombieHorde[i]) Zombie(ss.str());
-	}
+	Zombie* zombieHorde = new Zombie[N];
+	for (int i = 0; i < N; i++)
+		zombieHorde[i].set_name(name);
+
 	return (zombieHorde);
 }
+
 
 //the killHorde function calls the destructor for each Zombie
 //and then deallocates the memory using operator delete[]
 //to match the operator new[] used in zombieHorde.
 //it dont calls destrcutor twice because we are manually calling the destructor
 //for each Zombie before deallocating the memory.
-void killHorde(int N, Zombie* horde) {
+void killHorde(Zombie* horde) {
 	if (!horde)
 		return;
-	for (int i = 0; i < N; i++) {
-		horde[i].~Zombie();
-	}
-	operator delete[](horde);
+	 delete[] (horde);
 }
 
 //////////////////////////WRONG SOLUTIONN///////////////////////////////
