@@ -24,13 +24,14 @@ void Harl::error (void) const{
 // Then, each function pointer is assigned to the memory address of the class method.
 // To access the values, you must specify with the clause this->*funcPtr in C, for example.
 // It could be done without the asterisk or with it.
+//Simulate a diccionary
 void Harl::complain(std::string level) {
 	void (Harl::*funcPtr[4])(void) const;
-
 	funcPtr[0] = &Harl::debug;
 	funcPtr[1] = &Harl::info;
 	funcPtr[2] = &Harl::warning;
 	funcPtr[3] = &Harl::error;
+	
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for (int i = 0; i < 4; i++) 

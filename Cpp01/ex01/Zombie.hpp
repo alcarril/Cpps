@@ -23,4 +23,18 @@ class Zombie
 Zombie* zombieHorde( int N, std::string name );
 void killHorde(int N, Zombie* horde);
 
+//optio 2 with setter
+// class Zombie
+// {
+// 	private:
+// 		std::string name;
+
+// 	public:
+// 		Zombie();
+// 		Zombie(const std::string& name);
+// 		void announce (void) const ;
+// 		void setName(const std::string& name);
+// 		~Zombie();
+// };
+
 #endif

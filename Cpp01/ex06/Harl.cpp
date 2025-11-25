@@ -24,6 +24,7 @@ void Harl::error (void) {
 // Then, each function pointer is assigned to the memory address of the class method.
 // To access the values, you must specify with the clause this->*funcPtr in C, for example.
 // It could be done without the asterisk or with it.
+// Switch is like jump table. O(1)
 void Harl::complain(std::string level) {
 	int levelNum;
 

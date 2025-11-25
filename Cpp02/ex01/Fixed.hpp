@@ -19,20 +19,9 @@ class Fixed {
 		void setRawBits(int const raw);
 		float toFloat( void ) const;//
 		int toInt( void ) const;//
-		Fixed operator=(Fixed objFix)
-		{
-			std::cout << "Copy assignment operator called\n";
-			if (this == &objFix)
-				return (*this);
-			if (&this->fixedNum != &objFix.fixedNum)
-				this->fixedNum = objFix.fixedNum;
-			return (*this);
-		}
-		friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
-		{
-			os << fixed.toFloat();
-			return os;
-		}
+		Fixed& operator=(const Fixed& objFix);
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);//?
 
 #endif

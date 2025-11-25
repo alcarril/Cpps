@@ -2,6 +2,9 @@
 
 #include "Zombie.hpp"
 
+//in this class we also can use a setter instead of have a parameter constrcutor
+//and use a getter to get the name when we need it.
+
 //class default constructor with parameters
 Zombie::Zombie(const std::string& name) : name(name) {}
 

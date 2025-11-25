@@ -72,7 +72,7 @@ void FileManager::filterFile(const std::string& s1, const std::string& s2) {
 			else
 				filterLine += line[i];
 		}
-		outFile << filterLine << std::endl;
+		this->outFile << filterLine << std::endl;
 	}
 	inFile->clear();
 	inFile->seekg(0, std::ios::beg);

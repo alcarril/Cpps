@@ -60,7 +60,7 @@ void killHorde(int N, Zombie* horde) {
 // 	{
 // 		ss << i + 1;
 // 		tmpName = name + ss.str();
-// 		zombieHorde[i] = Zombie(tmpName);
+// 		zombieHorde[i].setName(tmpName);
 // 		tmpName = name;
 // 		i++;
 // 	}

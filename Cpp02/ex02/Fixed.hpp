@@ -23,9 +23,6 @@ class Fixed {
 
 		Fixed& operator=(const Fixed& objFix);
 
-		// Operadores de flujo
-		friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
-
 		// Operadores de comparación
 		bool operator>(const Fixed& other) const;
 		bool operator<(const Fixed& other) const;
@@ -58,5 +55,8 @@ class Fixed {
 		static Fixed& max(Fixed& a, Fixed& b);
 		static const Fixed& max(const Fixed& a, const Fixed& b);
 };
+
+// Operadores de flujo
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif

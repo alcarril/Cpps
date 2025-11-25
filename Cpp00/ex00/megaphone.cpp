@@ -3,7 +3,7 @@
 #include <string>
 
 //Using std::cout only
-static void ft_toupper_str(char **argv)
+static void ftToupperStr(char **argv)
 {
 	for (int j = 1; argv[j] != NULL; j++)
 	{
@@ -14,7 +14,7 @@ static void ft_toupper_str(char **argv)
 }
 
 //Creating a std::string object, with constrcutor an metod to analize de string
-static void ft_toupper2_str(char **argv)
+static void ftToupper2Str(char **argv)
 {
 	for (int j = 1; argv[j] != NULL; j++)
 	{
@@ -28,10 +28,10 @@ static void ft_toupper2_str(char **argv)
 int	main(int argc, char **argv)
 {
 	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 	if (argc == 2)
-		ft_toupper_str(argv);
+		ftToupperStr(argv);
 	if (argc > 2)
-		ft_toupper2_str(argv);
+		ftToupper2Str(argv);
 	return (0);
 }

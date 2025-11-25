@@ -4,60 +4,70 @@ Fixed::Fixed() : fixedNum(0) {
 	// std::cout << "Default constructor called\n";
 }
 
-Fixed::Fixed(const Fixed& objFixed) : fixedNum(objFixed.fixedNum) {
+Fixed& Fixed::operator=(const Fixed& objFix) {
+	// std::cout << "Copy assignment operator called\n";
+	if (this == &objFix)
+		return (*this);
+	if (&this->fixedNum != &objFix.fixedNum)
+		this->fixedNum = objFix.getRawBits();
+	return (*this);
+}
+
+Fixed::Fixed(const Fixed& objFixed) {
 	// std::cout << "Copy constructor called\n";
-}
-
-// Pasa de int a formato punto fijo
-Fixed::Fixed(const int num) {
-	fixedNum = num << fractionalBits;
-}
-
-// De formato float a formato punto fijo
-Fixed::Fixed(const float floatValue) {
-	fixedNum = roundf(floatValue * (1 << fractionalBits));
+	this->fixedNum = objFixed.getRawBits();
+	// *this = objFixed;
 }
 
 Fixed::~Fixed() {
 	// std::cout << "Destructor called\n";
 }
 
-// Devuelve los bits en formato punto fijo
-int Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called\n";
+//devuelve los biits que etsban en formato punto fijo
+int Fixed::getRawBits( void ) const {
+	// std::cout << "getRawBits member function called\n";//?
 	return (fixedNum);
 }
-
-// Recibe el int en formato punto fijo
+//recibe el int en fomrato punto fijo
 void Fixed::setRawBits(int const raw) {
+	// std::cout << "setRawBits memeber function called\n";//?
 	fixedNum = raw;
 }
 
-// Pasa los bits de formato punto fijo a float
-float Fixed::toFloat(void) const {
+//Ampliamos (sobrecargamos) el operador de ofstream para nuestra clase
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
+	os << fixed.toFloat();
+	return os;
+}
+
+//pasa de int a fixed.point format->P1.A
+//multiplicar por 256 2^8 pero desde moviendo bit
+Fixed::Fixed(const int num) {
+	// std::cout << "Int constructor called\n";
+	fixedNum = num << fractionalBits;
+}
+
+//De formato floating.point fijo a firmato fixed.pointfijo->P1.B
+//multiplicar por 256 2^8 pero desde moviendo bits
+Fixed::Fixed(const float floatValue) {
+	// std::cout << "Float constructor called\n";
+	fixedNum = roundf(floatValue * (1 << fractionalBits));
+}
+
+//pasa los bits de formato fixed.point a floatiin.point
+//dividir entre 256 2^8 pero desde moviendo bits
+float Fixed::toFloat( void ) const {
 	float fixedFloat;
 	fixedFloat = static_cast<float>(fixedNum) / (1 << fractionalBits);
 	return (fixedFloat);
 }
 
-// Pasa los bits de formato punto fijo a int
-int Fixed::toInt(void) const {
+//pasa el lost en numero fixed.point a int
+//dividir entre 256 2^8 pero desde moviendo bits
+int Fixed::toInt( void ) const {
 	int ret;
 	ret = fixedNum >> fractionalBits;
 	return ret;
-}
-
-Fixed& Fixed::operator=(const Fixed& objFix) {
-	std::cout << "Copy assignment operator called\n";
-	if (this == &objFix)
-		return (*this);
-	this->fixedNum = objFix.fixedNum;
-	return (*this);
-}
-
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
-	os << fixed.toFloat();
-	return os;
 }
 
 bool Fixed::operator>(const Fixed& other) const { return this->fixedNum > other.fixedNum; }
@@ -67,6 +77,10 @@ bool Fixed::operator<=(const Fixed& other) const { return this->fixedNum <= othe
 bool Fixed::operator==(const Fixed& other) const { return this->fixedNum == other.fixedNum; }
 bool Fixed::operator!=(const Fixed& other) const { return this->fixedNum != other.fixedNum; }
 
+
+//En las operaciones aritmetica conviene devover un objeto nuevo, si fuesen
+//operaciones aritmticas con igualacion no haria falta hacerlo, se podrai modificar
+//el porpio objeto this.
 Fixed Fixed::operator+(const Fixed& other) const {
 	Fixed result;
 	result.fixedNum = this->fixedNum + other.fixedNum;
@@ -75,22 +89,24 @@ Fixed Fixed::operator+(const Fixed& other) const {
 
 Fixed Fixed::operator-(const Fixed& other) const {
 	Fixed result;
-	result.fixedNum = this->fixedNum - other.fixedNum;
+	result.fixedNum = this->fixedNum - other.getRawBits();
 	return result;
 }
 
+//a*b*factor =/ (a*factor) * (b*factor) = a*b*factor² -> a*b*factor² / factor 
 Fixed Fixed::operator*(const Fixed& other) const {
 	Fixed result;
-	result.fixedNum = (this->fixedNum * other.fixedNum) >> fractionalBits;
+	result.fixedNum = (this->fixedNum * other.getRawBits()) >> fractionalBits;
 	return result;
 }
 
+//a/b*factor =/ (a/factor) / (b/factor) = a/b  -> a/b * factor
 Fixed Fixed::operator/(const Fixed& other) const {
 	if (other.fixedNum == 0) {
 		throw std::runtime_error("Division by zero");
 	}
 	Fixed result;
-	result.fixedNum = (this->fixedNum << fractionalBits) / other.fixedNum;
+	result.fixedNum = (this->fixedNum << fractionalBits) / other.getRawBits();
 	return result;
 }
 

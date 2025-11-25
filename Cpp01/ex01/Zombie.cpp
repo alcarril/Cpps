@@ -17,3 +17,9 @@ void Zombie::announce (void) const {
 Zombie::~Zombie() {
 	std::cout << name << " is destroyed." << std::endl;
 }
+
+
+//for setter option
+// void Zombie::setName(const std::string& name) {
+// 	this->name = name;
+// }
