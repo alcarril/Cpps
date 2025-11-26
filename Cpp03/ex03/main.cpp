@@ -132,6 +132,7 @@ int main(void)
 	dia.attack("no one");
 	dia.takeDamage(20);
 	dia.beRepaired(10);
+	std::cout << "\n\n";
 	dia.whoAmI();
 	dia.highFivesGuys();
 	dia.guardGate();
@@ -139,6 +140,7 @@ int main(void)
 	dia2.attack("no one");
 	dia2.takeDamage(20);
 	dia2.beRepaired(10);
+	std::cout << "\n\n";
 	dia2.whoAmI();
 	dia2.highFivesGuys();
 	dia2.guardGate();
@@ -146,6 +148,7 @@ int main(void)
 	dia3.attack("no one");
 	dia3.takeDamage(20);
 	dia3.beRepaired(10);
+	std::cout << "\n\n";
 	dia3.whoAmI();
 	dia3.highFivesGuys();
 	dia3.guardGate();
