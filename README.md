@@ -1,3 +1,5 @@
+/ISO_C++_Logo.svg.png
+
 # C++ Modules
 
 This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp03).
