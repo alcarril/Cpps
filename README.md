@@ -1,4 +1,5 @@
-<img src="ISO_C++_Logo.svg.png" width="300" alt="400" /> <img src="solid.png" width="500" alt="500" />
+<img src="ISO_C++_Logo.svg.png" width="300" alt="400" /> <img src="solid.png" width="500" alt="500" /> <img src="Principles-Of-Object-Oriented-Programming.jpg
+" width="500" alt="500" />
 
 # C++ Modules
 
