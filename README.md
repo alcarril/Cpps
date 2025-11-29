@@ -1,4 +1,4 @@
-![alternative text](ISO_C++_Logo.svg.png)
+<img src="ISO_C++_Logo.svg.png" width="300" alt="400" />
 
 # C++ Modules
 
