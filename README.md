@@ -2,7 +2,7 @@
 
 # C++ Modules
 
-This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp03).
+This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp04).
 
 ## Modules
 
@@ -38,6 +38,14 @@ Inheritance in C++.
 - **ex01**: Serena, my love! - ScavTrap derived class
 - **ex02**: Repetitive work - FragTrap derived class
 - **ex03**: Now it's weird! - DiamondTrap (multiple inheritance)
+
+### Cpp04
+Subtype polymorphism, abstract classes and interfaces.
+
+- **ex00**: Polymorphism - Animal, Dog, Cat classes with virtual functions
+- **ex01**: I don't want to set the world on fire - Adding Brain class for deep copy
+- **ex02**: Abstract class - Animal as an abstract class with pure virtual function
+- **ex03**: Interface & recap - Materia system with interfaces (AMateria, ICharacter, IMateriaSource)
 
 ## Build
 
