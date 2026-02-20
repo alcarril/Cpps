@@ -5,7 +5,6 @@ Brain::Brain() {
 	for(int i = 0; i < MAX_IDEAS; i++) {
 		_ideas[i] = "Default idea";
 	}
-
 }
 
 Brain::Brain(const Brain& copy) {
@@ -42,6 +41,7 @@ Brain& Brain::operator=(const Brain& copy) {
 // 	}
 // }
 
+//se podria habeer usado un getter se refrencia en const
 const std::string (&Brain::getIdeas(void) const)[MAX_IDEAS] {
 	return _ideas;
 }
@@ -51,4 +51,3 @@ void Brain::setIdeas(const std::string (&newIdeas)[MAX_IDEAS]) {
 		this->_ideas[i] = newIdeas[i];
 	}
 }
-

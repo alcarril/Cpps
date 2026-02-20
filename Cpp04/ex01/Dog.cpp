@@ -6,6 +6,11 @@ Dog::Dog() : Animal() {
 	this->_ptrBrain = new Brain();
 }
 
+
+//Ponemso el puntero a brain a NULL para que cuanado llamemos al setter del brain
+//y tengamos que eliminar el brain actual no eleminemos el memeria resifual, ya que lo controlamos
+///en el setter mirando si el puntero BRAInesta en NULL. Otra opcion seria en la declaracion de la
+//platilla de la clase poner le puntero a NULL por defecto.
 Dog::Dog(const Dog& copy) : Animal(copy) {
 	this->type = copy.getType();
 	this->_ptrBrain = NULL;

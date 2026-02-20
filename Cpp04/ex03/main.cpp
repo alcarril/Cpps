@@ -21,7 +21,6 @@ int main(void)
 	copyMateriaSource = *(static_cast<MateriaSource*>(src));//test asignacion deep copy
 	MateriaSource copyMateriaSource2(*static_cast<MateriaSource*>(src));//test	 copy constructor deep copy
 
-
 	ICharacter* me = new Character("me");
 
 	AMateria* tmp;

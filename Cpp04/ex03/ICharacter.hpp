@@ -7,6 +7,7 @@
 
 class AMateria;
 
+//esto de declarar aqui no se si v en conta de la nomas de 42
 class ICharacter
 {
 	public:

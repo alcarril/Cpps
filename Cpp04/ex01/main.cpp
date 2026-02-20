@@ -133,6 +133,7 @@ int	main(void) {
 
 	std::cout << "\nDYNAMIC Creating an array of Animals (Dogs and Cats):\n" << std::endl;
 	//test de array dinamico de animales -> punteros a objetos
+	//se comprieba la creacion con poimirfismo y que no se haga se liberenn los recuroso como se debe
 	Animal *_ptrAnimals[_nAnimals];
 	for (unsigned int i = 0; i < _nAnimals; i++) {
 		if (i < _nAnimals / 2) {
@@ -156,11 +157,11 @@ int	main(void) {
 	Brain *brain = new Brain();
 	Dog Pitbull;
 	Dog Rotweiller;
+	Dog	Golden;
+	Dog	Canario;
 	Cat Garfield;
 
-	Pitbull = Rotweiller;
-	delete brain;
-	
+	//polimorfismo
 	Animal *_ptrAnimal1 = new Dog();
 	_ptrAnimal1->makeSound();
 	delete _ptrAnimal1;
@@ -168,5 +169,13 @@ int	main(void) {
 	_ptrAnimal1 = new Cat(Garfield);
 	_ptrAnimal1->makeSound();
 	delete _ptrAnimal1;
+	
+	//comporbamos que no se haga el shallow copy para los memria leaks
+
+	Canario = Golden;//operador de sobrecarga
+	Pitbull.setBrain(brain);
+	Rotweiller.setBrain(brain);
+	Garfield.setBrain(Pitbull.getBrain());
+	delete brain;
 	return 0;
 }

@@ -51,4 +51,3 @@ void Brain::setIdeas(const std::string (&newIdeas)[MAX_IDEAS]) {
 		this->_ideas[i] = newIdeas[i];
 	}
 }
-

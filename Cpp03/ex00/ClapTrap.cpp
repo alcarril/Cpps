@@ -9,6 +9,7 @@ ClapTrap::ClapTrap() :
 {
 	std::cout << "ClapTrap default constructor called\n";
 }
+
 //Default parameter constrcutor
 ClapTrap::ClapTrap(const std::string &name) : 
 	hitPoints(10), energyPoints(10), attackDamage(0), name(name) {

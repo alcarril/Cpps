@@ -49,7 +49,7 @@ void MateriaSource::learnMateria(AMateria* m) {
 		}
 	}
 }
-		
+
 AMateria* MateriaSource::createMateria(std::string const & type) {
 	AMateria* ret = NULL;
 	for (int i = 0; i < MAX_SLOTS; i++) {

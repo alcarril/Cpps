@@ -156,11 +156,11 @@ int	main(void) {
 	Brain *brain = new Brain();
 	Dog Pitbull;
 	Dog Rotweiller;
+	Dog	Golden;
+	Dog	Canario;
 	Cat Garfield;
 
-	Pitbull = Rotweiller;
-	delete brain;
-	
+	//polimorfismo
 	Animal *_ptrAnimal1 = new Dog();
 	_ptrAnimal1->makeSound();
 	delete _ptrAnimal1;
@@ -168,6 +168,13 @@ int	main(void) {
 	_ptrAnimal1 = new Cat(Garfield);
 	_ptrAnimal1->makeSound();
 	delete _ptrAnimal1;
+
+	//comporbamos que no se haga el shallow copy para los memria leaks
+	Canario = Golden;//operador de sobrecarga
+	Pitbull.setBrain(brain);
+	Rotweiller.setBrain(brain);
+	Garfield.setBrain(Pitbull.getBrain());
+	delete brain;
 
 	std::cout << "\n\nEX02 STARTTING TESTS\n\n" << std::endl;
 	//Los test de este ejercicio se basn en decomentar las instancias a animales de la clase abstracta AAnimal

@@ -8,10 +8,10 @@ void	clapTrapLookUp( ClapTrap& test) {
 	test.attack("test Clap");
 }
 
-// void	ScavTrapLookUp( ScavTrap& test) {
-// 	test.attack("test Slav");
-// 	// test.guardGate();
-// }
+void	ScavTrapLookUp( ScavTrap& test) {
+	test.attack("test Slav");
+	test.guardGate();
+}
 
 int main(void)
 {
