@@ -5,7 +5,6 @@ Brain::Brain() {
 	for(int i = 0; i < MAX_IDEAS; i++) {
 		_ideas[i] = "Default idea";
 	}
-
 }
 
 Brain::Brain(const Brain& copy) {

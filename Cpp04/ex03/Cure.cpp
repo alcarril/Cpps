@@ -35,10 +35,9 @@ void Cure::use(ICharacter& target) {
 	std::cout << "*heals " << target.getName() << "'s wounds *\n";
 }
 
-//a fucnion de clonacion fucnioan asi porque en el subjecto nos piden que retornemos una
-//nueva materia del mismo tipo que la que clonamos cunado llamamos al metodo de esta funcion
-//asi que usamos el operadotor new pra reservar memeria dinamica con el contructor de materia tipo
-//cure por copia para que ponga en tipo en el campo (atributo) type de la materia.
+//en el subject nos piden que clone retorn una nueva instancia de la materia
+//con el mimo topo asi que instanciamos el objeto desde memroia dinamica con la 
+//clausula new
 AMateria* Cure::clone() const {
 	AMateria* _ptrMateria;
 	_ptrMateria = new Cure(*this);//
