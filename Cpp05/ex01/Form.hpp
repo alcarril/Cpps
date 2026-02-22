@@ -33,7 +33,6 @@ class Form
 
 		//methods
 		void beSigned(const Bureaucrat& b);
-		void singForm(const Bureaucrat& b);
 
 		//excetion classes
 		class GradeTooHighException : public std::exception 

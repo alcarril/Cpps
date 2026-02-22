@@ -5,6 +5,9 @@
 #include <string>
 #include <sstream>
 #include <exception>
+#include "Form.hpp"
+
+class Form; // Forward declaration of Form class
 
 /*
 	sigle responsability, 
@@ -22,10 +25,15 @@ class Bureaucrat
 		Bureaucrat(const std::string &name, const int &grade);
 		Bureaucrat(const Bureaucrat &copy);
 		~Bureaucrat();
+
+		//getters
 		const int&			getGrade(void) const;
 		const std::string&	getName(void) const;
-		void				upGrade(void);
-		void				downGrade(void);
+
+		//methods
+		void	upGrade(void);
+		void	downGrade(void);
+		void	signForm(Form& form) const;
 
 		class GradeTooHighException : public std::exception
 		{

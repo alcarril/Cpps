@@ -53,18 +53,6 @@ void Form::beSigned(const Bureaucrat& b) {
 	this->sign = true;
 }
 
-void Form::singForm(const Bureaucrat& b) {
-	try {
-		this->beSigned(b);
-	} catch (std::exception& e) {
-		std::cerr << "Bureaucrat " << b.getName() << " couldn't sign ";
-		std::cout << this->getName() << " form because: ";
-		std::cout << e.what();
-		return ;
-	}
-	std::cout << "Bureaucrat " << b.getName() << " signed " << this->getName() << " form\n";
-}
-
 std::ostream& operator<<(std::ostream& os, const Form& f) {
 	os << f.getName() << " form ";
 	if (f.getSign() == true) {

@@ -1,4 +1,3 @@
-
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : name(""), grade(1) {
@@ -61,6 +60,18 @@ void Bureaucrat::downGrade(void) {
 	} catch (const std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
+}
+
+void Bureaucrat::signForm(Form& form) const{
+	try {
+		form.beSigned(*this);
+	} catch (std::exception& e) {
+		std::cerr << "Bureaucrat " << this->getName() << " couldn't sign ";
+		std::cout << form.getName() << " form because: ";
+		std::cout << e.what();
+		return ;
+	}
+	std::cout << "Bureaucrat " << this->getName() << " signed " << form.getName() << " form\n";
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {

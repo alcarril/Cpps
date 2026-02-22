@@ -7,15 +7,15 @@ int main(void) {
 	Bureaucrat MJ("maria jose", 3);
 	Form Iva("303", 2, 1);
 	std::cout << Iva;
-	Iva.singForm(MJ);
+	MJ.signForm(Iva);
 	try {
 		MJ.upGrade();
 		std::cout << MJ << std::endl;
 	} catch (const std::exception& e) {
 		std::cerr << "Error: " << e.what();
 	}
-	Iva.singForm(MJ);
+	MJ.signForm(Iva);
 	std::cout << Iva;
-	Iva.singForm(MJ);
+	MJ.signForm(Iva);
 	return 0;
 }

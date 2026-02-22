@@ -1,6 +1,3 @@
-
-
-
 <img src="assets/ISO_C++_Logo.svg.png" width="300" alt="400" /> <img src="assets/solid.png" width="500" alt="500" />
 
 # C++ Modules
@@ -152,6 +149,42 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp04)
 - **ex01**: I don't want to set the world on fire - Adding Brain class for deep copy
 - **ex02**: Abstract class - Animal as an abstract class with pure virtual function
 - **ex03**: Interface & recap - Materia system with interfaces (AMateria, ICharacter, IMateriaSource)
+
+### Cpp05
+
+**Exceptions.**
+
+#### Generic concepts
+
+- How `try`, `throw`, and `catch` clauses work.
+- Types of data that can be thrown with `throw`, the `std::exception` class, and why it is recommended to throw objects.
+- What happens when an exception is thrown but not caught: **(segfault) → std::terminate()**
+- Memory scope of the `try` block: Objects created inside a `try` block have a local memory scope. When exiting the block due to an exception or normal execution, **stack unwinding** occurs, automatically destroying local objects. To preserve them, use pointers and dynamic memory.
+- Classes inheriting from `std::exception` and types of errors.
+- How to configure custom exceptions within classes by creating nested classes that inherit from `std::exception` and overriding the `what()` method for polymorphism. Why it is not a good idea to convert a normal class into an exception.
+- Why methods overriding `std::exception` methods should use the `throw()` clause to specify that the method will not throw another exception.
+- Nested classes are not constructed by default when using the constructor of the external class. They must be initialized in methods. Principles of nested class usage: **Cohesion Principle and Single Responsibility.**
+
+#### Best Practices
+
+- Constructors that may throw errors due to invalid attribute values should only throw the error. The `try` and `catch` should be handled in `main` to avoid partially created objects in memory, which could lead to segmentation faults or undefined behavior.
+- Methods can have their own `try` and `catch` blocks for cleaner code.
+- Nested `try` blocks are possible but not clean. If an exception is thrown in the outer `try`, the inner block will not execute, and exceptions will not be lost.
+- When a base class defines its own errors and has methods overridden with polymorphism in derived classes, it is good practice to:
+  - Throw base class errors from the base class methods.
+  - In derived class methods, call the base class method to check for base errors, then handle specific errors in the derived class.
+  - Throw different types of objects for different errors to avoid confusion in `catch` blocks.
+- When functions or methods with `try` blocks call other functions or methods with their own `try` blocks, exceptions thrown in the lower-level function may be caught there, causing the higher-level code to not behave as expected. In such cases, it is important that the `try` and `catch` blocks are always in the higher-level function, while the lower-level function should only contain `throw` statements ot throw objects of different types for different errors.
+
+#### Exercises
+
+- **ex00**: Bureaucrat - Implementation of a `Bureaucrat` class with grade validation and exception handling.
+- **ex01**: Form - Adding a `Form` class that interacts with the `Bureaucrat` class, including signing functionality.
+- **ex02**: Advanced Forms - Introduction of abstract forms (`AForm`) and specific form types like `PresidentialPardonForm`, `RobotomyRequestForm`, and `ShrubberyCreationForm`.
+- **ex03**: Intern - Implementation of an `Intern` class that can create forms dynamically based on input.
+
+#### Generic concepts
+
 
 ## Build
 

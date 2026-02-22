@@ -33,7 +33,6 @@ class AForm
 
 		//methods
 		void beSigned(const Bureaucrat& b);
-		void singForm(const Bureaucrat& b);
 		virtual void execute(const Bureaucrat& executor) const = 0;
 
 		//excetion classes

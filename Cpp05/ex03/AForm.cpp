@@ -53,18 +53,6 @@ void AForm::beSigned(const Bureaucrat& b) {
 	this->sign = true;
 }
 
-void AForm::singForm(const Bureaucrat& b) {
-	try {
-		this->beSigned(b);
-	} catch (std::exception& e) {
-		std::cerr << "Bureaucrat " << b.getName() << " couldn't sign ";
-		std::cout << this->getName() << " AForm because: ";
-		std::cout << e.what();
-		return ;
-	}
-	std::cout << "Bureaucrat " << b.getName() << " signed " << this->getName() << " AForm\n";
-}
-
 void AForm::execute(const Bureaucrat& executor) const {
 	if (this->getSign() == false)
 		throw AForm::IsNotSignedException(this->getName());

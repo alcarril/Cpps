@@ -62,8 +62,8 @@ int main(void) {
 		std::cerr << "Execution error: " << e.what();
 	}
 	_ptrCurrante->executeForm(*_ptrForm);
-	_ptrForm->singForm(*_ptrCurrante);
-	_ptrForm->singForm(*_ptrCurrante);
+	_ptrCurrante->signForm(*_ptrForm);
+	_ptrCurrante->signForm(*_ptrForm);
 	try {
 		_ptrForm->execute(*_ptrCurrante);
 	} catch (std::exception& e) {
@@ -87,8 +87,8 @@ int main(void) {
 		std::cerr << "Execution error: " << e.what();
 	}
 	_ptrCurrante->executeForm(*_ptrForm);
-	_ptrForm->singForm(*_ptrCurrante);
-	_ptrForm->singForm(*_ptrCurrante);
+	_ptrCurrante->signForm(*_ptrForm);
+	_ptrCurrante->signForm(*_ptrForm);
 	try {
 		_ptrForm->execute(*_ptrCurrante);
 	} catch (std::exception& e) {
@@ -114,7 +114,8 @@ int main(void) {
 		std::cerr << "Execution error: " << e.what();
 	}
 	_ptrCurrante->executeForm(*_ptrForm);
-	_ptrForm->singForm(*_ptrCurrante);
+	_ptrCurrante->signForm(*_ptrForm);
+	_ptrCurrante->signForm(*_ptrForm);
 	try {
 		_ptrForm->execute(*_ptrCurrante);
 	} catch (std::exception& e) {
