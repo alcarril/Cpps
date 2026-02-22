@@ -5,12 +5,11 @@
 #include <string>
 #include <sstream>
 #include <exception>
+#include "AForm.hpp"
 
-/*
-	sigle responsability, 
-	Clases anidadas -> encapulacion de diseño y principio de cohesion
-*/
-//principios de diseño:
+
+class AForm;
+
 class Bureaucrat
 {
 	private:
@@ -22,10 +21,15 @@ class Bureaucrat
 		Bureaucrat(const std::string &name, const int &grade);
 		Bureaucrat(const Bureaucrat &copy);
 		~Bureaucrat();
+
+		//getters
 		const int&			getGrade(void) const;
 		const std::string&	getName(void) const;
-		void				upGrade(void);
-		void				downGrade(void);
+
+		//methods
+		void	upGrade(void);
+		void	downGrade(void);
+		void 	executeForm(AForm const & form) const;
 
 		class GradeTooHighException : public std::exception
 		{

@@ -5,7 +5,8 @@ CXXFLAGS=-Wall -Wextra -Werror -std=c++98
 DEBUGFLAGS=-fsanitize=address -g
 
 SRCS= main.cpp \
-	  Bureaucrat.cpp
+	  Bureaucrat.cpp \
+	  Form.cpp
 OBJS=$(SRCS:.cpp=.o)
 
 all: $(NAME)

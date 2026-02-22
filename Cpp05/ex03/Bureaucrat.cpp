@@ -59,7 +59,16 @@ void Bureaucrat::downGrade(void) {
 			std::cout << "Bureaucrat " << this->getName() << " downgraded to grade " << this->getGrade() << std::endl;
 		}
 	} catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cout << e.what();
+	}
+}
+
+void Bureaucrat::executeForm(AForm const & form) const {
+	try {
+		form.execute(*this);
+		std::cout << "Burearcrat " << this->getName() << " executed " << form.getName() << std::endl;
+	} catch (const std::exception& e) {
+		std::cerr << "Bureaucrat " << this->getName() << " couldn't execute " << form.getName() << " because " << e.what();
 	}
 }
 
