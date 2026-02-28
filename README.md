@@ -4,13 +4,18 @@
 
 This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09).
 
-## Modules
 
 
 
-### Cpp00
+## Cpp00
 
 **Introduction to C++ basics: namespaces, classes, member functions, stdio streams, initialization lists, static, const, and some other basic stuff.**
+
+#### Exercises
+
+- **ex00**: [Megaphone - A simple program to convert text to uppercase](Cpp00/ex00/)
+- **ex01**: [PhoneBook - A simple phonebook application](Cpp00/ex01/)
+- **ex02**: [The Job Of Your Dreams](Cpp00/ex02/)
 
 <details>
 <summary>Generic concepts</summary>
@@ -32,15 +37,21 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
 
 </details>
 
-#### Exercises
 
-- **ex00**: [Megaphone - A simple program to convert text to uppercase](Cpp00/ex00/)
-- **ex01**: [PhoneBook - A simple phonebook application](Cpp00/ex01/)
-- **ex02**: [The Job Of Your Dreams](Cpp00/ex02/)
 
-### Cpp01
+## Cpp01
 
 **Memory allocation, pointers to members, references, switch statement.**
+
+#### Exercises
+
+- **ex00**: [BraiiiiiiinnnzzzZ - Zombie class implementation](Cpp01/ex00/)
+- **ex01**: [Moar brainz! - Zombie horde](Cpp01/ex01/)
+- **ex02**: [HI THIS IS BRAIN - References and pointers](Cpp01/ex02/)
+- **ex03**: [Unnecessary violence - Weapon class with references](Cpp01/ex03/)
+- **ex04**: [Sed is for losers - File manipulation](Cpp01/ex04/)
+- **ex05**: [Harl 2.0 - Pointers to member functions](Cpp01/ex05/)
+- **ex06**: [Harl filter - Switch statement](Cpp01/ex06/)
 
 <details>
 <summary>Generic concepts</summary>
@@ -61,19 +72,17 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
 
 </details>
 
-#### Exercises
 
-- **ex00**: [BraiiiiiiinnnzzzZ - Zombie class implementation](Cpp01/ex00/)
-- **ex01**: [Moar brainz! - Zombie horde](Cpp01/ex01/)
-- **ex02**: [HI THIS IS BRAIN - References and pointers](Cpp01/ex02/)
-- **ex03**: [Unnecessary violence - Weapon class with references](Cpp01/ex03/)
-- **ex04**: [Sed is for losers - File manipulation](Cpp01/ex04/)
-- **ex05**: [Harl 2.0 - Pointers to member functions](Cpp01/ex05/)
-- **ex06**: [Harl filter - Switch statement](Cpp01/ex06/)
 
-### Cpp02
+## Cpp02
 
 **Ad-hoc polymorphism, operator overloading, and Orthodox Canonical class Form.**
+
+#### Exercises
+
+- **ex00**: [My First Class in Orthodox Canonical Form](Cpp02/ex00/)
+- **ex01**: [Towards a more useful fixed-point number class](Cpp02/ex01/)
+- **ex02**: [Now we're talking - Operator overloading](Cpp02/ex02/)
 
 <details>
 <summary>Generic concepts</summary>
@@ -89,15 +98,17 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
 
 </details>
 
-#### Exercises
 
-- **ex00**: [My First Class in Orthodox Canonical Form](Cpp02/ex00/)
-- **ex01**: [Towards a more useful fixed-point number class](Cpp02/ex01/)
-- **ex02**: [Now we're talking - Operator overloading](Cpp02/ex02/)
-
-### Cpp03
+## Cpp03
 
 **Inheritance in C++.**
+
+#### Exercises
+
+- **ex00**: [Aaaaand... OPEN! - ClapTrap class](Cpp03/ex00/)
+- **ex01**: [Serena, my love! - ScavTrap derived class](Cpp03/ex01/)
+- **ex02**: [Repetitive work - FragTrap derived class](Cpp03/ex02/)
+- **ex03**: [Now it's weird! - DiamondTrap (multiple inheritance)](Cpp03/ex03/)
 
 <details>
 <summary>Generic concepts</summary>
@@ -122,16 +133,18 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
 
 </details>
 
-#### Exercises
 
-- **ex00**: [Aaaaand... OPEN! - ClapTrap class](Cpp03/ex00/)
-- **ex01**: [Serena, my love! - ScavTrap derived class](Cpp03/ex01/)
-- **ex02**: [Repetitive work - FragTrap derived class](Cpp03/ex02/)
-- **ex03**: [Now it's weird! - DiamondTrap (multiple inheritance)](Cpp03/ex03/)
 
-### Cpp04
+## Cpp04
 
 **Subtype polymorphism, abstract classes and interfaces.**
+
+#### Exercises
+
+- **ex00**: [Polymorphism - Animal, Dog, Cat classes with virtual functions](Cpp04/ex00/)
+- **ex01**: [I don't want to set the world on fire - Adding Brain class for deep copy](Cpp04/ex01/)
+- **ex02**: [Abstract class - Animal as an abstract class with pure virtual function](Cpp04/ex02/)
+- **ex03**: [Interface & recap - Materia system with interfaces (AMateria, ICharacter, IMateriaSource)](Cpp04/ex03/)
 
 <details>
 <summary>Generic concepts</summary>
@@ -148,16 +161,18 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
 
 </details>
 
-#### Exercises
 
-- **ex00**: [Polymorphism - Animal, Dog, Cat classes with virtual functions](Cpp04/ex00/)
-- **ex01**: [I don't want to set the world on fire - Adding Brain class for deep copy](Cpp04/ex01/)
-- **ex02**: [Abstract class - Animal as an abstract class with pure virtual function](Cpp04/ex02/)
-- **ex03**: [Interface & recap - Materia system with interfaces (AMateria, ICharacter, IMateriaSource)](Cpp04/ex03/)
-
-### Cpp05
+## Cpp05
 
 **Exceptions.**
+
+
+#### Exercises
+
+- **ex00**: [Bureaucrat - Implementation of a Bureaucrat class with grade validation and exception handling](Cpp05/ex00/)
+- **ex01**: [Form - Adding a Form class that interacts with the Bureaucrat class, including signing functionality](Cpp05/ex01/)
+- **ex02**: [Advanced Forms - Introduction of abstract forms (AForm) and specific form types like PresidentialPardonForm, RobotomyRequestForm, and ShrubberyCreationForm](Cpp05/ex02/)
+- **ex03**: [Intern - Implementation of an Intern class that can create forms dynamically based on input](Cpp05/ex03/)
 
 <details>
 <summary>Generic concepts</summary>
@@ -187,17 +202,18 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
 
 </details>
 
-#### Exercises
-
-- **ex00**: [Bureaucrat - Implementation of a Bureaucrat class with grade validation and exception handling](Cpp05/ex00/)
-- **ex01**: [Form - Adding a Form class that interacts with the Bureaucrat class, including signing functionality](Cpp05/ex01/)
-- **ex02**: [Advanced Forms - Introduction of abstract forms (AForm) and specific form types like PresidentialPardonForm, RobotomyRequestForm, and ShrubberyCreationForm](Cpp05/ex02/)
-- **ex03**: [Intern - Implementation of an Intern class that can create forms dynamically based on input](Cpp05/ex03/)
 
 
-### Cpp06
+## Cpp06
 
 **C++ casts and static_assert.**
+
+
+#### Exercises
+
+- **ex00**: [Char* to Numeric Conversion - Using std::strtod and static_cast for type conversion](Cpp06/ex00/)
+- **ex01**: [Serialization and Deserialization - Using `reinterpret_cast` for pointer manipulation](Cpp06/ex01/)
+- **ex02**: [Dynamic Cast - Checking pointers in polymorphic class hierarchies](Cpp06/ex02/)
 
 <details>
 <summary>Generic concepts</summary>
@@ -237,18 +253,18 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
 
 </details>
 
-#### Exercises
-
-- **ex00**: [Char* to Numeric Conversion - Using std::strtod and static_cast for type conversion](Cpp06/ex00/)
-- **ex01**: [Serialization and Deserialization - Using `reinterpret_cast` for pointer manipulation](Cpp06/ex01/)
-- **ex02**: [Dynamic Cast - Checking pointers in polymorphic class hierarchies](Cpp06/ex02/)
 
 
-
-
-### Cpp07
+## Cpp07
 
 **Templates and iterators.**
+
+
+#### Exercises
+
+- **ex00**: [Template Functions - Creating functions using templates for generic data types, pointers, and references](Cpp07/ex00/)
+- **ex01**: [Iter Function Template - Implementing a template function that accepts generic types, including const and non-const pointers](Cpp07/ex01/)
+- **ex02**: [Template Array Class - Creating a template-based array class with const and non-const instantiations, overloaded operators, and exception handling](Cpp07/ex02/)
 
 <details>
 <summary>Generic concepts</summary>
@@ -282,14 +298,6 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
 - Class hierarchy for inheritance: `std::out_of_range`.
 
 </details>
-
-#### Exercises
-
-- **ex00**: [Template Functions - Creating functions using templates for generic data types, pointers, and references](Cpp07/ex00/)
-- **ex01**: [Iter Function Template - Implementing a template function that accepts generic types, including const and non-const pointers](Cpp07/ex01/)
-- **ex02**: [Template Array Class - Creating a template-based array class with const and non-const instantiations, overloaded operators, and exception handling](Cpp07/ex02/)
-
-
 
 
 ## Build
