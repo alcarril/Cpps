@@ -30,8 +30,11 @@ void ScalarConverter::converter(char * input) {
 		std::cerr << "Invalid input: buffer overflow/underflow\n";
 		return ;
 	}
-	if (*endString != '\0' && !((*endString == 'f' && *(endString + 1) == '\0')
-			|| (endString == input && *(input + 1) == '\0'))) {
+	if (*endString != '\0' && !((*endString == 'f' && *(endString + 1) == '\0'))) {
+		if (endString == input && *(input + 1) == '\0') {
+			printTypeChar(static_cast<unsigned char>(*input));
+			return ;
+		}
 		std::cerr << "Invalid imput format: no posible conversion\n";
 		return ;
 	}
@@ -75,6 +78,18 @@ void ScalarConverter::printChar(double convertDouble) {
 		std::cout << "char: out of range\n";
 	else {
 		char c = static_cast<char>(convertDouble);
+		if (isprint(c))
+			std::cout << "char: '" << c << "'\n";
+		else
+			std::cerr << "char: Non displayable\n";
+	}
+}
+
+void ScalarConverter::printTypeChar(unsigned char caracter) {
+	if (caracter < CHAR_MIN || caracter > CHAR_MAX)
+		std::cout << "char: out of range\n";
+	else {
+		char c = static_cast<char>(caracter);
 		if (isprint(c))
 			std::cout << "char: '" << c << "'\n";
 		else

@@ -20,6 +20,7 @@ class ScalarConverter
 		ScalarConverter(const ScalarConverter& copy);
 		ScalarConverter& operator=(const ScalarConverter& copy);
 		static void printChar(double converDouble);
+		static void printTypeChar(unsigned char caracter);
 		static void printInt(double converDouble);
 		static void printFloat(double converDouble);
 } ;
