@@ -19,7 +19,7 @@ class HumanA
 {
 	private:
 		const std::string name;
-		const Weapon&	weapon; // 1
+		const Weapon&	weapon;
 	public:
 		HumanA(const std::string& name, const Weapon& Wea);
 		void attack() const;

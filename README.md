@@ -2,7 +2,7 @@
 
 # C++ Modules
 
-This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp04).
+This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09).
 
 ## Modules
 
@@ -12,8 +12,8 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp04)
 
 **Introduction to C++ basics: namespaces, classes, member functions, stdio streams, initialization lists, static, const, and some other basic stuff.**
 
-
-#### Generic concepts
+<details>
+<summary>Generic concepts</summary>
 
 - Class concept
 - Object concept
@@ -30,19 +30,20 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp04)
 - Arrays of objects
 - Basic composition concept
 
+</details>
+
 #### Exercises
 
-- **ex00**: Megaphone - A simple program to convert text to uppercase
-- **ex01**: PhoneBook - A simple phonebook application
-- **ex02**: The Job Of Your Dreams
-
-
+- **ex00**: [Megaphone - A simple program to convert text to uppercase](Cpp00/ex00/)
+- **ex01**: [PhoneBook - A simple phonebook application](Cpp00/ex01/)
+- **ex02**: [The Job Of Your Dreams](Cpp00/ex02/)
 
 ### Cpp01
 
 **Memory allocation, pointers to members, references, switch statement.**
 
-#### Generic concepts
+<details>
+<summary>Generic concepts</summary>
 
 - Dynamic memory allocation with new
 - Destroying dynamic memory with delete
@@ -58,23 +59,24 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp04)
 - Function pointers and arrays of function pointers (notations)
 - Use of switch (internally uses jump tables or binary trees to keep O(1) complexity)
 
+</details>
+
 #### Exercises
 
-- **ex00**: BraiiiiiiinnnzzzZ - Zombie class implementation
-- **ex01**: Moar brainz! - Zombie horde
-- **ex02**: HI THIS IS BRAIN - References and pointers
-- **ex03**: Unnecessary violence - Weapon class with references
-- **ex04**: Sed is for losers - File manipulation
-- **ex05**: Harl 2.0 - Pointers to member functions
-- **ex06**: Harl filter - Switch statement
-
-
+- **ex00**: [BraiiiiiiinnnzzzZ - Zombie class implementation](Cpp01/ex00/)
+- **ex01**: [Moar brainz! - Zombie horde](Cpp01/ex01/)
+- **ex02**: [HI THIS IS BRAIN - References and pointers](Cpp01/ex02/)
+- **ex03**: [Unnecessary violence - Weapon class with references](Cpp01/ex03/)
+- **ex04**: [Sed is for losers - File manipulation](Cpp01/ex04/)
+- **ex05**: [Harl 2.0 - Pointers to member functions](Cpp01/ex05/)
+- **ex06**: [Harl filter - Switch statement](Cpp01/ex06/)
 
 ### Cpp02
 
 **Ad-hoc polymorphism, operator overloading, and Orthodox Canonical class Form.**
 
-#### Generic concepts
+<details>
+<summary>Generic concepts</summary>
 
 - What are fixed point numbers and why are they used for determinism across different processor architectures regardless of FPU presence
 - How they are created with bit shifting and how operations are performed with fixed point numbers
@@ -85,19 +87,20 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp04)
 - Overloaded operators for post-increment and pre-increment operations on numbers
 - Why you should return objects directly in overloaded arithmetic operations but return references in assignment operations (+=, -=, etc.)
 
+</details>
+
 #### Exercises
 
-- **ex00**: My First Class in Orthodox Canonical Form
-- **ex01**: Towards a more useful fixed-point number class
-- **ex02**: Now we're talking - Operator overloading
-
-
+- **ex00**: [My First Class in Orthodox Canonical Form](Cpp02/ex00/)
+- **ex01**: [Towards a more useful fixed-point number class](Cpp02/ex01/)
+- **ex02**: [Now we're talking - Operator overloading](Cpp02/ex02/)
 
 ### Cpp03
 
 **Inheritance in C++.**
 
-#### Generic concepts
+<details>
+<summary>Generic concepts</summary>
 
 - Inheritance
 - Inheritance of public, protected, and private attributes
@@ -117,21 +120,21 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp04)
 - Diamond classes and why you must inherit from the base class virtually to avoid duplicating the base part in the diamond class
 - Diamond class constructors must call the base class constructor
 
+</details>
+
 #### Exercises
 
-- **ex00**: Aaaaand... OPEN! - ClapTrap class
-- **ex01**: Serena, my love! - ScavTrap derived class
-- **ex02**: Repetitive work - FragTrap derived class
-- **ex03**: Now it's weird! - DiamondTrap (multiple inheritance)
-
-
+- **ex00**: [Aaaaand... OPEN! - ClapTrap class](Cpp03/ex00/)
+- **ex01**: [Serena, my love! - ScavTrap derived class](Cpp03/ex01/)
+- **ex02**: [Repetitive work - FragTrap derived class](Cpp03/ex02/)
+- **ex03**: [Now it's weird! - DiamondTrap (multiple inheritance)](Cpp03/ex03/)
 
 ### Cpp04
 
 **Subtype polymorphism, abstract classes and interfaces.**
 
-
-#### Generic concepts
+<details>
+<summary>Generic concepts</summary>
 
 - Polymorphism and memory scopes in polymorphism
 - Attribute hiding (shadowing)
@@ -143,18 +146,21 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp04)
 - Class composition and circular dependencies
 - Const references as return values in getters to save memory and ensure attribute encapsulation
 
+</details>
+
 #### Exercises
 
-- **ex00**: Polymorphism - Animal, Dog, Cat classes with virtual functions
-- **ex01**: I don't want to set the world on fire - Adding Brain class for deep copy
-- **ex02**: Abstract class - Animal as an abstract class with pure virtual function
-- **ex03**: Interface & recap - Materia system with interfaces (AMateria, ICharacter, IMateriaSource)
+- **ex00**: [Polymorphism - Animal, Dog, Cat classes with virtual functions](Cpp04/ex00/)
+- **ex01**: [I don't want to set the world on fire - Adding Brain class for deep copy](Cpp04/ex01/)
+- **ex02**: [Abstract class - Animal as an abstract class with pure virtual function](Cpp04/ex02/)
+- **ex03**: [Interface & recap - Materia system with interfaces (AMateria, ICharacter, IMateriaSource)](Cpp04/ex03/)
 
 ### Cpp05
 
 **Exceptions.**
 
-#### Generic concepts
+<details>
+<summary>Generic concepts</summary>
 
 - How `try`, `throw`, and `catch` clauses work.
 - Types of data that can be thrown with `throw`, the `std::exception` class, and why it is recommended to throw objects.
@@ -165,7 +171,10 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp04)
 - Why methods overriding `std::exception` methods should use the `throw()` clause to specify that the method will not throw another exception.
 - Nested classes are not constructed by default when using the constructor of the external class. They must be initialized in methods. Principles of nested class usage: **Cohesion Principle and Single Responsibility.**
 
-#### Best Practices
+</details>
+
+<details>
+<summary>Best Practices</summary>
 
 - Constructors that may throw errors due to invalid attribute values should only throw the error. The `try` and `catch` should be handled in `main` to avoid partially created objects in memory, which could lead to segmentation faults or undefined behavior.
 - Methods can have their own `try` and `catch` blocks for cleaner code.
@@ -176,14 +185,111 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp04)
   - Throw different types of objects for different errors to avoid confusion in `catch` blocks.
 - When functions or methods with `try` blocks call other functions or methods with their own `try` blocks, exceptions thrown in the lower-level function may be caught there, causing the higher-level code to not behave as expected. In such cases, it is important that the `try` and `catch` blocks are always in the higher-level function, while the lower-level function should only contain `throw` statements ot throw objects of different types for different errors.
 
+</details>
+
 #### Exercises
 
-- **ex00**: Bureaucrat - Implementation of a `Bureaucrat` class with grade validation and exception handling.
-- **ex01**: Form - Adding a `Form` class that interacts with the `Bureaucrat` class, including signing functionality.
-- **ex02**: Advanced Forms - Introduction of abstract forms (`AForm`) and specific form types like `PresidentialPardonForm`, `RobotomyRequestForm`, and `ShrubberyCreationForm`.
-- **ex03**: Intern - Implementation of an `Intern` class that can create forms dynamically based on input.
+- **ex00**: [Bureaucrat - Implementation of a Bureaucrat class with grade validation and exception handling](Cpp05/ex00/)
+- **ex01**: [Form - Adding a Form class that interacts with the Bureaucrat class, including signing functionality](Cpp05/ex01/)
+- **ex02**: [Advanced Forms - Introduction of abstract forms (AForm) and specific form types like PresidentialPardonForm, RobotomyRequestForm, and ShrubberyCreationForm](Cpp05/ex02/)
+- **ex03**: [Intern - Implementation of an Intern class that can create forms dynamically based on input](Cpp05/ex03/)
 
-#### Generic concepts
+
+### Cpp06
+
+**C++ casts and static_assert.**
+
+<details>
+<summary>Generic concepts</summary>
+
+- Types of casts in C++: `reinterpret_cast`, `static_cast`, `dynamic_cast`, and `const_cast`
+  - **`static_cast`**:
+    - Used for safe conversions between compatible types.
+    - Respects strict aliasing rules.
+    - Useful for upcasting and downcasting in class hierarchies without virtual functions.
+  - **`reinterpret_cast`**:
+    - Reinterprets the bits of memory regions.
+    - Does not respect type compatibility and breaks strict aliasing rules.
+    - Used for:
+      - Conversions between pointers of different class types.
+      - Serialization.
+      - Systems programming.
+      - Accessing memory-mapped regions.
+      - Drivers.
+      - Bootloaders.
+      - Embedded systems.
+  - **`dynamic_cast`**:
+    - Runtime type casting.
+    - Used for polymorphic class hierarchies with virtual functions.
+    - Behavior:
+      - For pointers: Performs downcasting and returns `nullptr` if the cast fails.
+      - For references: Throws exceptions of type `std::bad_cast` (derived from `std::exception`) if the cast fails.
+- Serialization and deserialization: standardization across different systems
+- Why `uintptr_t` can be used to represent pointers (`void*`): portability across systems with different architectures, serialization of types
+- Methods for converting `char*` to numeric types and parsing:
+  - `std::stringstream` from `<sstream>`
+  - `atoi`, `atol`, and `atof` from `<cstdlib>`
+  - `strtol`, `strtoll`, and `strtod` from `<cstdlib>`
+- `is` functions in C++ from `<cctype>`, `<cmath>`, and `<cfloat>`
+- `limits` functions from `<climits>` and `<limits>`
+- Base conversions
+- How to generate random numbers (seed + sequence)
+
+</details>
+
+#### Exercises
+
+- **ex00**: [Char* to Numeric Conversion - Using std::strtod and static_cast for type conversion](Cpp06/ex00/)
+- **ex01**: [Serialization and Deserialization - Using `reinterpret_cast` for pointer manipulation](Cpp06/ex01/)
+- **ex02**: [Dynamic Cast - Checking pointers in polymorphic class hierarchies](Cpp06/ex02/)
+
+
+
+
+### Cpp07
+
+**Templates and iterators.**
+
+<details>
+<summary>Generic concepts</summary>
+
+- What are templates in C++ and why they are used
+- Templates and type deduction:
+  - Function parameter templates:
+    - Templates with multiple function parameters.
+    - Templates with constant values and constant types.
+    - Specialized templates (specialized data types).
+  - Function templates (callbacks):
+    - Explicit declaration: function type (return and arguments are generic data).
+    - Implicit declaration (generic).
+    - Calling a template function with an argument that is not another template function (template callbacks).
+  - Memory address templates:
+    - When a generic data template allows memory addresses to be passed (cannot dereference inside the template function).
+    - When the template declaration specifies that the generic type is a pointer `function(T* ptr)`, dereferencing is allowed, but the compiler only accepts pointers.
+    - It is also possible to specify in the template function declaration that it is a reference or a pointer to a reference.
+  - Const data templates (const-correctness):
+    - When it is a generic function declaration and a const or non-const data is passed, it does not matter because a copy is made in the memory stack with the data as non-const (passing parameters by value).
+    - When it is a generic declaration with a reference, if the data passed is a reference, it directly points to the variable passed. If it is const, it remains const; if not, it does not remain const (passing parameters by reference).
+    - When it is specified in the parameter that it is a memory address, the const behaves like references: if the data was const, it remains const; if not, it does not remain const (passing by reference).
+    - When it is specified in the template that the generic data will be treated as `const T data`, if the parameter entered is non-const, it is treated as non-const; if it was const, it is also treated as const.
+- Class templates:
+  - How to create a class template.
+  - Method declarations must be in the `.h` file.
+  - Methods that return a template-type object can be declared with return type `Object&` or `Object<templatealias>&`.
+  - When instantiating a template-type object, it must be instantiated with `ObjectName<datatype> alias(constructor)`.
+  - When we want the template object to have its generic elements as const, it must be declared as `const ObjectName<datatype> alias(constructor)`.
+- Overloading the array index access operator within objects.
+- Class hierarchy for inheritance: `std::out_of_range`.
+
+</details>
+
+#### Exercises
+
+- **ex00**: [Template Functions - Creating functions using templates for generic data types, pointers, and references](Cpp07/ex00/)
+- **ex01**: [Iter Function Template - Implementing a template function that accepts generic types, including const and non-const pointers](Cpp07/ex01/)
+- **ex02**: [Template Array Class - Creating a template-based array class with const and non-const instantiations, overloaded operators, and exception handling](Cpp07/ex02/)
+
+
 
 
 ## Build
