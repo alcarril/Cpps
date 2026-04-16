@@ -13,55 +13,30 @@
 template<typename T>
 class MutantStack : public std::stack<T>
 {
-	private:
-		std::deque<T> deq;
-
 	public:
 		//Metodos de clase ortodoxa canonica
-		MutantStack() : deq() {}
-		MutantStack(const MutantStack& copy) : deq(copy.deq) {}
+		MutantStack() : std::stack<T>() {} // No hace falta porner el constructo de stack pero me apetece
+		MutantStack(const MutantStack& copy) : std::stack<T>(copy) {} // No hace falta porner el constructo de stack pero me apetece
 		MutantStack& operator=(const MutantStack& copy) {
 			if (this != &copy)
-				deq = copy.deq;
+				this->c = copy.c;
 			return *this;
 		}
 		~MutantStack() {}
-		//Metodo push es como un push_back
-		void push(const T& value) {
-			this->deq.push_back(value);
-		}
-		//Metodo pop() es como un pop_back()
-		void pop(void) {
-			this->deq.pop_back();
-		}
-		//Metodo size es como un size()
-		size_t size(void) const {
-			return this->deq.size();
-		}
-		//Metodo Empty es como un empty()
-		bool empty(void) const {
-			if (this->size() == 0)
-				return true;
-			else
-				return false;
-		}
-		//Metodo top() es como un back() o devolver un end - 1, se devuleve referencia para poder editar su valor originañl
-		T& top(void) {
-			return this->deq.back();
-		}
+
 		//Metodo clear() es clear() de deque
 		void clear(void) {
-			this->deq.clear();
+			this->c.clear();
 		}
 
 		class iterator
 		{
 			private:
-				typename std::deque<T>::iterator it;
+				typename std::stack<T>::container_type::iterator it;
 
 			public:
 				iterator() {}
-				iterator(typename std::deque<T>::iterator i) : it(i) {}
+				iterator(typename std::stack<T>::container_type::iterator i) : it(i) {}
 				iterator& operator=(const iterator& other) {
 					it = other.it;
 					return *this;
@@ -101,11 +76,12 @@ class MutantStack : public std::stack<T>
 		//No devolvemos un objeto de.begin() ->iteraror porque queremos que cunado usemos el metodo de mutantstack nos devulva un objeto
 		//tipo mutanstack::iterator.
 		iterator begin() { 
-			return iterator(deq.begin());
+			return iterator(this->c.begin());
 		}
 		iterator end() {
-			return iterator(deq.end());
+			return iterator(this->c.end());
 		}
 };
 
 #endif
+
