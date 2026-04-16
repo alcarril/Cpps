@@ -41,11 +41,11 @@ Brain& Brain::operator=(const Brain& copy) {
 // 	}
 // }
 
-const std::string (&Brain::getIdeas(void) const)[MAX_IDEAS] {
+const std::string (&Brain::getIdeas(void) const)[MAX_IDEAS] { //Devolver una referncia a un array de objetos
 	return _ideas;
 }
 
-void Brain::setIdeas(const std::string (&newIdeas)[MAX_IDEAS]) {
+void Brain::setIdeas(const std::string (&newIdeas)[MAX_IDEAS]) { //Recibe una referencia a un array de objetos
 	for (int i = 0; i < MAX_IDEAS; i++) {
 		this->_ideas[i] = newIdeas[i];
 	}
