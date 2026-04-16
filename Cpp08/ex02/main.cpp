@@ -32,4 +32,10 @@ int main(void) {
 	}
 	std::stack<int> s(Mutant);
 	std::cout << "El size de s es: " << s.size() << std::endl;
+
+	MutantStack<std::pair<std::string, int> > MutantPairs;
+	MutantPairs.push(std::pair<std::string, int>("juan", 5));
+	MutantStack<std::pair<std::string, int> >::iterator it2 = MutantPairs.begin();
+	std::cout << "El valor del primer par de mi classe mutant es: " << it2->first << std::endl;
+	std::cout << "El valor del segundo par de mi classe mutant es: " << it2->second << std::endl;
 }

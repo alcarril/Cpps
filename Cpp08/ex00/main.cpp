@@ -137,6 +137,7 @@ int main(void) {
 	posPlayers[1] = "fer"; //crear nuevos elementos del map con clave entera y valor string
 	posPlayers[2] = "paco"; //crear nuevos elementos del map con clave entera y valor string
 	posPlayers[3] = "Alex"; //crear nuevos elementos del map con clave entera y valor string
+	posPlayers.insert(std::pair<int, std::string>(4, "lucas")); //Insertar nuevos elementos usando pairs
 	std::map<int, std::string>::iterator lower = posPlayers.lower_bound(2);//Nos da el iterador a la primera posicion que es igual o mayor que el valor dado, en este caso 2
 	std::cout << "El intergrante del diccionario menor que 2 es: " << lower->second << std::endl; //impirme paco
 	std::map<int, std::string>::iterator upper = posPlayers.upper_bound(2); //Nos da el iterador a la primera posicion que es mayor que el valor dado, en este caso 2

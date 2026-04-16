@@ -8,6 +8,7 @@
 #include <exception>
 #include <algorithm>
 #include <stack>
+#include <utility>
 
 //Metodos simulados (tener en cuenta que la stack aunque esconga los valores inciales se refire a los del back del constendor, arrays->no rellalloc)
 template<typename T>
@@ -23,7 +24,6 @@ class MutantStack : public std::stack<T>
 			return *this;
 		}
 		~MutantStack() {}
-
 		//Metodo clear() es clear() de deque
 		void clear(void) {
 			this->c.clear();
@@ -72,6 +72,7 @@ class MutantStack : public std::stack<T>
 					return it != other.it;
 				}
 		};
+
 		//Metodo de begin, usamos el iterador de deque original, para construir un objeto iterator de mi clase a trve de el y devolverlo
 		//No devolvemos un objeto de.begin() ->iteraror porque queremos que cunado usemos el metodo de mutantstack nos devulva un objeto
 		//tipo mutanstack::iterator.
