@@ -13,11 +13,11 @@ int main(void) {
 
 	std::cout << "El valor del puntero _ptrData es: " << _ptrData << std::endl;
 	std::cout << "El valor del campo char es: " << _ptrData->caracter << std::endl;
-	if (_ptrData->_ptr != NULL)
-		std::cout << "El valor del campo char ptr* es: " << _ptrData->_ptr << std::endl;
+	if (_ptrData->_ptrChar != NULL)
+		std::cout << "El valor del campo char ptr* desreferenciado es: " << *(_ptrData->_ptrChar) << std::endl;
 	if (_ptrData->_ptrVoid != NULL)
-		std::cout << "El valor del campo void ptr*: " << _ptrData->_ptrVoid << std::endl;
-	std::cout << "El valor del campo int es: " << _ptrData->caracter << std::endl;
+		std::cout << "El valor del campo void ptr: " << _ptrData->_ptrVoid << std::endl;
+	std::cout << "El valor del campo char es: " << _ptrData->caracter << std::endl;
 
 	_raw = Serializer::serialize(_ptrData);
 	std::cout << "El valor del puntero serializado es: " << _raw << std::endl;

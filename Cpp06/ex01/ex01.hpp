@@ -7,7 +7,7 @@ typedef unsigned long uintptr_t;
 typedef struct s_Data
 {
 	char	caracter;
-	char	*_ptr;
+	char	*_ptrChar;
 	void	*_ptrVoid;
 	int		num;
 	double	numDecimal;

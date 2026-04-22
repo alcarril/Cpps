@@ -13,7 +13,7 @@
 class ScalarConverter
 {
 	public:
-		static void converter(char* input);
+		static void converter(const std::string& string);
 	private:
 		ScalarConverter();
 		~ScalarConverter();

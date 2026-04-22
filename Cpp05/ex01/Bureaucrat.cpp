@@ -45,7 +45,7 @@ void Bureaucrat::upGrade(void) {
 			std::cout << "Bureaucrat " << this->getName() << " upgraded to grade " << this->getGrade() << std::endl;
 		}
 	} catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cout << "Upgrading error: " << e.what() << std::endl;
 	}
 }
 
@@ -58,11 +58,11 @@ void Bureaucrat::downGrade(void) {
 			std::cout << "Bureaucrat " << this->getName() << " downgraded to grade " << this->getGrade() << std::endl;
 		}
 	} catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cout << "Downgrading error: " << e.what() << std::endl;
 	}
 }
 
-void Bureaucrat::signForm(Form& form) const{
+void Bureaucrat::signForm(Form& form) const {
 	try {
 		form.beSigned(*this);
 	} catch (std::exception& e) {

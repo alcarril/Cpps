@@ -15,14 +15,20 @@ Base * generate(void) {
 
 void identify(Base* p) {
 	A* _Aptr = dynamic_cast<A*>(p);
-	if (_Aptr != NULL)
+	if (_Aptr != NULL) {
 		std::cout << "A\n";
+		return ;
+	}
 	B* _Bptr = dynamic_cast<B*>(p);
-	if (_Bptr != NULL)
+	if (_Bptr != NULL) {
 		std::cout << "B\n";
+		return ;
+	}
 	C* _Cptr = dynamic_cast<C*>(p);
-	if (_Cptr != NULL)
+	if (_Cptr != NULL) {
 		std::cout << "C\n";
+		return ;
+	}
 }
 
 

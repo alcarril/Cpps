@@ -36,7 +36,7 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 			std::cout << this->target << " has been robotomized succesfully\n";
 		}
 		else {
-			throw std::logic_error("Robotomy failed!\n");
+			throw std::logic_error("Error executing: Robotomy failed!\n");
 		}
 	} catch (const std::logic_error& e) {
 		std::cerr << e.what();

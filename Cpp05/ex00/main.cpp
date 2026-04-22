@@ -34,6 +34,7 @@ int main(void) {
 	try {
 		b.downGrade();
 		b.downGrade();
+		b.downGrade();
 	} catch (const std::exception& e) {
 		std::cerr << "Error: " << e.what();
 	}

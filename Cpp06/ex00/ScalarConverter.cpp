@@ -2,6 +2,7 @@
 
 #include "ScalarConverter.hpp"
 
+//Pruebas:, ".0", "f", "0.f". "33f"
 
 ScalarConverter::ScalarConverter() {} ;
 
@@ -16,10 +17,15 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& copy) {
 	return *this;
 } ;
 
-void ScalarConverter::converter(char * input) {
+void ScalarConverter::converter(const std::string& string) {
+	char* input = const_cast<char *>(string.c_str());
 	if (input == NULL || *input == '\0') {
 		std::cerr << "Invalid input no convertsion posible\n";
 		return ;
+	}
+	if (*input == '.' && *(input + 1) != '\0') {
+		std::cerr << "Invalid input format: no possible conversion\n";
+		return;
 	}
 
 	char *endString;
@@ -30,38 +36,37 @@ void ScalarConverter::converter(char * input) {
 		std::cerr << "Invalid input: buffer overflow/underflow\n";
 		return ;
 	}
-	if (*endString != '\0' && !((*endString == 'f' && *(endString + 1) == '\0'))) {
-		if (endString == input && *(input + 1) == '\0') {
-			printTypeChar(static_cast<unsigned char>(*input));
-			return ;
-		}
-		std::cerr << "Invalid imput format: no posible conversion\n";
-		return ;
-	}
-	if (std::isnan(convertDouble))
-	{
+	if (std::isnan(convertDouble)) {
 		std::cout << "char: impossible\n";
 		std::cout << "int: impossible\n";
 		std::cout << "float: nanf\n";
 		std::cout << "double: nan\n";
 		return;
 	}
-	if (std::isinf(convertDouble))
-	{
+	if (std::isinf(convertDouble)) {
 		std::cout << "char: impossible\n";
 		std::cout << "int: impossible\n";
-
-		if (convertDouble < 0)
-		{
+		if (convertDouble < 0) {
 			std::cout << "float: -inff\n";
 			std::cout << "double: -inf\n";
 		}
-		else
-		{
+		else {
 			std::cout << "float: +inff\n";
 			std::cout << "double: +inf\n";
 		}
 		return;
+	}
+	if (*endString != '\0') {
+		if (endString == input && *(input + 1) == '\0') {
+			printTypeChar(static_cast<unsigned char>(*input));
+			return ;
+		}
+		if (!(*endString == 'f' && *(endString + 1) == '\0' && (endString - 1 > input))) {
+			if (*(endString - 2) != '.') {
+				std::cerr << "Invalid imput format: no posible conversion\n";
+				return ;
+			}
+		}
 	}
 	printChar(convertDouble);
 	printInt(convertDouble);

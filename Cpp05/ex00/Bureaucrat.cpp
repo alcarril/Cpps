@@ -46,7 +46,7 @@ void Bureaucrat::upGrade(void) {
 			std::cout << "Bureaucrat " << this->getName() << " upgraded to grade " << this->getGrade() << std::endl;
 		}
 	} catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cout << "Upgrading error: "<<  e.what() << std::endl;
 	}
 }
 
@@ -59,12 +59,12 @@ void Bureaucrat::downGrade(void) {
 			std::cout << "Bureaucrat " << this->getName() << " downgraded to grade " << this->getGrade() << std::endl;
 		}
 	} catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cout << "Downgrading error: " << e.what() << std::endl;
 	}
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
-	os << b.getName() << " bureaucrat grade " << b.getGrade() << std::endl;
+	os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
 	return os;
 }
 
