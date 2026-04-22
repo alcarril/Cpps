@@ -42,7 +42,7 @@ class Array
 			return *this;
 		} ;
 		Array(unsigned int idx) {
-			this->_ptrArray = new T[idx];
+			this->_ptrArray = new T[idx]; //Inicializa los valores a cero es como un calloc
 			this->nElements = idx;
 			std::cout << "Array parameter constrcutor called\n";
 		} ;

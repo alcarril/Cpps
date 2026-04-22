@@ -276,7 +276,7 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
     - Templates with constant values and constant types.
     - Specialized templates (specialized data types).
   - Function templates (callbacks):
-    - Explicit declaration: function type (return and arguments are generic data).
+    - Explicit declaration: function type (return and arguments are data types or the template).
     - Implicit declaration (generic).
     - Calling a template function with an argument that is not another template function (template callbacks).
   - Memory address templates:
@@ -284,10 +284,9 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
     - When the template declaration specifies that the generic type is a pointer `function(T* ptr)`, dereferencing is allowed, but the compiler only accepts pointers.
     - It is also possible to specify in the template function declaration that it is a reference or a pointer to a reference.
   - Const data templates (const-correctness):
-    - When it is a generic function declaration and a const or non-const data is passed, it does not matter because a copy is made in the memory stack with the data as non-const (passing parameters by value).
-    - When it is a generic declaration with a reference, if the data passed is a reference, it directly points to the variable passed. If it is const, it remains const; if not, it does not remain const (passing parameters by reference).
-    - When it is specified in the parameter that it is a memory address, the const behaves like references: if the data was const, it remains const; if not, it does not remain const (passing by reference).
-    - When it is specified in the template that the generic data will be treated as `const T data`, if the parameter entered is non-const, it is treated as non-const; if it was const, it is also treated as const.
+    - When passing a generic data type (by value) to a template, it does not matter if the template parameter is const or not, or if the argument is const or not. The compiler allows both, because a copy is made and type compatibility is ensured.
+    - When passing by reference, if the template is a non-const reference (e.g., `T&`) and the argument is const, there will be a type compatibility conflict and the compiler will give an error. If the template is a const reference (e.g., `const T&`), it accepts const, non-const, and temporaries without conflict.
+    - When the template parameter is a pointer (e.g., `T*`), passing a const or non-const pointer is allowed; the compiler will add const to the type if needed for compatibility. You can also use `const T*` in the template to ensure the pointer cannot modify the value it points to inside the function, or use `T* const` to ensure the pointer itself cannot change the address it points to.
 - Class templates:
   - How to create a class template.
   - Method declarations must be in the `.h` file.

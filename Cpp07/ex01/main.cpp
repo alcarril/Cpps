@@ -4,14 +4,14 @@
 
 int main() {
 	// Test 1: array de enteros
-	int arrInt[] = {1, 2, 3, 4, 5};
+	const int arrInt[] = {1, 2, 3, 4, 5};
 	const size_t lenInt = sizeof(arrInt) / sizeof(arrInt[0]);
 
 	std::cout << "Array de enteros antes de incrementar: ";
 	iter(arrInt, lenInt, print<int>);
 	std::cout << std::endl;
 	
-	iter(arrInt, lenInt, increment<int>);
+	// iter(arrInt, lenInt, increment<int>); // -> si se descomenta dara error de compilacion porque no podemos modificar un array de const
 
 	std::cout << "Array de enteros después de incrementar: ";
 	iter(arrInt, lenInt, print<int>);
