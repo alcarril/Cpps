@@ -4,6 +4,7 @@
 #define SPAN_HPP
 
 #include <iostream>
+#include <ctime>
 #include <exception>
 #include <algorithm>
 #include <set>

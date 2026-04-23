@@ -56,7 +56,7 @@ int Span::shortestSpan(void) const {
 	std::vector<int>::iterator itMin = std::min_element(aux.begin() + 1, aux.end());
 	if (*itMin < 0)
 		*itMin *= -1;
-	std::vector<int>::iterator itMax = std::max_element(aux.begin() + 1, aux.end());
+	std::vector<int>::iterator itMax = std::max_element(aux.begin() + 1, aux.end());//Esto se puede eliminar nunca ocurre
 	if (*itMin < *itMax)
 		return *itMin;
 	else
@@ -67,7 +67,9 @@ void Span::generateRandomNumbers(const unsigned int& n) {
 	if (n > this->maxElements)
 		throw std::logic_error("Too may elements\n");
 	else {
+		std::srand(std::time(0));
 		this->vec.resize(n);
+		//this->vec.clear(n);// esto es opcional
 		std::generate(this->vec.begin(), this->vec.end(), std::rand);
 		std::sort(this->vec.begin(), this->vec.end());
 		// for (std::vector<int>::iterator it = this->vec.begin(); it != this->vec.end(); ++it) {

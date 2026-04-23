@@ -255,6 +255,7 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
 
 
 
+
 ## Cpp07
 
 **Templates and iterators.**
@@ -295,6 +296,41 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
   - When we want the template object to have its generic elements as const, it must be declared as `const ObjectName<datatype> alias(constructor)`.
 - Overloading the array index access operator within objects.
 - Class hierarchy for inheritance: `std::out_of_range`.
+
+
+</details>
+
+
+## Cpp08
+
+**STL (Standard Template Library), iterators and some algorithms.**
+
+- **ex00**: [- Function template to find a value in any non-associative container using its iterator (tested with all standard containers: construction, method, iteration)](Cpp08/ex00/) 
+- **ex01**: [Span — Class with an internal container, limited size, methods to add elements, equality operators, and algorithms to find the shortest and longest span (difference) between elements. Includes automatic data generation.](Cpp08/ex01/)
+- **ex02**: [CMutantStack — Class inheriting from stack, specialized with an internal instantiable iterator, supporting increment, decrement, equality, comparison, dereference operators, and canonical constructors.](Cpp08/ex02/)
+
+<details>
+<summary>Generic Container Concepts</summary>
+
+ - Iterators:
+   - Iterators are nested objects that contain an attribute which is a pointer to the internal positions of the container's data structure.
+   - To instantiate them, you must use the object's scope operator: `Object::iterator iterator_name;`.
+   - They are used to traverse containers and reference internal positions within the container.
+   - Containers have the methods `begin()` and `end()`, which return an iterator pointing respectively to the first position of the container and to the position just after the last element of the container.
+   - In practice, they are used like pointers, since they are objects overloaded with ad-hoc polymorphism. Their main operations are: `it++`, `it--`, `++it`, `--it`, `*it` to access the value, `it` gives the memory address of the iterator object, `&(*it)` gives the memory address of the content pointed to by the iterator, and they support comparison and equality operations (`<`, `>`, `>=`, `<=`, `==`).
+   - When used in template functions (in the return type or function body), you must always use the `typename T::iterator` clause for the iterator, but you do not need to specify it in the function argument if the template expects to receive iterators (type deduction).
+   - Iterators are used to create template functions that can traverse containers regardless of their type and perform generic operations on them; most functions in the `<algorithm>` library are based on this principle. This makes them valid for most containers that have iterators, such as `std::vector`, `std::list`, `std::deque`, `std::set`, `std::map`, etc.
+   - When specializing a class by adding a nested iterator class, you should create the iterator using the iterator type of the internal container used by your class. If you don't know the exact type, you can use the pattern `typename ContainerType::iterator` to deduce it. For associative or specialized containers, you can use `typename ContainerType::container_type::iterator` to access the iterator type of the underlying container.
+
+ - Containers:
+    - Tipos de contenedores: secuenciales, asociativos, asociación.
+    - Métodos de los contenedores genéricos y métodos específicos de los contenedores.
+    - Formas de construir los contenedores según su tipo.
+    - Firmas de acceso a los contenedores (iteradores, acceso aleatorio mediante operadores de sobrecarga y mediante métodos específicos).
+    - Funcionamiento interno de los operadores de sobrecarga de los contenedores.
+- Algoritmos de la STL: `std::sort`, `std::find`, `std::count`, `std::count_if`, `std::distance`, `std::advance`, `std::next`, `std::prev`, `std::min_element`, `std::max_element`, adjacent_find`, etc.
+</details>
+
 
 </details>
 

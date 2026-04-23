@@ -14,14 +14,14 @@ int main(void) {
 	Span ConstructorSpan(3);
 	try {
 		ConstructorSpan.addNumber(5);
-		ConstructorSpan.addNumber(5);
-		ConstructorSpan.addNumber(5);
+		ConstructorSpan.addNumber(12);
+		ConstructorSpan.addNumber(2);
 		//aqui se pueden añadir elementos
 		int longest = ConstructorSpan.longestSpan();
 		std::cout << "la mayor diferencias es : " << longest << std::endl;
 		int sortest = ConstructorSpan.shortestSpan();
 		std::cout << "la menor diferencias es: " << sortest << std::endl;
-		ConstructorSpan.generateRandomNumbers(2);
+		ConstructorSpan.generateRandomNumbers(3);
 		int longest1 = ConstructorSpan.longestSpan();
 		std::cout << "la mayor diferencias es : " << longest1 << std::endl;
 		int sortest1 = ConstructorSpan.shortestSpan();
