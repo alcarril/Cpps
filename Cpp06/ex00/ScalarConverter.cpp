@@ -32,10 +32,6 @@ void ScalarConverter::converter(const std::string& string) {
 	errno = 0;
 	double convertDouble = strtod(input, &endString);
 
-	if (errno == ERANGE) {
-		std::cerr << "Invalid input: buffer overflow/underflow\n";
-		return ;
-	}
 	if (std::isnan(convertDouble)) {
 		std::cout << "char: impossible\n";
 		std::cout << "int: impossible\n";
@@ -61,11 +57,9 @@ void ScalarConverter::converter(const std::string& string) {
 			printTypeChar(static_cast<unsigned char>(*input));
 			return ;
 		}
-		if (!(*endString == 'f' && *(endString + 1) == '\0' && (endString - 1 > input))) {
-			if (*(endString - 2) != '.') {
-				std::cerr << "Invalid imput format: no posible conversion\n";
-				return ;
-			}
+		if (!(*endString == 'f' && *(endString + 1) == '\0')) {
+			std::cerr << "Invalid imput format: no posible conversion\n";
+			return ;
 		}
 	}
 	printChar(convertDouble);
