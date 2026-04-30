@@ -57,9 +57,16 @@ void ScalarConverter::converter(const std::string& string) {
 			printTypeChar(static_cast<unsigned char>(*input));
 			return ;
 		}
-		if (!(*endString == 'f' && *(endString + 1) == '\0')) {
-			std::cerr << "Invalid imput format: no posible conversion\n";
-			return ;
+		if (*endString == 'f') {
+			if (*(endString + 1) != '\0') {
+				std::cerr << "Invalid imput format: no posible conversion\n";
+				return ;
+			}
+			size_t pos = string.find(".");
+			if (pos == std::string::npos || !((pos + 1) < static_cast<size_t>(endString - input))) {
+				std::cerr << "Invalid imput format: no posible conversion\n";
+				return ;
+			}
 		}
 	}
 	printChar(convertDouble);
