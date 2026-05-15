@@ -23,7 +23,7 @@ void ScalarConverter::converter(const std::string& string) {
 		std::cerr << "Invalid input no convertsion posible\n";
 		return ;
 	}
-	if (*input == '.' && *(input + 1) != '\0') {
+	if (*input == '.' && *(input + 1) != '\0') { //Caso de .0 strdod se lo come
 		std::cerr << "Invalid input format: no possible conversion\n";
 		return;
 	}
@@ -53,20 +53,24 @@ void ScalarConverter::converter(const std::string& string) {
 		return;
 	}
 	if (*endString != '\0') {
-		if (endString == input && *(input + 1) == '\0') {
+		if (endString == input && *(input + 1) == '\0') { //Casos de letras sueltas
 			printTypeChar(static_cast<unsigned char>(*input));
 			return ;
 		}
 		if (*endString == 'f') {
-			if (*(endString + 1) != '\0') {
+			if (*(endString + 1) != '\0') { //caso de 77f7
 				std::cerr << "Invalid imput format: no posible conversion\n";
 				return ;
 			}
 			size_t pos = string.find(".");
-			if (pos == std::string::npos || !((pos + 1) < static_cast<size_t>(endString - input))) {
-				std::cerr << "Invalid imput format: no posible conversion\n";
+			if (pos == std::string::npos || !((pos + 1) < static_cast<size_t>(endString - input))) { // casos: 66.f / 77f
+				std::cerr << "Invalid imput format: no posible conversiona\n";
 				return ;
 			}
+		}
+		else {
+			std::cerr << "Invalid imput format: no posible conversiona\n"; //resto de casos: 66a66 / aaa / 66.66.66 / 77.7.f
+			return ;
 		}
 	}
 	printChar(convertDouble);
