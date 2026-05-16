@@ -4,6 +4,37 @@
 
 This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09).
 
+# Build
+
+Each exercise contains a Makefile. To compile an exercise:
+
+```bash
+cd CppXX/exXX
+make
+```
+
+### Makefile targets
+
+```
+make | make all    - Compile the program
+make clean        - Remove object files
+make fclean       - Remove object files and executable
+make re           - Recompile everything
+make debug        - Clean rebuild with debug flags (address sanitizer)
+```
+
+## Requirements
+
+```
+C++ compiler (c++)
+C++98 standard
+Make
+```
+
+## MODULES
+
+Each module includes exercise links and a cheat-sheet section of the C++ concepts used in that module.
+
 
 
 
@@ -335,29 +366,40 @@ This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09)
 </details>
 
 
-## Build
+## Cpp09
 
-Each exercise contains a Makefile. To compile an exercise:
+**STL containers, parsing, and algorithmic complexity.**
 
-```bash
-cd CppXX/exXX
-make
-```
+#### Exercises
 
-### Makefile targets
+- **ex00**: [Bitcoin Exchange - Parsing input data and computing exchange rates](Cpp09/ex00/)
+- **ex01**: [RPN - Reverse Polish Notation evaluator using a stack](Cpp09/ex01/)
+- **ex02**: [PmergeMe - Merge-insert sort on std::vector and std::deque](Cpp09/ex02/)
 
-- `make` or `make all` - Compile the program
-- `make clean` - Remove object files
-- `make fclean` - Remove object files and executable
-- `make re` - Recompile everything
-- `make debug` - Clean rebuild with debug flags (address sanitizer)
+<details>
+<summary>Generic concepts</summary>
 
-## Requirements
+- Parsing structured text (CSV/space-delimited) with robust validation
+	- Advanced use of `std::string` and `std::stringstream` for parsing-oriented workflows
+	- Advanced casts and `ctype` functions for parsing checks and validations
+- Choosing containers per exercise based on use case and performance optimizations
+	- Using associative containers (`std::map`) for lookups and ordered traversal
+	- Stack-based evaluation for expressions (RPN)
+	- Using sequential containers (`std::vector`, `std::deque`) for sorting and dynamic resizing
+- Algorithmic complexity: comparing container performance and scaling
+- Hybrid merge-insert sort and timing comparisons across containers
+- Iterator usage and range-based operations with the STL
 
-- C++ compiler (c++)
-- C++98 standard
-- Make
+</details>
 
-## Author
 
-alcarril
+## Resources
+
+- https://en.cppreference.com/
+- https://cplusplus.com/
+- https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
+
+
+## Author 👨‍💻
+
+alcarril - https://github.com/alcarril
