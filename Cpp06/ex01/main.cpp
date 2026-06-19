@@ -1,6 +1,7 @@
 
 
 #include "Serializer.hpp"
+#include "ex01.hpp"
 
 int main(void) {
 	char a = 'v';

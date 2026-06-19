@@ -22,10 +22,10 @@ void FileManager::selectInFile(std::fstream& inputFile) {
 //creates the outfile, if a file was already open, since the object is not destroyed
 //between method calls, it closes it to avoid leaving open file descriptors
 bool FileManager::createOutFile(const std::string &name) {
-	if (outFile.is_open())
-		outFile.close();
-	outFile.open(name.c_str(), std::ios::out | std::ios::in | std::ios::trunc);
-	if (!outFile.is_open())
+	if (this->outFile.is_open())
+		this->outFile.close();
+	this->outFile.open(name.c_str(), std::ios::out | std::ios::in | std::ios::trunc);
+	if (!this->outFile.is_open())
 	{
 		std::cerr << "Error: No se pudo crear el archivo de salida: ";
 		std::cerr << name << std::endl;

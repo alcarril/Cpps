@@ -110,13 +110,15 @@ Fixed Fixed::operator/(const Fixed& other) const {
 	return result;
 }
 
-// Pre-incremento
+// Pre-incremento: se devuelve un referencia al objeto actual porque se modifica, tambien sepo
+//dria devolver el objeto actual pero no es lo mas eficiente, se hace asi para que se pueda encadenar
 Fixed& Fixed::operator++() {
 	this->fixedNum++;
 	return *this;
 }
 
-// Post-incremento
+// Post-incremento: se tienen que devilver un pbjeto, ya que le orginal se modifica pero el valor
+//que se devuelve es el elorignal. una refernecia  amameria local no vale porque se destruye la salir de la funcion
 Fixed Fixed::operator++(int) {
 	Fixed temp = *this;
 	this->fixedNum++;

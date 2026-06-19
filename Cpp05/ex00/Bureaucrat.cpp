@@ -28,7 +28,6 @@ Bureaucrat::~Bureaucrat() {
 	std::cout << "Bureaucrat default destrcutor called\n";
 }
 
-
 const int& Bureaucrat::getGrade(void) const {
 	return this->grade;
 }

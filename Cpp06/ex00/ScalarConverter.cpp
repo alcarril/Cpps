@@ -2,8 +2,7 @@
 
 #include "ScalarConverter.hpp"
 
-//Pruebas:, ".0", "f", "0.f". "33f"
-
+//Pruebas:, ".0", "f", "0.f". "33f" "4." "." "0."
 ScalarConverter::ScalarConverter() {} ;
 
 ScalarConverter::~ScalarConverter() {} ;
@@ -72,6 +71,10 @@ void ScalarConverter::converter(const std::string& string) {
 			std::cerr << "Invalid imput format: no posible conversiona\n"; //resto de casos: 66a66 / aaa / 66.66.66 / 77.7.f
 			return ;
 		}
+	}
+	if (*(endString - 1) == '.') {
+		std::cerr << "Invalid imput format: no posible conversion\n";
+		return ;
 	}
 	printChar(convertDouble);
 	printInt(convertDouble);

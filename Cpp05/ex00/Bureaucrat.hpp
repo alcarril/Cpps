@@ -7,10 +7,10 @@
 #include <exception>
 
 /*
+	//principios de diseño:
 	sigle responsability, 
 	Clases anidadas -> encapulacion de diseño y principio de cohesion
 */
-//principios de diseño:
 class Bureaucrat
 {
 	private:
@@ -34,7 +34,7 @@ class Bureaucrat
 			public:
 				GradeTooHighException();
 				GradeTooHighException(const std::string &name);
-				virtual const char* what() const throw();
+				virtual const char* what() const throw();//el virtual sobra
 				~GradeTooHighException() throw();
 		};
 		class GradeTooLowException : public std::exception
@@ -44,7 +44,7 @@ class Bureaucrat
 			public:
 				GradeTooLowException();
 				GradeTooLowException(const std::string &name);
-				virtual const char* what() const throw();
+				virtual const char* what() const throw();//el cirtual sobra
 				~GradeTooLowException() throw();
 		};
 } ;
