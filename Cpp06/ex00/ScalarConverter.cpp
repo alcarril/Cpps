@@ -99,7 +99,7 @@ void ScalarConverter::printChar(double convertDouble) {
 }
 
 void ScalarConverter::printTypeChar(unsigned char caracter) {
-	if (caracter < CHAR_MIN || caracter > CHAR_MAX)
+	if (caracter < 0 || caracter > CHAR_MAX)
 		std::cout << "char: out of range\n";
 	else {
 		char c = static_cast<char>(caracter);
