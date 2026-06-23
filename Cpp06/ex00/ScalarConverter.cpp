@@ -2,7 +2,12 @@
 
 #include "ScalarConverter.hpp"
 
-//Pruebas:, ".0", "f", "0.f". "33f" "4." "." "0."
+/*
+	Pruebas:
+		- Validas que pareces que no lo tendrian que ser: .0 , 55. , 44.f , .88f
+		- No validas: 44f , 44f. , 666.66. , 44a , .76.
+
+*/
 ScalarConverter::ScalarConverter() {} ;
 
 ScalarConverter::~ScalarConverter() {} ;
@@ -21,10 +26,6 @@ void ScalarConverter::converter(const std::string& string) {
 	if (input == NULL || *input == '\0') {
 		std::cerr << "Invalid input no convertsion posible\n";
 		return ;
-	}
-	if (*input == '.' && *(input + 1) != '\0') { //Caso de .0 strdod se lo come
-		std::cerr << "Invalid input format: no possible conversion\n";
-		return;
 	}
 
 	char *endString;
@@ -62,19 +63,15 @@ void ScalarConverter::converter(const std::string& string) {
 				return ;
 			}
 			size_t pos = string.find(".");
-			if (pos == std::string::npos || !((pos + 1) < static_cast<size_t>(endString - input))) { // casos: 66.f / 77f
-				std::cerr << "Invalid imput format: no posible conversiona\n";
+			if (pos == std::string::npos) { // 77f
+				std::cerr << "Invalid imput format: no posible conversion\n";
 				return ;
 			}
 		}
 		else {
-			std::cerr << "Invalid imput format: no posible conversiona\n"; //resto de casos: 66a66 / aaa / 66.66.66 / 77.7.f
+			std::cerr << "Invalid imput format: no posible conversion\n"; //resto de casos: 66a66 / aaa / 66.66.66 / 77.7.f
 			return ;
 		}
-	}
-	if (*(endString - 1) == '.') {
-		std::cerr << "Invalid imput format: no posible conversion\n";
-		return ;
 	}
 	printChar(convertDouble);
 	printInt(convertDouble);
@@ -99,7 +96,7 @@ void ScalarConverter::printChar(double convertDouble) {
 }
 
 void ScalarConverter::printTypeChar(unsigned char caracter) {
-	if (caracter < 0 || caracter > CHAR_MAX)
+	if (caracter > CHAR_MAX)
 		std::cout << "char: out of range\n";
 	else {
 		char c = static_cast<char>(caracter);
