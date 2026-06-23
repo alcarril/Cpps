@@ -39,10 +39,41 @@ int main() {
 	iter(arrStr, lenStr, print<std::string>);
 	std::cout << std::endl;
 
-	iter(arrStr, lenStr, append_exclamation);
+	iter(arrStr, lenStr, appendExclamation);
 
 	std::cout << "Array de strings después de append_exclamation: ";
 	iter(arrStr, lenStr, print<std::string>);
+	std::cout << std::endl;
+
+	//Extra test:
+	//Test 4: Funcion con punteros
+	int arrInts[] = {3, 4}; //No puede ser const
+	const size_t lenInts = sizeof(arrStr) / sizeof(arrStr[0]);
+
+	std::cout << std::endl;
+	std::cout << "Array de numeros antes de modficacion por puntero: ";
+	iter(arrInts, lenInts, print<int>);
+	std::cout << std::endl;
+
+	iter2(arrInts, lenInts, ptrNoconst<int>);
+		
+	std::cout << "Array de numeros después de modficacion por puntero: ";
+	iter(arrInts, lenInts, print<int>);
+	std::cout << std::endl;
+
+	//Test 5: Funcion con punteros const
+	const int arrInts2[] = {99, 100}; //podemos ponerle un const o un no const
+	const size_t lenInts2 = sizeof(arrStr) / sizeof(arrStr[0]);
+
+	std::cout << std::endl;
+	std::cout << "Array de numeros const antes de la fucion: ";
+	iter(arrInts2, lenInts2, print<int>);
+	std::cout << std::endl;
+
+	iter2(arrInts2, lenInts2, ptrconst<int>);
+		
+	std::cout << "Array de numeros const después de la fucnion: ";
+	iter(arrInts2, lenInts2, print<int>);
 	std::cout << std::endl;
 
 	return 0;
