@@ -39,5 +39,8 @@ int main() {
 	} catch (const std::exception& e) {
 		std::cerr << "Fallo en el acceso al array " << e.what() << "\n";
 	}
+	//Pruebas de const
+	const Array<int> numbers2(numbers);
+	numbers[1] = numbers2[1]; // `rueba de lso const arrays
 	return 0;
 }
