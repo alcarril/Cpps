@@ -52,13 +52,17 @@ class Array
 			return this->nElements;
 		};
 
-		T& operator[](unsigned int index) { //devolvemos el elemento como referencia para que sea modificable
-			if (index >= this->nElements)
+		T& operator[](int index) { //devolvemos el elemento como referencia para que sea modificable
+			if (index < 0)
+				throw std::out_of_range("Index out of bounds");
+			if (static_cast<unsigned int>(index) >= this->nElements)
 				throw std::out_of_range("Index out of bounds");
 			return _ptrArray[index];
 		}
-		const T& operator[](unsigned int index) const { //polimorfismo add-hoc para objetos const sino habria conflito por los tempalte putneros visto en anterior ejs
-			if (index >= this->nElements)
+		const T& operator[](int index) const { //polimorfismo add-hoc para objetos const sino habria conflito por los tempalte putneros visto en anterior ejs
+			if (index < 0)
+				throw std::out_of_range("Index out of bounds");
+			if (static_cast<unsigned int>(index) >= this->nElements)
 				throw std::out_of_range("Index out of bounds");
 			return _ptrArray[index];
 		}

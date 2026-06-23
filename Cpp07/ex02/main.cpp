@@ -42,5 +42,11 @@ int main() {
 	//Pruebas de const
 	const Array<int> numbers2(numbers);
 	numbers[1] = numbers2[1]; // `rueba de lso const arrays
+	//Prueba de accedos negativos
+	try {
+		words[-3] = "lolo";
+	} catch(std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
 	return 0;
 }
