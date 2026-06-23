@@ -32,7 +32,7 @@ class Array
 			std::cout << "Array equal operator called\n";
 			if (this == &copy)
 				return *this;
-			if (this->_ptrArray != NULL)
+			if (this->_ptrArray != NULL) //para el deep copy
 				delete[] _ptrArray;
 			this->_ptrArray = new T[copy.nElements];
 			for (unsigned int i = 0; i < copy.nElements; i++) {
@@ -52,12 +52,12 @@ class Array
 			return this->nElements;
 		};
 
-		T& operator[](unsigned int index) {
+		T& operator[](unsigned int index) { //devolvemos el elemento como referencia para que sea modificable
 			if (index >= this->nElements)
 				throw std::out_of_range("Index out of bounds");
 			return _ptrArray[index];
 		}
-		const T& operator[](unsigned int index) const {
+		const T& operator[](unsigned int index) const { //polimorfismo add-hoc para objetos const sino habria conflito por los tempalte putneros visto en anterior ejs
 			if (index >= this->nElements)
 				throw std::out_of_range("Index out of bounds");
 			return _ptrArray[index];

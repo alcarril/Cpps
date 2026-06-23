@@ -4,7 +4,7 @@
 
 int main() {
 	//Declaraciones de arrays de int
-	Array<int> numbers(5);
+	Array<int> numbers(5); //las clases templete simpre se tiene que especificar el tipo de dato que contienen
 	Array<int> copy(numbers);
 	const Array<int> constArray(3);
 	//declaraciones de arrays de strings
