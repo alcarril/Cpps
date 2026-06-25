@@ -251,7 +251,7 @@ int main(void) {
 	std::generate(vec1.begin(), vec1.end(), std::rand);
 	vec1[3] = 465546;
 	try {
-		std::vector<int>::const_iterator vecIt = easyFind(vec1, 44); //Si campbio el valor puede que no este
+		std::vector<int>::const_iterator vecIt = easyFind(vec1, 465546); //Si campbio el valor puede que no este
 		std::cout << "El valor de vecIt es: " << *vecIt << std::endl;
 	} catch (std::exception& e) {
 		std::cerr << e.what() << std::endl; 
@@ -259,7 +259,27 @@ int main(void) {
 	
 
 	//Con deque -> Por hacer pero mismo funcionamiento
+
+	std::deque<int> deq12(5);
+	deq12.push_back(3);
+	deq12.push_front(4);
+	deq12.push_back(5);
+	try {
+		std::deque<int>::const_iterator deqiter = easyFind(deq12, 3);
+		std::cout << "Elemento encontrado en deque: " << *deqiter << std::endl;
+	} catch (std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
 	//Con list -> por hacer pero mismo funcionamiento
+	std::list<int> list12(5);
+	list12.push_back(3);
+	list12.push_front(4);
+	try {
+		std::list<int>::const_iterator listiter = easyFind(list12, 4);
+		std::cout << "Elemento encontrado en list: " << *listiter << std::endl;
+	} catch (std::exception& e) {
+		std::cerr << e.what() << std::endl;
+	}
 	//El resto no se pueden porque no se contemplan en el enunciado o no tienen iteradores
 
 }

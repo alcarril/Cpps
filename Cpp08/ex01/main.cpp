@@ -14,7 +14,7 @@ int main(void) {
 	Span ConstructorSpan(3);
 	try {
 		ConstructorSpan.addNumber(5);
-		ConstructorSpan.addNumber(12);
+		ConstructorSpan.addNumber(-12);
 		ConstructorSpan.addNumber(2);
 		//aqui se pueden añadir elementos
 		int longest = ConstructorSpan.longestSpan();
@@ -33,7 +33,7 @@ int main(void) {
 
 	Span ConstructorSpan1(2);
 	try {
-		ConstructorSpan1.addNumber(5);
+		ConstructorSpan1.addNumber(78);
 		ConstructorSpan1.addNumber(78);
 		//aqui se pueden añadir elementos
 	} catch (std::exception& e) {

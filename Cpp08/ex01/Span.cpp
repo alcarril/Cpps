@@ -69,7 +69,7 @@ void Span::generateRandomNumbers(const unsigned int& n) {
 	else {
 		std::srand(std::time(0));
 		this->vec.resize(n);
-		//this->vec.clear(n);// esto es opcional
+		//this->vec.clear(n);// esto es opcional porque ya lo hace generate, pero lo dejo para que se vea que se puede hacer
 		std::generate(this->vec.begin(), this->vec.end(), std::rand);
 		std::sort(this->vec.begin(), this->vec.end());
 		// for (std::vector<int>::iterator it = this->vec.begin(); it != this->vec.end(); ++it) {
