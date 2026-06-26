@@ -66,20 +66,20 @@ void BitcoinExchange::loadDBdataRates(void) {
 			if (dotPos != rawLine.npos) {
 				std::string dateK = rawLine.substr(0, dotPos); 
 				if (!this->checkDatesFormat(dateK))
-					throw std::logic_error("Loading DataBase Error: Invalid Date in one line\n");
+					throw std::logic_error("Invalid Date in one line\n");
 				std::string value2 = rawLine.substr(dotPos + 1);
 				double value = this->CheckValuesCsv(value2);
 				std::pair<std::map<std::string, double>::iterator, bool> res = this->BtcRates.insert(std::pair<std::string, double>(dateK, value));
 				if (res.second == false)
-					throw std::logic_error("Loading DataBase Error: Dates can`t be duplicate\n");
+					throw std::logic_error("Dates can`t be duplicate\n");
 			}
 			else
-				throw std::logic_error("Loading DataBase Error: Invalid line format\n");
+				throw std::logic_error("Invalid line format\n");
 			rawLine.clear();
 		}
 	}
 	else {
-		throw std::runtime_error("Loading DataBase Error: File couldn't be open\n");
+		throw std::runtime_error("File couldn't be open\n");
 	}
 }
 
@@ -100,24 +100,28 @@ void BitcoinExchange::PrintExchangePOT(void) {
 	std::stringstream s;
 	std::string lex;
 	int control = 0;
+	int control2 = 0;
 	if (this->PriceOvertimeName.empty())
 		throw std::logic_error("Loading Prices Over Time Csv Error: No file selected\n");
 	this->FbitcoinPOT.open(this->PriceOvertimeName.c_str(), std::ios::in);
 	if (this->FbitcoinPOT.is_open()) {
 		while (std::getline(this->FbitcoinPOT, rawLine)) {
+			if (control == 0) {
+				if (rawLine.empty()) 
+					control2 = 1;
+				control++;
+				continue;
+			}
 			try {
 				std::stringstream s(rawLine);
 				std::string lex[3];
 				int i = 0;
-				if (control != 0) {
-					control++;
-					continue;
-				}
 				while (s >> lex[i]) {i++;}
-				if (i != 3 || !this->checkDatesFormat(lex[0]) || lex[1] != "|") {
+				if (i != 3 || lex[1] != "|") {
 					std::string msg = "Error: bad input => " + rawLine + "\n";
 					throw std::logic_error(msg);
 				}
+				this->checkDatesFormat(lex[0]);
 				double value = this->CheckValuesPOT(lex[2]);
 				std::map<std::string, double>::iterator it = this->BtcRates.find(lex[0]);
 				if (it == this->BtcRates.end()) {
@@ -130,11 +134,14 @@ void BitcoinExchange::PrintExchangePOT(void) {
 			} catch (std::exception& e) {
 				std::cerr << e.what();
 			}
+			control++;
 			rawLine.clear();
 		}
+		if (control2 == 1)
+			throw std::logic_error("Loading Prices Over Time Csv Error: Empty file\n");
 	}
 	else {
-		throw std::runtime_error("Loading DataBase Error: File couldn't be open\n");
+		throw std::runtime_error("Loading DataBase POT Error: File couldn't be open\n");
 	}
 	this->FbitcoinPOT.clear();
 	this->FbitcoinPOT.seekg(0, std::ios::beg);
@@ -148,6 +155,7 @@ void BitcoinExchange::PrintExchangePOT(void) {
 		Que las fechas no sean futuras (faltaria)
 */
 bool BitcoinExchange::checkDatesFormat(std::string& date) const {
+
 	if (date.length() != 10 || date[4] != '-' || date[7] != '-')
 		return false;
 	for (size_t i = 0; i < date.length(); i++) {
@@ -155,7 +163,49 @@ bool BitcoinExchange::checkDatesFormat(std::string& date) const {
 			return false;
 		}
 	}
-	//Faltaria comporbacion de que las fechas no sean futuras
+
+	//Comprobacion de formatos de fechas validas -> Funciona
+	std::string lex[3];
+	std::stringstream dateTemp(date);
+	std::string token;
+	int i = 0;
+	while (i < 3 && std::getline(dateTemp, token, '-')) {
+		lex[i] = token;
+		//Igual se necesita un otcker.clear()
+		i++;
+	}
+	if (lex[1] == "02" && ((std::atoi(lex[0].c_str()) % 4 == 0 && lex[2] > "29") || lex[2] > "28")) {
+		std::string msg = "Error: Invalid date format: " + date + "\n";
+		throw std::logic_error(msg);
+	}
+	if (lex[0] == "0000" || lex[1] == "00" || lex[2] == "00") {
+		std::string msg = "Error: Invalid date format: " + date + "\n";
+		throw std::logic_error(msg);
+	}
+	if (lex[1] > "12") {
+		std::string msg = "Error: Invalid date format: " + date + "\n";
+		throw std::logic_error(msg);
+	}
+	if ((lex[1] == "04" || lex[1] == "06" || lex[1] == "09" || lex[1] == "11") && lex[2] > "30") {
+		std::string msg = "Error: Invalid date format: " + date + "\n";
+		throw std::logic_error(msg);
+	}
+
+	//compbacion de que no esmos poniendo una fecha a futuro -> Fucniona
+	static bool control;
+	static std::string currentDateString;
+	if (control == false) {
+		std::time_t t = std::time(NULL);
+		std::tm* now = std::localtime(&t);
+		control = true;
+		static std::stringstream currentDate;
+		currentDate << now->tm_year + 1900 << "-" << now->tm_mon + 1 << "-" << now->tm_mday;
+		currentDate >> currentDateString;
+	}
+	if (date > currentDateString) {
+		std::string msg = "Error: Invalid date format: " + date + "\n";
+		throw std::logic_error(msg);
+	}
 	return true;
 }
 
@@ -176,7 +226,7 @@ double BitcoinExchange::CheckValuesPOT(std::string & value) const {
 			if (*(endString + 1) != '\0')
 				throw std::logic_error("Error: No numeric value\n");
 			size_t pos = value.find(".");
-			if (pos == std::string::npos || !((pos + 1) < static_cast<size_t>(endString - input)))
+			if (pos == std::string::npos)
 				throw std::logic_error("Error: No numeric value\n");
 		}
 	}
@@ -206,7 +256,7 @@ double BitcoinExchange::CheckValuesCsv(std::string & value) const {
 			if (*(endString + 1) != '\0')
 				throw std::logic_error("Loading DataBase Error: No numeric value in one line\n");
 			size_t pos = value.find(".");
-			if (pos == std::string::npos || !((pos + 1) < static_cast<size_t>(endString - input)))
+			if (pos == std::string::npos)
 				throw std::logic_error("Loading DataBase Error: No numeric value in one line\n");
 		}
 	}

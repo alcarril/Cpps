@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <exception>
 #include <map>
+#include <ctime>
 
 
 class BitcoinExchange

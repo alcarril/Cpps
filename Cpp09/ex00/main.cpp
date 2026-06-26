@@ -16,7 +16,7 @@ int main(int argz, char **argv)
 		Exchage.setInput(std::string(argv[1]));
 		Exchage.PrintExchangePOT();
 	} catch (std::exception& e) {
-		std::cerr << e.what();
+		std::cerr << "Loading DataBase Error: " << e.what();
 	}
 	return (0);
 }

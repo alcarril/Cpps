@@ -20,6 +20,8 @@ debug: fclean $(NAME)
 
 clean:
 	rm -f $(OBJS)
+	rm -rf error_log
+	rm -rf valid
 
 fclean: clean
 	rm -f $(NAME)
