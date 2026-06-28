@@ -74,7 +74,7 @@ int main(int argz, char **argv)
 	const std::vector<int>& sortedVec = m.getShortVector();
 	const std::deque<int>& sortedDeque = m.getShortDeque();
 	printContainerformat(inputVec, sortedVec);
-	printContainerformat(inputDeque, sortedDeque);
+	// printContainerformat(inputDeque, sortedDeque); ->Formato enunciado
 
 	std::cout << "Time to process a range of " << sortedVec.size()
 			<< " elements with std::vector : "

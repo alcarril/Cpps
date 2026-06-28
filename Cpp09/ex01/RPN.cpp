@@ -39,7 +39,7 @@ void RPN::DiplayRPN(void) {
 		else if (lex[0] != '*' && lex[0] != '/' && lex[0] != '+' && lex[0] != '-') {
 			throw std::logic_error("Error\n");
 		}
-		else if (this->result.size() < 2)
+		else if (this->result.size() < 2) 
 			throw std::logic_error("Error\n");
 		else if (lex[0] == '*') {
 			op1 = this->result.top();
@@ -73,7 +73,8 @@ void RPN::DiplayRPN(void) {
 			throw std::logic_error("Error\n");
 		lex.clear();
 	}
-	if (this->result.size() != 1)
+	if (this->result.size() != 1) {
 		throw std::logic_error("Error\n");
-	std::cout << result.top() << std::endl;
+	}
+	std::cout << this->result.top() << std::endl;
 }
