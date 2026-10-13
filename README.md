@@ -268,14 +268,6 @@ Each module contains its exercises and links to the Notion pages with the concep
 - [Algorithms](https://broken-snowdrop-f03.notion.site/Algoritmos-3f5b80eb3d88809db5aee35bb45e8992)
 - [Containers of C++: table of containers, uses and prototypes](https://broken-snowdrop-f03.notion.site/Containers-de-C-Tabla-de-containers-usos-y-prototipo-3f7b80eb3d8880c592e8e3fa7340976d)
 - [stringstream class](https://broken-snowdrop-f03.notion.site/Clase-stringstream-2b0b80eb3d888029bb1edc242df268ae)
-- [std::containers and iterators](https://broken-snowdrop-f03.notion.site/STD-CONTAINERS-e-iteradores-315b80eb3d88802e8861f05bd93c781a)
-- [Iterators: specifics, usage mistakes and best practices](https://broken-snowdrop-f03.notion.site/Iteradores-cosas-especificas-errores-de-uso-y-buenas-practicas-315b80eb3d8880d6b98be04825f8db25)
-- [insert and push vs emplace](https://broken-snowdrop-f03.notion.site/Intert-y-push-vs-emplace-340b80eb3d8880c59d51c813f0193e38)
-- [Iterators invalidated by changes to containers built on linear arrays](https://broken-snowdrop-f03.notion.site/Iteradores-invalidados-por-cambios-en-contendores-hechos-sobre-arrays-lineales-340b80eb3d88802783c4c2cb19d068b1)
-- [Unordered map O(1)](https://broken-snowdrop-f03.notion.site/Unordered-map-O-1-340b80eb3d88805c9b77f2f11d687522)
-- [The importance of a container's memory footprint depending on its internal data structures](https://broken-snowdrop-f03.notion.site/Importancia-del-peso-de-los-contenedores-en-memoria-segun-las-Ds-que-usen-internamente-340b80eb3d8880f6965aeef9e2f1c18a)
-- [Production (list and map < vector and unordered_map)](https://broken-snowdrop-f03.notion.site/Produccion-list-y-map-vector-y-unorderedmap-340b80eb3d8880c2a34ec01901b39042)
-- [Common interview mistakes](https://broken-snowdrop-f03.notion.site/Errores-comunes-en-entrevistas-340b80eb3d8880f7a7fddb3c059f0ba0)
 
 ## 📚 Resources
 
