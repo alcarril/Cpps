@@ -29,6 +29,8 @@ class MutantStack : public std::stack<T>
 			this->c.clear();
 		}
 
+		//wrapper de interador: Las opreaciones de sibrecargar simplemte llaman a las
+		//del objeto iterador que contiene esta clase, es simple
 		class iterator
 		{
 			private:

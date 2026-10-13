@@ -59,6 +59,8 @@ void BitcoinExchange::loadDBdataRates(void) {
 	if (this->FbitcoinRates.is_open()) {
 		while (std::getline(this->FbitcoinRates, rawLine)) {
 			if (line == 0) {
+				if (rawLine != "date,exchange_rate")
+					throw std::logic_error("Invalid data.csv header\n");
 				line++;
 				continue;
 			}
@@ -77,6 +79,10 @@ void BitcoinExchange::loadDBdataRates(void) {
 				throw std::logic_error("Invalid line format\n");
 			rawLine.clear();
 		}
+		if (line == 0)
+			throw std::logic_error("Loading DataBase Error: Empty data.csv file\n");//caso de no tener ni siquiera el header
+		if (this->BtcRates.empty())
+			throw std::logic_error("Loading DataBase Error: data.csv has no data rows\n");//caso de solo haber header
 	}
 	else {
 		throw std::runtime_error("File couldn't be open\n");
@@ -97,21 +103,20 @@ void BitcoinExchange::loadDBdataRates(void) {
 */
 void BitcoinExchange::PrintExchangePOT(void) {
 	std::string rawLine;
-	std::stringstream s;
-	std::string lex;
-	int control = 0;
-	int control2 = 0;
+	int line = 0;
+	bool hasDataRows = false;
 	if (this->PriceOvertimeName.empty())
 		throw std::logic_error("Loading Prices Over Time Csv Error: No file selected\n");
 	this->FbitcoinPOT.open(this->PriceOvertimeName.c_str(), std::ios::in);
 	if (this->FbitcoinPOT.is_open()) {
 		while (std::getline(this->FbitcoinPOT, rawLine)) {
-			if (control == 0) {
-				if (rawLine.empty()) 
-					control2 = 1;
-				control++;
+			if (line == 0) {
+				if (rawLine != "date | value")
+					throw std::logic_error("Loading Prices Over Time Error: Invalid input header\n");
+				line++;
 				continue;
 			}
+			hasDataRows = true;
 			try {
 				std::stringstream s(rawLine);
 				std::string lex[3];
@@ -121,12 +126,19 @@ void BitcoinExchange::PrintExchangePOT(void) {
 					std::string msg = "Error: bad input => " + rawLine + "\n";
 					throw std::logic_error(msg);
 				}
-				this->checkDatesFormat(lex[0]);
+				if (!this->checkDatesFormat(lex[0])) {
+					std::string msg = "Error: bad input => " + rawLine + "\n";
+					throw std::logic_error(msg);
+				}
 				double value = this->CheckValuesPOT(lex[2]);
 				std::map<std::string, double>::iterator it = this->BtcRates.find(lex[0]);
 				if (it == this->BtcRates.end()) {
 					it = this->BtcRates.lower_bound(lex[0]);
-					if (it != this->BtcRates.begin()) {
+					if (it == this->BtcRates.end()) { //caso de que la fecha sea mayor que la ultima del mapa
+						--it;
+					} else if (it == this->BtcRates.begin()) { //caso de que la fecha sea menor que la primera del mapa
+						throw std::logic_error("Error: no earlier exchange rate available\n");
+					} else {
 						--it;
 					}
 				}
@@ -134,11 +146,12 @@ void BitcoinExchange::PrintExchangePOT(void) {
 			} catch (std::exception& e) {
 				std::cerr << e.what();
 			}
-			control++;
 			rawLine.clear();
 		}
-		if (control2 == 1)
-			throw std::logic_error("Loading Prices Over Time Csv Error: Empty file\n");
+		if (line == 0)
+			throw std::logic_error("Loading Prices Over Time Error: Empty file, expected header\n");//Caso de no tener ni siquiera el header
+		if (!hasDataRows)
+			throw std::logic_error("Loading Prices Over Time Error: File has no data rows\n");//caso de solo haber header
 	}
 	else {
 		throw std::runtime_error("Loading DataBase POT Error: File couldn't be open\n");
@@ -199,8 +212,11 @@ bool BitcoinExchange::checkDatesFormat(std::string& date) const {
 		std::tm* now = std::localtime(&t);
 		control = true;
 		static std::stringstream currentDate;
-		currentDate << now->tm_year + 1900 << "-" << now->tm_mon + 1 << "-" << now->tm_mday;
-		currentDate >> currentDateString;
+			currentDate << std::setfill('0')
+			<< std::setw(4) << now->tm_year + 1900 << "-"
+			<< std::setw(2) << now->tm_mon + 1 << "-"
+			<< std::setw(2) << now->tm_mday;
+			currentDate >> currentDateString;
 	}
 	if (date > currentDateString) {
 		std::string msg = "Error: Invalid date format: " + date + "\n";
@@ -229,6 +245,8 @@ double BitcoinExchange::CheckValuesPOT(std::string & value) const {
 			if (pos == std::string::npos)
 				throw std::logic_error("Error: No numeric value\n");
 		}
+		else
+			throw std::logic_error("Error: No numeric value\n");
 	}
 	if (valid < 0) {
 		throw std::logic_error("Error: not a positive number.\n");
@@ -259,6 +277,9 @@ double BitcoinExchange::CheckValuesCsv(std::string & value) const {
 			if (pos == std::string::npos)
 				throw std::logic_error("Loading DataBase Error: No numeric value in one line\n");
 		}
+		else
+			throw std::logic_error("Loading DataBase Error: No numeric value in one line\n");
+
 	}
 	return valid;
 }

@@ -41,7 +41,8 @@ static void binaryInsertVector(std::vector<int>& sorted, int value)
 	int left = 0;
 	int right = sorted.size();
 	while (left < right) {
-		int mid = left + (right - left) / 2;
+		int range = (right - left) / 2;
+		int mid = left + range;
 		if (value < sorted[mid])
 			right = mid;
 		else
@@ -50,7 +51,7 @@ static void binaryInsertVector(std::vector<int>& sorted, int value)
 	sorted.insert(sorted.begin() + left, value);
 }
 
-static std::vector<int> mergeInsertVectorRec(std::vector<int> arr)
+std::vector<int> PmergeMe::mergeInsertVectorRec(std::vector<int> arr)
 {
 	if (arr.size() <= 1)
 		return arr;
@@ -71,10 +72,10 @@ static std::vector<int> mergeInsertVectorRec(std::vector<int> arr)
 		else
 			big.push_back(arr[i]);
 	}
-	std::vector<int> sorted = mergeInsertVectorRec(big);
+	this->shortVector = mergeInsertVectorRec(big);
 	for (size_t i = 0; i < small.size(); ++i)
-		binaryInsertVector(sorted, small[i]);
-	return sorted;
+		binaryInsertVector(this->shortVector, small[i]);
+	return this->shortVector;
 }
 
 
@@ -83,7 +84,8 @@ static void binaryInsertDeque(std::deque<int>& sorted, int value)
 	int left = 0;
 	int right = sorted.size();
 	while (left < right) {
-		int mid = left + (right - left) / 2;
+		int range = (right - left) / 2;
+		int mid = left + range;
 		if (value < sorted[mid])
 			right = mid;
 		else
@@ -92,7 +94,7 @@ static void binaryInsertDeque(std::deque<int>& sorted, int value)
 	sorted.insert(sorted.begin() + left, value);
 }
 
-static std::deque<int> mergeInsertDequeRec(std::deque<int> arr)
+std::deque<int> PmergeMe::mergeInsertDequeRec(std::deque<int> arr)
 {
 	if (arr.size() <= 1)
 		return arr;
@@ -114,17 +116,21 @@ static std::deque<int> mergeInsertDequeRec(std::deque<int> arr)
 			big.push_back(arr[i]);
 	}
 
-	std::deque<int> sorted = mergeInsertDequeRec(big);
+	this->shortDeque = mergeInsertDequeRec(big);
 	for (size_t i = 0; i < small.size(); ++i)
-		binaryInsertDeque(sorted, small[i]);
-	return sorted;
+		binaryInsertDeque(this->shortDeque, small[i]);
+	return this->shortDeque;
 }
 
 void PmergeMe::mergeInsertionVector(void) {
-	this->shortVector = mergeInsertVectorRec(*this->inputVec);
+	this->startVector = clock();
+	mergeInsertVectorRec(*this->inputVec);
+	this->endVector = clock();
 }
 
 void PmergeMe::mergeInsertionDeque(void) {
-	this->shortDeque = mergeInsertDequeRec(*this->inputdeque);
+	this->startDeque = clock();
+	mergeInsertDequeRec(*this->inputdeque);
+	this->endDeque = clock();
 }
 

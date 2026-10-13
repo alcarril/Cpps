@@ -54,22 +54,24 @@ int main(int argz, char **argv)
 		inputVec.push_back(value);
 		inputDeque.push_back(value);
 	}
+	if (inputVec.size() == 1) {
+		std::cout << "Before: " << inputVec[0] << std::endl;
+		std::cout << "After:  " << inputVec[0] << std::endl;
+		std::cout << "Time to process a range of 1 elements with std::vector : 0.00000 us" << std::endl;
+		std::cout << "Time to process a range of 1 elements with std::deque  : 0.00000 us" << std::endl;
+		return 0;
+	}
 
 	PmergeMe m;
 	m.setInputDeque(&inputDeque);
 	m.setInputVec(&inputVec);
 
-	clock_t startVec = clock();
+
 	m.mergeInsertionVector();
-	clock_t endVec = clock();
+	double timeVec = (double)(m.endVector - m.startVector) / CLOCKS_PER_SEC * 1000000.0;
 
-	double timeVec = (double)(endVec - startVec) / CLOCKS_PER_SEC * 1000000.0;
-
-	clock_t startDeque = clock();
 	m.mergeInsertionDeque();
-	clock_t endDeque = clock();
-
-	double timeDeque = (double)(endDeque - startDeque) / CLOCKS_PER_SEC * 1000000.0;
+	double timeDeque = (double)(m.endDeque - m.startDeque) / CLOCKS_PER_SEC * 1000000.0;
 
 	const std::vector<int>& sortedVec = m.getShortVector();
 	const std::deque<int>& sortedDeque = m.getShortDeque();

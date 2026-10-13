@@ -27,8 +27,9 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 	std::cout << "PresidentialPardonForm destructor called\n";
 }
 
+//Esto se  podriaa haber hecho llamando a las sxcepciones desde aqui directamente
+//mediante el operador de ambito
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
 	AForm::execute(executor);
 	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox\n";
 }
-

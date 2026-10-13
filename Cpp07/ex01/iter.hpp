@@ -17,7 +17,6 @@ void iter2(T* _ptrArr, const size_t N, Func f) {
 	}
 }
 
-
 template <typename T>
 void increment(T& x) { //no vale para temporales y solo se le pueden pasar variables y objetos no const
 	++x;

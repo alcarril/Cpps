@@ -12,7 +12,7 @@
 #include <stack>
 #include <queue>
 
-template<typename T>
+template<typename T> //Usando el algoritmo de la STD para encontrar valores
 typename T::const_iterator easyFind(const T &container, int search) {
 	typename T::const_iterator itRet = std::find(container.begin(), container.end(), search);
 	if (itRet != container.end()) {
@@ -22,7 +22,7 @@ typename T::const_iterator easyFind(const T &container, int search) {
 		throw std::logic_error("Element not found\n");
 }
 
-template<typename T>
+template<typename T> //Si usar el algoritmo de la STD recorriendo a mano el valor
 typename T::iterator easyFindnoalgorithm(const T &container, int search) {
 	typename T::iterator itRet;
 	for (itRet = container.begin(); itRet != container.end(); ++itRet) {
@@ -33,7 +33,7 @@ typename T::iterator easyFindnoalgorithm(const T &container, int search) {
 	throw std::logic_error("Element not found\n");
 }
 
-template<typename It, typename V>
+template<typename It, typename V> //Imitando el fucionamiento de easyfind
 typename It::iterator myFind(It &start, It &end, const V& value) {
 	for (; start <= end; start++) {
 		if (*start == value) {

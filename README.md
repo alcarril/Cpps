@@ -2,9 +2,9 @@
 
 # C++ Modules
 
-This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09).
+This repository contains solutions for the 42 school C++ modules (Cpp00 - Cpp09). And links to the Notion notes that cover the concepts used in each module.
 
-# Build
+# 🚀 Getting started
 
 Each exercise contains a Makefile. To compile an exercise:
 
@@ -23,7 +23,7 @@ make re           - Recompile everything
 make debug        - Clean rebuild with debug flags (address sanitizer)
 ```
 
-## Requirements
+### Requirements
 
 ```
 C++ compiler (c++)
@@ -31,369 +31,253 @@ C++98 standard
 Make
 ```
 
-## MODULES
+## 🧭 Before you start
 
-Each module includes exercise links and a cheat-sheet section of the C++ concepts used in that module.
+Links to C++ and OOP pages: the basics to start, plus extra notes on I/O and design.
 
+### C++ and OOP basics
 
+- [Differences between C++ and C](https://broken-snowdrop-f03.notion.site/Diferencias-entre-C-y-C-2a0b80eb3d888065afa1ca4a2f0b6563)
+- [What C++ is and how the compilation process works](https://broken-snowdrop-f03.notion.site/Que-es-C-y-como-es-el-proceso-de-compilacion-29ab80eb3d8880fe95efd2f5db507f42)
+- [What a class and an object are](https://broken-snowdrop-f03.notion.site/Que-es-una-clase-y-un-objeto-2a0b80eb3d888022a698f865e3395c9d)
+- [Compilation in C++](https://broken-snowdrop-f03.notion.site/Compilacion-de-C-3f2b80eb3d8880368f9ee70369ecb4b9)
+- [Organizing .hpp, .cpp and headers](https://broken-snowdrop-f03.notion.site/Organizacion-de-hpp-cpp-y-headers-2a0b80eb3d8880338152e9655846a85c)
+- [Main headers of the C++ standard library](https://broken-snowdrop-f03.notion.site/Principales-header-de-la-biblioteca-estandar-en-C-2b0b80eb3d8880c69eacde48636c69e6)
 
+### How the I/O classes, file handling and streams work
 
-## Cpp00
+- [Cheat sheet for using I/O streams](https://broken-snowdrop-f03.notion.site/Cheat-sheet-de-I-O-streams-uso-3f8b80eb3d88808e98b9dce8f9757ddc)
+- [Cheat sheet for file handling with fstream](https://broken-snowdrop-f03.notion.site/Cheat-sheet-de-manejo-de-archivos-con-fstream-3f8b80eb3d888072aed3c008ff1772fc)
+- [Internal workings of the I/O classes](https://broken-snowdrop-f03.notion.site/Funcionamiento-interno-de-las-clases-de-I-O-3f8b80eb3d8880c193dbd1a4316a6b13)
+- [std::ostream class](https://broken-snowdrop-f03.notion.site/Clase-std-ostream-3f8b80eb3d888007a671c2ff87f7d28b)
+- [std::cerr class](https://broken-snowdrop-f03.notion.site/Clase-std-cerr-3f8b80eb3d8880f684b2d921e3bbdda2)
+- [std::istream class](https://broken-snowdrop-f03.notion.site/Clase-std-istream-3f8b80eb3d8880f3b165e9132cd8e961)
+- [File handling with fstream](https://broken-snowdrop-f03.notion.site/Manejo-de-archivos-con-fstream-3f8b80eb3d8880a48842d98298b2dd03)
+- [getline function and reading file descriptors](https://broken-snowdrop-f03.notion.site/Funcion-getline-y-lectura-de-fds-3f8b80eb3d8880429846cc5a5ec12bd1)
+- [How the stringstream class works](https://broken-snowdrop-f03.notion.site/Funcionmientos-de-la-clase-stringstream-3f8b80eb3d8880e5a00cef7c9d584488)
+- [How the string class works](https://broken-snowdrop-f03.notion.site/Funcionamiento-de-la-clase-string-2b0b80eb3d888082a5bae1213c9801ae)
 
-**Introduction to C++ basics: namespaces, classes, member functions, stdio streams, initialization lists, static, const, and some other basic stuff.**
+### OOP design principles
 
-#### Exercises
+- [Basic programming principles](https://broken-snowdrop-f03.notion.site/Principios-basicos-de-la-programacion-3f8b80eb3d8880ccaed4f5817dcc6e3d)
+- [Basic OOP design principles](https://broken-snowdrop-f03.notion.site/Principios-de-diseno-basicos-de-POO-3f8b80eb3d88802ca40ffedcde97e2d8)
+- [SOLID principles](https://broken-snowdrop-f03.notion.site/Principios-solid-3f8b80eb3d8880419c86f2633e9cf49e)
+- [Principles for building and scaling programs](https://broken-snowdrop-f03.notion.site/Principios-de-construccion-y-escalado-de-programas-3f8b80eb3d88806a8139dd8c50e17a3b)
 
-- **ex00**: [Megaphone - A simple program to convert text to uppercase](Cpp00/ex00/)
-- **ex01**: [PhoneBook - A simple phonebook application](Cpp00/ex01/)
-- **ex02**: [The Job Of Your Dreams](Cpp00/ex02/)
+## 🎯 MODULES
 
-<details>
-<summary>Generic concepts</summary>
+Each module contains its exercises and links to the Notion pages with the concepts you need to know for that module, plus extra concepts.
 
-- Class concept
-- Object concept
-- Abstraction and encapsulation
-- Public and private attributes
-- What are references
-- Basic use of streams and classes from the std namespace
-- Use of string objects
-- Scope operators for class method definitions from another file
-- What are constructors and initialization lists
-- Use of the this clause
-- Use of static attributes and the concept of not belonging to any object
-- Static methods, which are the only ones that can modify static variables
-- Arrays of objects
-- Basic composition concept
+## Cpp00 & Cpp01
 
-</details>
+**OOP and C++ basics**
 
+### Exercises
 
+| Exercise | Description |
+| --- | --- |
+| [Cpp00.ex00](Cpp00/ex00/) | A simple program to convert text to uppercase |
+| [Cpp00.ex01](Cpp00/ex01/) | A simple phonebook application |
+| [Cpp00.ex02](Cpp00/ex02/) | Recreate the Account class implementation from the given header and tests |
+| [Cpp01.ex00](Cpp01/ex00/) | Zombie class implementation |
+| [Cpp01.ex01](Cpp01/ex01/) | Zombie horde |
+| [Cpp01.ex02](Cpp01/ex02/) | References and pointers |
+| [Cpp01.ex03](Cpp01/ex03/) | Weapon class with references |
+| [Cpp01.ex04](Cpp01/ex04/) | File manipulation |
+| [Cpp01.ex05](Cpp01/ex05/) | Pointers to member functions |
+| [Cpp01.ex06](Cpp01/ex06/) | Switch statement |
 
-## Cpp01
+### Concepts
 
-**Memory allocation, pointers to members, references, switch statement.**
-
-#### Exercises
-
-- **ex00**: [BraiiiiiiinnnzzzZ - Zombie class implementation](Cpp01/ex00/)
-- **ex01**: [Moar brainz! - Zombie horde](Cpp01/ex01/)
-- **ex02**: [HI THIS IS BRAIN - References and pointers](Cpp01/ex02/)
-- **ex03**: [Unnecessary violence - Weapon class with references](Cpp01/ex03/)
-- **ex04**: [Sed is for losers - File manipulation](Cpp01/ex04/)
-- **ex05**: [Harl 2.0 - Pointers to member functions](Cpp01/ex05/)
-- **ex06**: [Harl filter - Switch statement](Cpp01/ex06/)
-
-<details>
-<summary>Generic concepts</summary>
-
-- Dynamic memory allocation with new
-- Destroying dynamic memory with delete
-- Arrays of objects with default constructor
-- Class destructor concept
-- Using stringstream to simulate base changes
-- Concept of references and differences with pointers
-- References passed as parameters to avoid memory duplication
-- Pointers to point to objects from an external object without owning them
-- References to point to external objects but associated with the class itself
-- Using fstream class and string class method to convert to char *
-- getline function
-- Function pointers and arrays of function pointers (notations)
-- Use of switch (internally uses jump tables or binary trees to keep O(1) complexity)
-
-</details>
-
-
+- [Public and private class members. Encapsulation principle](https://broken-snowdrop-f03.notion.site/Miembros-de-una-clase-publicos-y-privados-Principio-de-encapsulacion-2a0b80eb3d88807caf4cd464eec6f87e)
+- [Ways to initialize an object: default values, garbage values, constructors and constructor types](https://broken-snowdrop-f03.notion.site/Formas-de-inicializar-un-objeto-valores-por-defecto-valores-basura-y-contructores-y-tipos-de-const-2a0b80eb3d8880aeb5fdfef85ac5c406)
+- [Ways to instantiate a class and create an object](https://broken-snowdrop-f03.notion.site/Formas-de-instanciar-una-clase-crear-un-objeto-2a0b80eb3d8880ef8816ccab3801bd85)
+- [Pointers in C++ and dynamic memory allocation](https://broken-snowdrop-f03.notion.site/Punteros-en-C-y-reservas-de-memoria-dinamica-2a0b80eb3d8880229d9bff90660b5a0e)
+- [What a destructor is in C++](https://broken-snowdrop-f03.notion.site/Que-es-un-destrcutor-en-c-2a0b80eb3d8880918d0dd111063ea2e7)
+- [How references work in C++](https://broken-snowdrop-f03.notion.site/Como-funcionan-las-referencias-en-C-2a0b80eb3d88807687c4c4d3f074973c)
+- [How const works in C++](https://broken-snowdrop-f03.notion.site/Como-funciona-const-en-C-2a0b80eb3d8880a49ecff2fac369e7a2)
+- [What initialization lists are](https://broken-snowdrop-f03.notion.site/Que-son-las-listas-de-inicilizacion-2a0b80eb3d8880b9aca5d56f0ae71709)
+- [Static variables, class members and objects](https://broken-snowdrop-f03.notion.site/Variables-mienbros-de-clase-y-objetos-static-2a0b80eb3d8880a8a25efb02dbeefd5e)
+- [Namespaces](https://broken-snowdrop-f03.notion.site/Namespaces-2a0b80eb3d888032af6aed1ee32cfe03)
+- [Scope resolution operator ::](https://broken-snowdrop-f03.notion.site/Operador-de-resolucion-de-ambito-2a0b80eb3d8880e49197f0bce856d7d2)
+- [What the this clause is and what it is used for](https://broken-snowdrop-f03.notion.site/Que-es-la-clasusula-this-y-para-que-se-usa-2a0b80eb3d8880419ce1f256ff52e94c)
+- [What methods can do](https://broken-snowdrop-f03.notion.site/Que-pueden-hacer-los-metodos-2a0b80eb3d88807d9b49d7d7eb8bd447)
+- [Ways to use the for loop](https://broken-snowdrop-f03.notion.site/Maneras-de-usar-el-bucle-For-29ab80eb3d888091bb37f815513da322)
+- [Creating an array of objects in local memory in C++](https://broken-snowdrop-f03.notion.site/Creacion-de-array-de-objetos-en-memoria-local-en-C-2b0b80eb3d888071acc5f26311fadf4c)
+- [Cpp00 - BONUS](https://broken-snowdrop-f03.notion.site/Cpp00-BONUS-2afb80eb3d888014b80dfbb3c5094f45)
+- [Pointers to functions and member functions in C++](https://broken-snowdrop-f03.notion.site/Punteros-a-funciones-y-a-metodos-en-C-2b4b80eb3d88805fa113d76b2dd72904)
+- [Switch](https://broken-snowdrop-f03.notion.site/Switch-2b4b80eb3d888018a46ff82cce3a3c4c)
 
 ## Cpp02
 
-**Ad-hoc polymorphism, operator overloading, and Orthodox Canonical class Form.**
+**Operator overloading, static (ad-hoc) polymorphism and Orthodox Canonical classes**
 
-#### Exercises
+### Exercises
 
-- **ex00**: [My First Class in Orthodox Canonical Form](Cpp02/ex00/)
-- **ex01**: [Towards a more useful fixed-point number class](Cpp02/ex01/)
-- **ex02**: [Now we're talking - Operator overloading](Cpp02/ex02/)
+| Exercise | Description |
+| --- | --- |
+| [ex00](Cpp02/ex00/) | A first class in Orthodox Canonical Form |
+| [ex01](Cpp02/ex01/) | A more useful fixed-point number class |
+| [ex02](Cpp02/ex02/) | Operator overloading |
 
-<details>
-<summary>Generic concepts</summary>
+### Concepts
 
-- What are fixed point numbers and why are they used for determinism across different processor architectures regardless of FPU presence
-- How they are created with bit shifting and how operations are performed with fixed point numbers
-- Construction of orthodox canonical classes (default constructor, copy constructor, default destructor, and overloaded assignment operator to avoid bitwise copy or shallow copy)
-- Compile-time polymorphism or ad-hoc polymorphism
-- Overloaded operators for direct arithmetic and logical operations between objects
-- Overloading operator for ofstream object to print to screen/stdout redirections
-- Overloaded operators for post-increment and pre-increment operations on numbers
-- Why you should return objects directly in overloaded arithmetic operations but return references in assignment operations (+=, -=, etc.)
+- [General information about overloaded operators](https://broken-snowdrop-f03.notion.site/Inormacion-general-de-los-opradores-de-sobrecarga-2b5b80eb3d88808e83a0ffb48bb3a6d6)
+- [Redirection operators to std::out](https://broken-snowdrop-f03.notion.site/Operadores-de-redireccion-a-la-std-out-2b5b80eb3d888057a772f81342ce04b7)
+- [Static ad-hoc polymorphism between overloaded operators and functions with different arguments inside a class (compile time)](https://broken-snowdrop-f03.notion.site/Polimorfismo-add-hoc-estatico-entre-operadores-de-sobrecarga-y-funciones-con-distintos-argumento-den-2b5b80eb3d8880d0b219e0f58deabf74)
+- [Assignment operators vs bitwise shallow copy](https://broken-snowdrop-f03.notion.site/Operadores-de-igualacion-vs-shallow-copy-bit-a-bit-2b5b80eb3d8880aab2e2ce885e5001ef)
+- [Post-increment and pre-increment operators (the odd case where you must help the compiler)](https://broken-snowdrop-f03.notion.site/Operador-de-post-incrementos-y-preincremento-caso-raro-donde-hay-que-ayudar-al-compilador-2b5b80eb3d88805b96d1d41896c6200e)
+- [Overloaded operators for arithmetic operations (returning references vs returning objects)](https://broken-snowdrop-f03.notion.site/Operadores-de-sobrecarga-para-operaciones-aritmeticas-devolver-referencias-vs-devover-objetos-2b5b80eb3d8880b6971ce63983049582)
+- [Ad-hoc polymorphism between overloaded operators and functions with different arguments inside a class (compile time), part 2](https://broken-snowdrop-f03.notion.site/Polimorfismo-add-hoc-entre-operadores-de-sobrecarga-y-funciones-con-distintos-argumento-dentro-de-un-2b5b80eb3d888033a62efb5f59e6f4a0)
+- [Orthodox canonical form](https://broken-snowdrop-f03.notion.site/ortodox-canonical-form-2b5b80eb3d8880eba31ad211dbfdfe04)
+- [Using fixed-point numbers](https://broken-snowdrop-f03.notion.site/Uso-de-los-fixed-point-2b0b80eb3d888058a64df37d47232bde)
+- [Math class](https://broken-snowdrop-f03.notion.site/Clase-math-2adb80eb3d88801ba5e2d8ed4d0de833)
+- [Trick: a function that returns a memory address (reference or pointer) based on a condition and modifies it → moving to pointers and references](https://broken-snowdrop-f03.notion.site/truco-de-funcion-que-devulva-una-direccion-de-memeria-referncia-o-puntero-segun-una-condicion-y-mo-2b6b80eb3d8880a6a968e0c64226428d)
 
-</details>
+## Cpp03 & Cpp04
 
+**Inheritance, dynamic polymorphism**
 
-## Cpp03
+### Exercises
 
-**Inheritance in C++.**
+| Exercise | Description |
+| --- | --- |
+| [Cpp03.ex00](Cpp03/ex00/) | ClapTrap class |
+| [Cpp03.ex01](Cpp03/ex01/) | ScavTrap derived class |
+| [Cpp03.ex02](Cpp03/ex02/) | FragTrap derived class |
+| [Cpp03.ex03](Cpp03/ex03/) | DiamondTrap (multiple inheritance) |
+| [Cpp04.ex00](Cpp04/ex00/) | Animal, Dog, Cat classes with virtual functions |
+| [Cpp04.ex01](Cpp04/ex01/) | Adding Brain class for deep copy |
+| [Cpp04.ex02](Cpp04/ex02/) | Animal as an abstract class with pure virtual function |
+| [Cpp04.ex03](Cpp04/ex03/) | Materia system with interfaces (AMateria, ICharacter, IMateriaSource) |
 
-#### Exercises
+### Concepts
 
-- **ex00**: [Aaaaand... OPEN! - ClapTrap class](Cpp03/ex00/)
-- **ex01**: [Serena, my love! - ScavTrap derived class](Cpp03/ex01/)
-- **ex02**: [Repetitive work - FragTrap derived class](Cpp03/ex02/)
-- **ex03**: [Now it's weird! - DiamondTrap (multiple inheritance)](Cpp03/ex03/)
-
-<details>
-<summary>Generic concepts</summary>
-
-- Inheritance
-- Inheritance of public, protected, and private attributes
-- No inheritance of overloaded operators, constructors, and destructors
-- Memory of the base class and the derived class
-- Destruction order of an object built through a base class
-- What is the virtual table and why it enables polymorphism
-- Why base class destructors should be virtual to avoid memory leaks in polymorphism
-- Calling base class constructors from the derived class to build the base part
-- Avoid calling base class constructors from derived classes if the base has a default constructor
-- Dynamic vs static polymorphism (concept)
-- Memory overhead due to the virtual table
-- What is object slicing
-- Using pointers and references to the base class for virtual method polymorphism in function parameters and class methods
-- What is object slicing and why you can't assign a derived object to a base object
-- Inheritance as specialization and composition for scalable class systems
-- Diamond classes and why you must inherit from the base class virtually to avoid duplicating the base part in the diamond class
-- Diamond class constructors must call the base class constructor
-
-</details>
-
-
-
-## Cpp04
-
-**Subtype polymorphism, abstract classes and interfaces.**
-
-#### Exercises
-
-- **ex00**: [Polymorphism - Animal, Dog, Cat classes with virtual functions](Cpp04/ex00/)
-- **ex01**: [I don't want to set the world on fire - Adding Brain class for deep copy](Cpp04/ex01/)
-- **ex02**: [Abstract class - Animal as an abstract class with pure virtual function](Cpp04/ex02/)
-- **ex03**: [Interface & recap - Materia system with interfaces (AMateria, ICharacter, IMateriaSource)](Cpp04/ex03/)
-
-<details>
-<summary>Generic concepts</summary>
-
-- Polymorphism and memory scopes in polymorphism
-- Attribute hiding (shadowing)
-- Array of references notations in function parameters and return types
-- Shallow copy vs deep copy for dynamic memory
-- Abstract classes (non-instantiable but serve as base for polymorphism)
-- Interfaces or pure abstract classes
-- Non-constructible: serve as base for pointers and references in polymorphism
-- Class composition and circular dependencies
-- Const references as return values in getters to save memory and ensure attribute encapsulation
-
-</details>
-
+- [What inheritance is and the types of inheritance](https://broken-snowdrop-f03.notion.site/Que-es-la-herencia-y-que-tipos-de-herencia-hay-2bbb80eb3d88805591cbc5174f95834b)
+- [What dynamic dispatch and dynamic polymorphism are](https://broken-snowdrop-f03.notion.site/Que-es-el-dinamic-dispach-y-el-polimorfismo-dinamico-2bbb80eb3d88808a8b8ff9c3501e2797)
+- [At the memory level, why using a base-class reference/pointer to a derived object lets us access shared methods](https://broken-snowdrop-f03.notion.site/A-nivel-de-memeria-porque-cuando-usamos-referencias-o-puntero-de-la-clase-base-para-referirno-s-a-u-2bcb80eb3d888008924cfe59e7bc72df)
+- [Uses of dynamic polymorphism, object slicing and a comparison of both](https://broken-snowdrop-f03.notion.site/Usos-del-polimorfismo-din-mico-object-slicing-y-comparaci-n-de-ambos-2bbb80eb3d8880f0990dd4a1829d7a29)
+- [Inheritance, specialization and composition for scaling programs](https://broken-snowdrop-f03.notion.site/Herencia-especializacion-y-composion-escalado-de-programas-2bbb80eb3d888095a074eacb39ea679f)
+- [Attribute hiding and getters with polymorphism](https://broken-snowdrop-f03.notion.site/Ocultamiento-de-atributos-y-getters-con-polimorfismo-2bcb80eb3d8880d1b0f2d2957e19ff2f)
+- [Accessing base-class members from derived classes](https://broken-snowdrop-f03.notion.site/Acceso-a-mienbros-de-la-clase-base-des-de-la-heredadas-3f3b80eb3d88807cb185dfd585271b5c)
+- [Diamond classes](https://broken-snowdrop-f03.notion.site/Clases-diamante-2bbb80eb3d8880b49e74e2328e4d6adc)
+- [Shallow copy vs deep copy](https://broken-snowdrop-f03.notion.site/Shallow-copy-vs-deep-copy-2bcb80eb3d88804e9fc8ef2f4c50e465)
+- [What abstract classes and interfaces are](https://broken-snowdrop-f03.notion.site/Que-son-las-clases-abstractas-y-las-interfaces-2a0b80eb3d88805d8b4be006427d572b)
+- [Declaring an array of references to objects → impossible](https://broken-snowdrop-f03.notion.site/Declaracion-dearray-de-referencias-a-objetos-imposible-2bcb80eb3d888088ad4ede71cf73db5e)
+- [Passing an array of objects as a parameter](https://broken-snowdrop-f03.notion.site/Pasa-un-array-de-ibjetos-por-un-parametro-2bcb80eb3d88800d9f31e8d0431b14dc)
+- [Returning an array of something from a function (getter example)](https://broken-snowdrop-f03.notion.site/Devolver-en-un-afuncion-un-array-de-algo-ejemplo-de-getter-2bcb80eb3d888087ae11d7eedfc6e254)
+- [What happens with extra const → they cannot be declared](https://broken-snowdrop-f03.notion.site/Que-pasa-conn-clos-extra-que-no-se-pueden-declarar-2bcb80eb3d8880d495c7da64272cf987)
+- [std::copy, std::fill and the <algorithm> library](https://broken-snowdrop-f03.notion.site/Std-copy-y-std-fill-y-libreria-algorith-2a1b80eb3d88802daf7ed82cd1a7fbb5)
 
 ## Cpp05
 
-**Exceptions.**
+**Exceptions, nested classes and advanced handling**
 
+### Exercises
 
-#### Exercises
+| Exercise | Description |
+| --- | --- |
+| [ex00](Cpp05/ex00/) | Implementation of a Bureaucrat class with grade validation and exception handling |
+| [ex01](Cpp05/ex01/) | Adding a Form class that interacts with the Bureaucrat class, including signing functionality |
+| [ex02](Cpp05/ex02/) | Introduction of abstract forms (AForm) and specific form types like PresidentialPardonForm, RobotomyRequestForm, and ShrubberyCreationForm |
+| [ex03](Cpp05/ex03/) | Implementation of an Intern class that can create forms dynamically based on input |
 
-- **ex00**: [Bureaucrat - Implementation of a Bureaucrat class with grade validation and exception handling](Cpp05/ex00/)
-- **ex01**: [Form - Adding a Form class that interacts with the Bureaucrat class, including signing functionality](Cpp05/ex01/)
-- **ex02**: [Advanced Forms - Introduction of abstract forms (AForm) and specific form types like PresidentialPardonForm, RobotomyRequestForm, and ShrubberyCreationForm](Cpp05/ex02/)
-- **ex03**: [Intern - Implementation of an Intern class that can create forms dynamically based on input](Cpp05/ex03/)
+### Concepts
 
-<details>
-<summary>Generic concepts</summary>
-
-- How `try`, `throw`, and `catch` clauses work.
-- Types of data that can be thrown with `throw`, the `std::exception` class, and why it is recommended to throw objects.
-- What happens when an exception is thrown but not caught: **(segfault) → std::terminate()**
-- Memory scope of the `try` block: Objects created inside a `try` block have a local memory scope. When exiting the block due to an exception or normal execution, **stack unwinding** occurs, automatically destroying local objects. To preserve them, use pointers and dynamic memory.
-- Classes inheriting from `std::exception` and types of errors.
-- How to configure custom exceptions within classes by creating nested classes that inherit from `std::exception` and overriding the `what()` method for polymorphism. Why it is not a good idea to convert a normal class into an exception.
-- Why methods overriding `std::exception` methods should use the `throw()` clause to specify that the method will not throw another exception.
-- Nested classes are not constructed by default when using the constructor of the external class. They must be initialized in methods. Principles of nested class usage: **Cohesion Principle and Single Responsibility.**
-
-</details>
-
-<details>
-<summary>Best Practices</summary>
-
-- Constructors that may throw errors due to invalid attribute values should only throw the error. The `try` and `catch` should be handled in `main` to avoid partially created objects in memory, which could lead to segmentation faults or undefined behavior.
-- Methods can have their own `try` and `catch` blocks for cleaner code.
-- Nested `try` blocks are possible but not clean. If an exception is thrown in the outer `try`, the inner block will not execute, and exceptions will not be lost.
-- When a base class defines its own errors and has methods overridden with polymorphism in derived classes, it is good practice to:
-  - Throw base class errors from the base class methods.
-  - In derived class methods, call the base class method to check for base errors, then handle specific errors in the derived class.
-  - Throw different types of objects for different errors to avoid confusion in `catch` blocks.
-- When functions or methods with `try` blocks call other functions or methods with their own `try` blocks, exceptions thrown in the lower-level function may be caught there, causing the higher-level code to not behave as expected. In such cases, it is important that the `try` and `catch` blocks are always in the higher-level function, while the lower-level function should only contain `throw` statements ot throw objects of different types for different errors.
-
-</details>
-
-
+- [How exceptions work in C++ (try, throw and catch)](https://broken-snowdrop-f03.notion.site/Como-fucnionan-las-excepciones-en-C-try-throw-y-catch-30fb80eb3d888086be7df5506770813f)
+- [Stack unwinding and std::terminate when exceptions are not caught](https://broken-snowdrop-f03.notion.site/Stack-unwinding-y-std-terminate-por-no-recoger-excepciones-3f3b80eb3d8880d48f14cab500bfd08c)
+- [Memory scope of the try block and dynamic memory with try/catch](https://broken-snowdrop-f03.notion.site/Ambito-de-memoria-del-bloque-try-y-memeria-dinamica-con-try-t-catch-3f3b80eb3d888060b5e4e62c6ab2c7a8)
+- [std::exception, classes that inherit from it, and how to create custom error classes](https://broken-snowdrop-f03.notion.site/Std-exception-clases-que-heredan-de-ella-y-clases-de-error-personalizadas-crear-3f3b80eb3d888075b401d40ad454fd6d)
+- [Nested classes and how they differ from composition](https://broken-snowdrop-f03.notion.site/Clases-anidadas-y-diferencia-con-composicion-3f3b80eb3d8880e39cf5d216dac4952c)
+- [Nested classes and inheritance (not inherited by subclasses)](https://broken-snowdrop-f03.notion.site/Clases-anidadas-y-herencia-no-se-heredan-por-las-clases-subbase-3f3b80eb3d88807597ade587732cf6d8)
+- [Why nest custom exceptions inside the classes we create errors for](https://broken-snowdrop-f03.notion.site/Porque-anidar-las-excepciones-personalizadas-dentro-de-las-clases-para-las-que-creamos-errores-3f3b80eb3d88807c8ddfe8584d79b863)
+- [Fallback and nested exceptions](https://broken-snowdrop-f03.notion.site/Excepciones-en-fallback-y-anidadas-3f3b80eb3d8880b29394c5b0fb891150)
 
 ## Cpp06
 
-**C++ casts and static_assert.**
+**Casts, conversions between strings/chars and numeric types, between numeric types and strings/chars, base and format conversions, math library functions, limit handling, etc…**
 
+### Exercises
 
-#### Exercises
+| Exercise | Description |
+| --- | --- |
+| [ex00](Cpp06/ex00/) | Using std::strtod and static_cast for type conversion |
+| [ex01](Cpp06/ex01/) | Using reinterpret_cast for pointer manipulation |
+| [ex02](Cpp06/ex02/) | Checking pointers in polymorphic class hierarchies |
 
-- **ex00**: [Char* to Numeric Conversion - Using std::strtod and static_cast for type conversion](Cpp06/ex00/)
-- **ex01**: [Serialization and Deserialization - Using `reinterpret_cast` for pointer manipulation](Cpp06/ex01/)
-- **ex02**: [Dynamic Cast - Checking pointers in polymorphic class hierarchies](Cpp06/ex02/)
+### Concepts
 
-<details>
-<summary>Generic concepts</summary>
-
-- Types of casts in C++: `reinterpret_cast`, `static_cast`, `dynamic_cast`, and `const_cast`
-  - **`static_cast`**:
-    - Used for safe conversions between compatible types.
-    - Respects strict aliasing rules.
-    - Useful for upcasting and downcasting in class hierarchies without virtual functions.
-  - **`reinterpret_cast`**:
-    - Reinterprets the bits of memory regions.
-    - Does not respect type compatibility and breaks strict aliasing rules.
-    - Used for:
-      - Conversions between pointers of different class types.
-      - Serialization.
-      - Systems programming.
-      - Accessing memory-mapped regions.
-      - Drivers.
-      - Bootloaders.
-      - Embedded systems.
-  - **`dynamic_cast`**:
-    - Runtime type casting.
-    - Used for polymorphic class hierarchies with virtual functions.
-    - Behavior:
-      - For pointers: Performs downcasting and returns `nullptr` if the cast fails.
-      - For references: Throws exceptions of type `std::bad_cast` (derived from `std::exception`) if the cast fails.
-- Serialization and deserialization: standardization across different systems
-- Why `uintptr_t` can be used to represent pointers (`void*`): portability across systems with different architectures, serialization of types
-- Methods for converting `char*` to numeric types and parsing:
-  - `std::stringstream` from `<sstream>`
-  - `atoi`, `atol`, and `atof` from `<cstdlib>`
-  - `strtol`, `strtoll`, and `strtod` from `<cstdlib>`
-- `is` functions in C++ from `<cctype>`, `<cmath>`, and `<cfloat>`
-- `limits` functions from `<climits>` and `<limits>`
-- Base conversions
-- How to generate random numbers (seed + sequence)
-
-</details>
-
-
-
+- [Type conversions and casts in C++](https://broken-snowdrop-f03.notion.site/Conversiones-de-tipos-y-casteos-en-C-312b80eb3d8880129cf3fcf00fa00c36)
+- [Functions to tell what type of data something is <ctype>](https://broken-snowdrop-f03.notion.site/Funciones-para-saber-que-tipo-de-dato-es-algo-ctype-3f3b80eb3d8880a2a6f3dd6b1587a613)
+- [Functions for numeric type limits <cfloat> and <climits>](https://broken-snowdrop-f03.notion.site/Funciones-para-limites-de-tipo-numericos-cfloat-y-climits-3f3b80eb3d88805bb6cee68650c5c0d3)
+- [Functions for detecting infinities and NaN and math utilities <cmath>](https://broken-snowdrop-f03.notion.site/Funciones-para-deteccion-de-infinitos-y-nan-y-cosas-de-matematicas-cmath-3f3b80eb3d8880d0ac66f09edb9e34d8)
+- [Converting strings to numbers without streams and choosing a base <cstdlib>](https://broken-snowdrop-f03.notion.site/Cambios-de-strings-a-numeros-sin-streams-y-elecccion-base-cstdlib-3f3b80eb3d8880bb90e9c0104a53c92c)
+- [Converting numeric variables to strings and char in C++](https://broken-snowdrop-f03.notion.site/Cambios-de-variables-numericas-a-strings-y-ch-en-C-3f4b80eb3d888090b985c9b609b3eb44)
+- [Time functions in C++ <ctime>](https://broken-snowdrop-f03.notion.site/Funciones-de-Tiempo-en-C-ctime-3f3b80eb3d88808ca09ff55f006272f2)
+- [Functions to generate random numbers + the concept of a seed](https://broken-snowdrop-f03.notion.site/Funciones-para-generar-numeros-random-concepto-de-semilla-3f3b80eb3d8880c29484da90ca0343ba)
+- [Serialization and deserialization (standardization across systems)](https://broken-snowdrop-f03.notion.site/Serializacion-y-deserializacion-estandarizacion-entre-distintos-sistemas-312b80eb3d8880209639cf3af7f91e8b)
+- [Portability of uintptr_t across processor architectures and use cases](https://broken-snowdrop-f03.notion.site/Portabilidad-de-unit_ptr-entre-diferentes-aquitecturas-de-procesador-y-casos-de-uso-312b80eb3d88805fb917e6f7cb0931d9)
 
 ## Cpp07
 
-**Templates and iterators.**
+**Templates, template data types, function templates, structs and classes. Understanding how high-level containers work**
 
+### Exercises
 
-#### Exercises
+| Exercise | Description |
+| --- | --- |
+| [ex00](Cpp07/ex00/) | Creating functions using templates for generic data types, pointers, and references |
+| [ex01](Cpp07/ex01/) | Implementing a template function that accepts generic types, including const and non-const pointers |
+| [ex02](Cpp07/ex02/) | Creating a template-based array class with const and non-const instantiations, overloaded operators, and exception handling |
 
-- **ex00**: [Template Functions - Creating functions using templates for generic data types, pointers, and references](Cpp07/ex00/)
-- **ex01**: [Iter Function Template - Implementing a template function that accepts generic types, including const and non-const pointers](Cpp07/ex01/)
-- **ex02**: [Template Array Class - Creating a template-based array class with const and non-const instantiations, overloaded operators, and exception handling](Cpp07/ex02/)
+### Concepts
 
-<details>
-<summary>Generic concepts</summary>
+- [What templates are](https://broken-snowdrop-f03.notion.site/Que-son-los-templates-3f5b80eb3d888006a540cdfdb9472786)
+- [Function templates and template data types in C++](https://broken-snowdrop-f03.notion.site/Templates-para-funciones-y-tipos-de-datos-template-en-C-3f4b80eb3d8880aa8fbcfa639aca2ceb)
+- [Case: iterating arrays from template functions](https://broken-snowdrop-f03.notion.site/Caso-de-recorrer-arrays-desde-fucnciones-template-3f4b80eb3d8880a4bd0eee1ed54acb6f)
+- [Data packages (template structs and classes)](https://broken-snowdrop-f03.notion.site/Paquetes-de-datos-structs-y-clases-template-3f5b80eb3d8880c38e0ee2ef04a86c60)
+- [Notation to return template-class objects from functions](https://broken-snowdrop-f03.notion.site/Notacion-para-devolver-objetos-de-clase-template-desde-funciones-3f5b80eb3d88807cac8adcb072512dae)
+- [Creating arrays of template data](https://broken-snowdrop-f03.notion.site/Crear-arrays-de-datos-template-3f5b80eb3d88801aa03acda4875cd7e1)
+- [Combining class templates with arrays/structs to build your own high-level containers in C++ and overloading the [] access operator](https://broken-snowdrop-f03.notion.site/Combinar-templates-de-clases-y-arrays-strcuts-para-crear-nuestros-propios-contenedores-de-alto-nivel-3f5b80eb3d88803484c3c472ea64b95f)
 
-- What are templates in C++ and why they are used
-- Templates and type deduction:
-  - Function parameter templates:
-    - Templates with multiple function parameters.
-    - Templates with constant values and constant types.
-    - Specialized templates (specialized data types).
-  - Function templates (callbacks):
-    - Explicit declaration: function type (return and arguments are data types or the template).
-    - Implicit declaration (generic).
-    - Calling a template function with an argument that is not another template function (template callbacks).
-  - Memory address templates:
-    - When a generic data template allows memory addresses to be passed (cannot dereference inside the template function).
-    - When the template declaration specifies that the generic type is a pointer `function(T* ptr)`, dereferencing is allowed, but the compiler only accepts pointers.
-    - It is also possible to specify in the template function declaration that it is a reference or a pointer to a reference.
-  - Const data templates (const-correctness):
-    - When passing a generic data type (by value) to a template, it does not matter if the template parameter is const or not, or if the argument is const or not. The compiler allows both, because a copy is made and type compatibility is ensured.
-    - When passing by reference, if the template is a non-const reference (e.g., `T&`) and the argument is const, there will be a type compatibility conflict and the compiler will give an error. If the template is a const reference (e.g., `const T&`), it accepts const, non-const, and temporaries without conflict.
-    - When the template parameter is a pointer (e.g., `T*`), passing a const or non-const pointer is allowed; the compiler will add const to the type if needed for compatibility. You can also use `const T*` in the template to ensure the pointer cannot modify the value it points to inside the function, or use `T* const` to ensure the pointer itself cannot change the address it points to.
-- Class templates:
-  - How to create a class template.
-  - Method declarations must be in the `.h` file.
-  - Methods that return a template-type object can be declared with return type `Object&` or `Object<templatealias>&`.
-  - When instantiating a template-type object, it must be instantiated with `ObjectName<datatype> alias(constructor)`.
-  - When we want the template object to have its generic elements as const, it must be declared as `const ObjectName<datatype> alias(constructor)`.
-- Overloading the array index access operator within objects.
-- Class hierarchy for inheritance: `std::out_of_range`.
+## Cpp08 & Cpp09
 
+**C++ containers, iterators, advanced container usage (efficiency), std algorithms and iterator best practices. Using containers to solve complex problems: information processing, lexical analysis and token creation with stringstreams**
 
-</details>
+### Exercises
 
+| Exercise | Description |
+| --- | --- |
+| [Cpp08.ex00](Cpp08/ex00/) | Function template to find a value in any non-associative container using its iterator (tested with all standard containers: construction, method, iteration) |
+| [Cpp08.ex01](Cpp08/ex01/) | Class with an internal container, limited size, methods to add elements, equality operators, and algorithms to find the shortest and longest span (difference) between elements. Includes automatic data generation. |
+| [Cpp08.ex02](Cpp08/ex02/) | Class inheriting from stack, specialized with an internal instantiable iterator, supporting increment, decrement, equality, comparison, dereference operators, and canonical constructors. |
+| [Cpp09.ex00](Cpp09/ex00/) | Parsing input data and computing exchange rates |
+| [Cpp09.ex01](Cpp09/ex01/) | Reverse Polish Notation evaluator using a stack |
+| [Cpp09.ex02](Cpp09/ex02/) | Merge-insert sort on std::vector and std::deque |
 
-## Cpp08
+### Concepts
 
-**STL (Standard Template Library), iterators and some algorithms.**
+- [Containers](https://broken-snowdrop-f03.notion.site/Containers-3f5b80eb3d888025ab1cdf7d7a85c0ba)
+- [Iterators: internal workings](https://broken-snowdrop-f03.notion.site/Iteradores-funcionamiento-interno-3f5b80eb3d88806b9e6df5608eabea55)
+- [Using typename for nested types in templates](https://broken-snowdrop-f03.notion.site/Uso-de-typename-para-tipos-anidados-en-templates-3f5b80eb3d88806ea624dc7e1354d432)
+- [Sequential containers: vector, deque and lists](https://broken-snowdrop-f03.notion.site/Containers-secuenciales-vect-y-deque-y-lists-3f7b80eb3d8880faaef8c06974da40cc)
+- [Associative containers: sets and multisets, pairs and maps](https://broken-snowdrop-f03.notion.site/Containers-asociativos-sets-y-multisets-pairs-y-maps-3f7b80eb3d888081a581f50b188deeea)
+- [Unordered associative containers](https://broken-snowdrop-f03.notion.site/Containers-asociativos-unordered-3f7b80eb3d8880f9aa81e3534d6040f8)
+- [Using inheritance and composition to limit access to a class's attributes](https://broken-snowdrop-f03.notion.site/Usos-de-la-herencia-y-la-composicion-para-limitar-el-acceso-a-atributos-de-una-clase-3f7b80eb3d88800b9ad9e7d5a8de0e22)
+- [Container adaptors](https://broken-snowdrop-f03.notion.site/Adaptadores-de-containerse-3f5b80eb3d8880369aa8d191f8ac242c)
+- [Algorithms](https://broken-snowdrop-f03.notion.site/Algoritmos-3f5b80eb3d88809db5aee35bb45e8992)
+- [Containers of C++: table of containers, uses and prototypes](https://broken-snowdrop-f03.notion.site/Containers-de-C-Tabla-de-containers-usos-y-prototipo-3f7b80eb3d8880c592e8e3fa7340976d)
+- [stringstream class](https://broken-snowdrop-f03.notion.site/Clase-stringstream-2b0b80eb3d888029bb1edc242df268ae)
+- [std::containers and iterators](https://broken-snowdrop-f03.notion.site/STD-CONTAINERS-e-iteradores-315b80eb3d88802e8861f05bd93c781a)
+- [Iterators: specifics, usage mistakes and best practices](https://broken-snowdrop-f03.notion.site/Iteradores-cosas-especificas-errores-de-uso-y-buenas-practicas-315b80eb3d8880d6b98be04825f8db25)
+- [insert and push vs emplace](https://broken-snowdrop-f03.notion.site/Intert-y-push-vs-emplace-340b80eb3d8880c59d51c813f0193e38)
+- [Iterators invalidated by changes to containers built on linear arrays](https://broken-snowdrop-f03.notion.site/Iteradores-invalidados-por-cambios-en-contendores-hechos-sobre-arrays-lineales-340b80eb3d88802783c4c2cb19d068b1)
+- [Unordered map O(1)](https://broken-snowdrop-f03.notion.site/Unordered-map-O-1-340b80eb3d88805c9b77f2f11d687522)
+- [The importance of a container's memory footprint depending on its internal data structures](https://broken-snowdrop-f03.notion.site/Importancia-del-peso-de-los-contenedores-en-memoria-segun-las-Ds-que-usen-internamente-340b80eb3d8880f6965aeef9e2f1c18a)
+- [Production (list and map < vector and unordered_map)](https://broken-snowdrop-f03.notion.site/Produccion-list-y-map-vector-y-unorderedmap-340b80eb3d8880c2a34ec01901b39042)
+- [Common interview mistakes](https://broken-snowdrop-f03.notion.site/Errores-comunes-en-entrevistas-340b80eb3d8880f7a7fddb3c059f0ba0)
 
-- **ex00**: [- Function template to find a value in any non-associative container using its iterator (tested with all standard containers: construction, method, iteration)](Cpp08/ex00/) 
-- **ex01**: [Span — Class with an internal container, limited size, methods to add elements, equality operators, and algorithms to find the shortest and longest span (difference) between elements. Includes automatic data generation.](Cpp08/ex01/)
-- **ex02**: [CMutantStack — Class inheriting from stack, specialized with an internal instantiable iterator, supporting increment, decrement, equality, comparison, dereference operators, and canonical constructors.](Cpp08/ex02/)
-
-<details>
-<summary>Generic Container Concepts</summary>
-
- - Iterators:
-   - Iterators are nested objects that contain an attribute which is a pointer to the internal positions of the container's data structure.
-   - To instantiate them, you must use the object's scope operator: `Object::iterator iterator_name;`.
-   - They are used to traverse containers and reference internal positions within the container.
-   - Containers have the methods `begin()` and `end()`, which return an iterator pointing respectively to the first position of the container and to the position just after the last element of the container.
-   - In practice, they are used like pointers, since they are objects overloaded with ad-hoc polymorphism. Their main operations are: `it++`, `it--`, `++it`, `--it`, `*it` to access the value, `it` gives the memory address of the iterator object, `&(*it)` gives the memory address of the content pointed to by the iterator, and they support comparison and equality operations (`<`, `>`, `>=`, `<=`, `==`).
-   - When used in template functions (in the return type or function body), you must always use the `typename T::iterator` clause for the iterator, but you do not need to specify it in the function argument if the template expects to receive iterators (type deduction).
-   - Iterators are used to create template functions that can traverse containers regardless of their type and perform generic operations on them; most functions in the `<algorithm>` library are based on this principle. This makes them valid for most containers that have iterators, such as `std::vector`, `std::list`, `std::deque`, `std::set`, `std::map`, etc.
-   - When specializing a class by adding a nested iterator class, you should create the iterator using the iterator type of the internal container used by your class. If you don't know the exact type, you can use the pattern `typename ContainerType::iterator` to deduce it. For associative or specialized containers, you can use `typename ContainerType::container_type::iterator` to access the iterator type of the underlying container.
-
- - Containers:
-    - Tipos de contenedores: secuenciales, asociativos, asociación.
-    - Métodos de los contenedores genéricos y métodos específicos de los contenedores.
-    - Formas de construir los contenedores según su tipo.
-    - Firmas de acceso a los contenedores (iteradores, acceso aleatorio mediante operadores de sobrecarga y mediante métodos específicos).
-    - Funcionamiento interno de los operadores de sobrecarga de los contenedores.
-- Algoritmos de la STL: `std::sort`, `std::find`, `std::count`, `std::count_if`, `std::distance`, `std::advance`, `std::next`, `std::prev`, `std::min_element`, `std::max_element`, adjacent_find`, etc.
-</details>
-
-
-</details>
-
-
-## Cpp09
-
-**STL containers, parsing, and algorithmic complexity.**
-
-#### Exercises
-
-- **ex00**: [Bitcoin Exchange - Parsing input data and computing exchange rates](Cpp09/ex00/)
-- **ex01**: [RPN - Reverse Polish Notation evaluator using a stack](Cpp09/ex01/)
-- **ex02**: [PmergeMe - Merge-insert sort on std::vector and std::deque](Cpp09/ex02/)
-
-<details>
-<summary>Generic concepts</summary>
-
-- Parsing structured text (CSV/space-delimited) with robust validation
-	- Advanced use of `std::string` and `std::stringstream` for parsing-oriented workflows
-	- Advanced casts and `ctype` functions for parsing checks and validations
-- Choosing containers per exercise based on use case and performance optimizations
-	- Using associative containers (`std::map`) for lookups and ordered traversal
-	- Stack-based evaluation for expressions (RPN)
-	- Using sequential containers (`std::vector`, `std::deque`) for sorting and dynamic resizing
-- Algorithmic complexity: comparing container performance and scaling
-- Hybrid merge-insert sort and timing comparisons across containers
-- Iterator usage and range-based operations with the STL
-
-</details>
-
-
-## Resources
+## 📚 Resources
 
 - https://en.cppreference.com/
 - https://cplusplus.com/

@@ -58,17 +58,17 @@ void ScalarConverter::converter(const std::string& string) {
 			return ;
 		}
 		if (*endString == 'f') {
-			if (*(endString + 1) != '\0') { //caso de 77f7
+			if (*(endString + 1) != '\0') { //caso de 77f7->que haya cualquier cosa despues de la f
 				std::cerr << "Invalid imput format: no posible conversion\n";
 				return ;
 			}
 			size_t pos = string.find(".");
-			if (pos == std::string::npos) { // 77f
+			if (pos == std::string::npos) { // 77f -> que haya f y no haya punteos
 				std::cerr << "Invalid imput format: no posible conversion\n";
 				return ;
 			}
 		}
-		else {
+		else { //Docbles puntos o cualquier otro caracter no esperado
 			std::cerr << "Invalid imput format: no posible conversion\n"; //resto de casos: 66a66 / aaa / 66.66.66 / 77.7.f
 			return ;
 		}

@@ -15,7 +15,7 @@ Span& Span::operator=(const Span& copy) {
 		return *this;
 	else {
 		if (copy.maxElements <= this->maxElements)
-			this->vec = copy.vec; // ya limpiea el vector y ahora lo relleno con los valores del vector del copy
+			this->vec = copy.vec; // ya limpia el vector y ahora lo relleno con los valores del vector del copy
 		else {
 			this->vec.clear();
 			std::vector<int>::const_iterator itCopy = copy.vec.begin();

@@ -27,6 +27,8 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 	std::cout << "RobotomyRequestForm destructor called\n";
 }
 
+//Aqui se podrain haber lanzado errires tambien no crear clases de excepcion 
+//fue holgazaneria
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 	static int counter;
 	AForm::execute(executor);
