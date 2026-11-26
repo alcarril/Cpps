@@ -23,40 +23,40 @@ int main(int argz, char **argv)
 }
 
 /*
-	Como romperlo, control de errores parseo:
-		Fechas invalidas:
-			No tener el formato años-mes-dia
-			Fechas a futuro
-			Meses con mas dias de os que deben ser
-			Febrero
-		Formato de imput.txt (pricesovertime):
-			No tener los tres campos separados por espacios
-			Que no exista la linea numero 1 con el encabezado
-			estando vacio
-			solo tener el encabezado
-			Campo 1 (fecha): no seguir la reglas de formto de fecha
-			Campo 2 (barra): ser otro caracter
-			Campo 3 (valor):
-				no ser un numero o tener caracteres invalidos
-				hacer overflow
-				puede ser float
-				puede ser decimal
-				ser un numero negativo o mayor de 1000
-		Formato de data.csv (el precio del bitcoin)
-			no tener el foramto de fecha separador de coma y valor
-			nombre del archivo ser data.csv
-			no tener la linea 1 con el encabezado
-			estando vacio
-			solo tener el encabezado
-			Campo 1 (fecha): no seguir las reglas de la fechas
-			Campo 2 (valor):
-				no ser un numero o tener caracteres invalidos
-				hacer overflow
-				puede ser float
-				puede ser decimal
-		Mach de pricesovertime y datacsv:
-			Que cuando se busca el valor en esa fecha y no se encuentra
-			no te quedes con el valor anterior
-			que el valor anterior sea el ultimo valor que se tenga en la base de datos
-			que no haya valor anterior porque sea un fecha menor a la primera fecha de la base de datos
+	Possible failures, parsing error handling:
+		Invalid dates:
+			Incorrect year-month-day format
+			Future dates
+			Months with more days than allowed
+			February
+		input.txt format (prices over time):
+			Missing three fields separated by spaces
+			Missing a header on the first line
+			Empty file
+			Header-only file
+			Field 1 (date): does not follow the date format rules
+			Field 2 (separator): is another character
+			Field 3 (value):
+				Is not a number or contains invalid characters
+				Overflows
+				Can be a float
+				Can be a decimal
+				Is negative or greater than 1000
+		data.csv format (Bitcoin price):
+			Incorrect date-comma-value format
+			Filename must be data.csv
+			Missing the header on the first line
+			Empty file
+			Header-only file
+			Field 1 (date): does not follow the date rules
+			Field 2 (value):
+				Is not a number or contains invalid characters
+				Overflows
+				Can be a float
+				Can be a decimal
+		Matching prices over time with data.csv:
+			When the value for a date is not found
+			Do not keep the previous value
+			The previous value must be the latest value in the database
+			There may be no previous value if the date is earlier than the first date in the database
 */

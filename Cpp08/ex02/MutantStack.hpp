@@ -79,10 +79,10 @@ class MutantStack : public std::stack<T>
 		//No devolvemos un objeto de.begin() ->iteraror porque queremos que cunado usemos el metodo de mutantstack nos devulva un objeto
 		//tipo mutanstack::iterator.
 		iterator begin() { 
-			return iterator(this->c.begin());
+			return iterator(this->c.begin()); //el iterador de container originalq ue susa stack, es el ietaradore que teiene en provate para que no se pueda acceder desde los objetos
 		}
 		iterator end() {
-			return iterator(this->c.end());
+			return iterator(this->c.end()); //el iterador de container originalq ue susa stack, es el ietaradore que teiene en provate para que no se pueda acceder desde los objetos
 		}
 };
 

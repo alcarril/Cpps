@@ -31,15 +31,15 @@ void RPN::DiplayRPN(void) {
 	for (;ss >> lex;) {
 		int op1;
 		int op2;
-		if (lex.length() > 1) //comporbar que no es un numero mayor que 10
+		if (lex.length() > 1) // Check that it is not a number greater than 10
 			throw std::logic_error("Error\n");
-		else if (isdigit(static_cast<char>(lex[0]))) { //comporbar que es un numero
+		else if (isdigit(static_cast<char>(lex[0]))) { // Check that it is a number
 			this->result.push(atoi(lex.c_str()));
 		}
-		else if (lex[0] != '*' && lex[0] != '/' && lex[0] != '+' && lex[0] != '-') { //comprobar que es un operador valido
+		else if (lex[0] != '*' && lex[0] != '/' && lex[0] != '+' && lex[0] != '-') { // Check that it is a valid operator
 			throw std::logic_error("Error\n");
 		}
-		else if (this->result.size() < 2) //comprobar que almenos hay dos operandos para poder hacer una operacion
+		else if (this->result.size() < 2) // Check that at least two operands are available to perform an operation
 			throw std::logic_error("Error\n");
 		else if (lex[0] == '*') {
 			op1 = this->result.top();
@@ -73,7 +73,7 @@ void RPN::DiplayRPN(void) {
 			throw std::logic_error("Error\n");
 		lex.clear();
 	}
-	if (this->result.size() != 1) { //comprobar que al final no hay mas de un numero en la pila: ni nuemros ni operadores
+	if (this->result.size() != 1) { // Check that only one number remains on the stack: no extra numbers or operators
 		throw std::logic_error("Error\n");
 	}
 	std::cout << this->result.top() << std::endl;

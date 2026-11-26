@@ -19,15 +19,15 @@ int main(int argz, char **argv)
 }
 
 /*
-	Reglas de ejericio
-		Siempre hay un espacio entre opradores
-		O son operadores o numeros menores a 10
-		Simbolos validos: + - * /
-		No hay parentesis
-	Reglas RNP (aunas esogen a las otras)
-		Cuando te encuentra un operador tiene quehaber alnso dos operandos en la pila ->El inico simepre tiene dos numeros / Nunca puedes tener mas operadores que numeros acumulados /Simpre hay un operador menos que numero de operandos
-		Al final no puede haber mas de un numero en la pila: ni nuemros ni operadores
-	Expresiones validas
+	Exercise rules:
+		There is always a space between operators
+		Elements are either operators or numbers smaller than 10
+		Valid symbols: + - * /
+		No parentheses
+	RPN rules (which complement the rules above):
+		When an operator is found, at least two operands must be in the stack -> The input always starts with two numbers / There can never be more operators than accumulated numbers / There is always one fewer operator than operands
+		At the end, no more than one number may remain on the stack: no extra numbers or operators
+	Valid expressions:
 		"1 2 +"
 		"1 2 -"
 		"1 2 *"

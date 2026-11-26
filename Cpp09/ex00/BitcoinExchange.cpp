@@ -44,12 +44,12 @@ void BitcoinExchange::setInput(const std::string & imputFile) {
 
 
 /*
-	Comprobaciones de apertura de CSV base de datos
-		Se comporueba que el searador de key(date) y value (rate) exista
-		Se separa la cadena en dos:
-			La key se compiruab que siga el foramto de fecha
-			El value se compruba que sea un valor numerico
-		Se trata de insertar la el par y si se comprueba is existia o no
+	Database CSV opening checks:
+		Check that the separator between key (date) and value (rate) exists
+		Split the string into two parts:
+			Check that the key follows the date format
+			Check that the value is numeric
+		Try to insert the pair and check whether it already exists
 */
 void BitcoinExchange::loadDBdataRates(void) {
 	std::string rawLine;
@@ -80,9 +80,9 @@ void BitcoinExchange::loadDBdataRates(void) {
 			rawLine.clear();
 		}
 		if (line == 0)
-			throw std::logic_error("Loading DataBase Error: Empty data.csv file\n");//caso de no tener ni siquiera el header
+			throw std::logic_error("Loading DataBase Error: Empty data.csv file\n");// No header is present
 		if (this->BtcRates.empty())
-			throw std::logic_error("Loading DataBase Error: data.csv has no data rows\n");//caso de solo haber header
+			throw std::logic_error("Loading DataBase Error: data.csv has no data rows\n");// Only the header is present
 	}
 	else {
 		throw std::runtime_error("File couldn't be open\n");
@@ -90,16 +90,16 @@ void BitcoinExchange::loadDBdataRates(void) {
 }
 
 /*
-	Comporbaciones de apertita POT imput
-		Que el archivo se abra como debe sino excepcio
-		Una vez abierto de cada linea en el bucle un bloque try y cath para:
-			- Si hay mas escaios por lo que lo s lexemas son mas de los normales
-			- Si el seprador no es el segundo
-			- Si las fechas estan mal por no seguir el formato
-			MISMO TIPO DE ERROR
-			- Si el valor es menor que cero error de value
-			- Si el valor es mayor que mil erro too large numeber
-			- Si el valor desborda o no tiene nuemros errrosres personlizados (ver hoja de corrrecion)
+	Prices-over-time input opening checks:
+		The file must open correctly; otherwise, throw an exception
+		Once opened, use a try/catch block for each line in the loop:
+			- Extra spaces causing too many tokens
+			- The separator is not the second token
+			- The date does not follow the required format
+			SAME ERROR TYPE
+			- Value less than zero: value error
+			- Value greater than one thousand: too-large-number error
+			- Overflow or non-numeric value: custom errors (see the correction sheet)
 */
 void BitcoinExchange::PrintExchangePOT(void) {
 	std::string rawLine;
@@ -134,9 +134,9 @@ void BitcoinExchange::PrintExchangePOT(void) {
 				std::map<std::string, double>::iterator it = this->BtcRates.find(lex[0]);
 				if (it == this->BtcRates.end()) {
 					it = this->BtcRates.lower_bound(lex[0]);
-					if (it == this->BtcRates.end()) { //caso de que la fecha sea mayor que la ultima del mapa
+					if (it == this->BtcRates.end()) { // Date is later than the latest date in the map
 						--it;
-					} else if (it == this->BtcRates.begin()) { //caso de que la fecha sea menor que la primera del mapa
+					} else if (it == this->BtcRates.begin()) { // Date is earlier than the first date in the map
 						throw std::logic_error("Error: no earlier exchange rate available\n");
 					} else {
 						--it;
@@ -149,9 +149,9 @@ void BitcoinExchange::PrintExchangePOT(void) {
 			rawLine.clear();
 		}
 		if (line == 0)
-			throw std::logic_error("Loading Prices Over Time Error: Empty file, expected header\n");//Caso de no tener ni siquiera el header
+			throw std::logic_error("Loading Prices Over Time Error: Empty file, expected header\n");// The file has no header
 		if (!hasDataRows)
-			throw std::logic_error("Loading Prices Over Time Error: File has no data rows\n");//caso de solo haber header
+			throw std::logic_error("Loading Prices Over Time Error: File has no data rows\n");// The file only has a header
 	}
 	else {
 		throw std::runtime_error("Loading DataBase POT Error: File couldn't be open\n");
@@ -161,11 +161,11 @@ void BitcoinExchange::PrintExchangePOT(void) {
 }
 
 /*
-	Comprobaciones de formato de fecha
-		Que la longitud sea 10
-		Que el separador sea el guion y este en la posicion correcta
-		Que los caracteres sean numeros o guiones en las posiciones correctas
-		Que las fechas no sean futuras (faltaria)
+	Date-format checks:
+		The length must be 10
+		The separator must be a hyphen in the correct position
+		Characters must be digits or hyphens in the correct positions
+		Dates must not be in the future (missing)
 */
 bool BitcoinExchange::checkDatesFormat(std::string& date) const {
 
@@ -177,21 +177,23 @@ bool BitcoinExchange::checkDatesFormat(std::string& date) const {
 		}
 	}
 
-	//Comprobacion de formatos de fechas validas -> Funciona
+	// Check valid date formats -> Works
 	std::string lex[3];
 	std::stringstream dateTemp(date);
 	std::string token;
 	int i = 0;
 	while (i < 3 && std::getline(dateTemp, token, '-')) {
 		lex[i] = token;
-		//Igual se necesita un otcker.clear()
+		// A otcker.clear() call may be needed
 		i++;
 	}
-	if (lex[1] == "02" && ((std::atoi(lex[0].c_str()) % 4 == 0 && lex[2] > "29") || lex[2] > "28")) {
+	if (lex[1] == "02" &&
+		((std::atoi(lex[0].c_str()) % 4 == 0 && lex[2] > "29") ||
+		(std::atoi(lex[0].c_str()) % 4 != 0 && lex[2] > "28"))) { //feb
 		std::string msg = "Error: Invalid date format: " + date + "\n";
 		throw std::logic_error(msg);
 	}
-	if (lex[0] == "0000" || lex[1] == "00" || lex[2] == "00") {
+	if (lex[0] == "0000" || lex[1] == "00" || lex[2] == "00" || lex[2] > "31") {
 		std::string msg = "Error: Invalid date format: " + date + "\n";
 		throw std::logic_error(msg);
 	}
@@ -199,12 +201,12 @@ bool BitcoinExchange::checkDatesFormat(std::string& date) const {
 		std::string msg = "Error: Invalid date format: " + date + "\n";
 		throw std::logic_error(msg);
 	}
-	if ((lex[1] == "04" || lex[1] == "06" || lex[1] == "09" || lex[1] == "11") && lex[2] > "30") {
+	if ((lex[1] == "04" || lex[1] == "06" || lex[1] == "09" || lex[1] == "11") && lex[2] > "30") { //30 days moths
 		std::string msg = "Error: Invalid date format: " + date + "\n";
 		throw std::logic_error(msg);
 	}
 
-	//compbacion de que no esmos poniendo una fecha a futuro -> Fucniona
+	// Check that we are not using a future date -> Works
 	static bool control;
 	static std::string currentDateString;
 	if (control == false) {

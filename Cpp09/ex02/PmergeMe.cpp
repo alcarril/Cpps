@@ -34,7 +34,7 @@ const std::deque<int>& PmergeMe::getShortDeque(void) const {
 	return this->shortDeque;
 }
 
-// 
+//
 
 static void binaryInsertVector(std::vector<int>& sorted, int value)
 {
